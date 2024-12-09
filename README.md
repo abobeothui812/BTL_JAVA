@@ -1,1 +1,1 @@
-# BTL_JAVA
+Người phụ trách phần main tạo thư mục mới thay cho hellofx, sau đó vào .vscode/launch.json sửa "mainClass" thành ten_thu_muc.Main
