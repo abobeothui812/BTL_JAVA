@@ -1,4 +1,4 @@
-package application;
+package function.login;
 
 import java.io.IOException;
 
@@ -45,11 +45,18 @@ public class SampleController {
 	        showAlert(Alert.AlertType.ERROR, "Login Failed", "Invalid Credentials", "Incorrect username or password!");
 	    } else {
 	    	String role = AccountManager.getInstance().getRole(username);
-	        String targetFXML = switch (role) {
-	            case "admin" -> "Admin.fxml";
-	            case "teacher" -> "Teacher.fxml";
-	            default -> "Student.fxml";
-	        };
+			String targetFXML;
+			switch (role) {
+				case "admin":
+					targetFXML = "Admin.fxml";
+					break;
+				case "teacher":
+					targetFXML = "Teacher.fxml";
+					break;
+				default:
+					targetFXML = "Student.fxml";
+					break;
+			}
 	        Parent root = FXMLLoader.load(getClass().getResource(targetFXML));
 	        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
 	        Scene scene = new Scene(root);
