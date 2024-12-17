@@ -7,24 +7,44 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.SampleController">
+<VBox xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.SampleController">
    <children>
-      <Button layoutX="388.0" layoutY="274.0" mnemonicParsing="false" onAction="#Login" text="Login" />
-      <TextField fx:id="userText" layoutX="336.0" layoutY="189.0" promptText="Username" />
-      <PasswordField fx:id="passText" layoutX="336.0" layoutY="236.0" promptText="Password" />
-      <Label layoutX="272.0" layoutY="192.0" prefHeight="18.0" prefWidth="63.0" text="Username" />
-      <Label layoutX="272.0" layoutY="239.0" prefHeight="18.0" prefWidth="63.0" text="Password" />
-      <ImageView fitHeight="277.0" fitWidth="215.0" layoutX="38.0" layoutY="65.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../../../../Downloads/Logo_Đại_học_Bách_Khoa_Hà_Nội.png" />
-         </image>
-      </ImageView>
-      <Label layoutX="253.0" layoutY="91.0" prefHeight="58.0" prefWidth="316.0" text="Quản lí sinh viên">
-         <font>
-            <Font size="40.0" />
-         </font>
-      </Label>
+      <HBox maxHeight="100.0" VBox.vgrow="ALWAYS" />
+      <HBox VBox.vgrow="ALWAYS">
+         <children>
+            <HBox HBox.hgrow="ALWAYS" />
+            <VBox maxWidth="700.0" HBox.hgrow="ALWAYS">
+               <children>
+                  <VBox VBox.vgrow="ALWAYS" />
+                  <AnchorPane maxHeight="400.0" maxWidth="700.0" minHeight="400.0" minWidth="700.0" VBox.vgrow="ALWAYS">
+                     <children>
+                        <ImageView fitHeight="274.0" fitWidth="213.0" layoutX="91.0" layoutY="79.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../../Downloads/Logo_Đại_học_Bách_Khoa_Hà_Nội.png" />
+                           </image>
+                        </ImageView>
+                        <Label layoutX="318.0" layoutY="90.0" prefHeight="62.0" prefWidth="302.0" text="Quản lí sinh viên" textAlignment="CENTER">
+                           <font>
+                              <Font size="40.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="318.0" layoutY="187.0" prefHeight="18.0" prefWidth="63.0" text="Username" />
+                        <Label layoutX="318.0" layoutY="227.0" prefHeight="18.0" prefWidth="63.0" text="Password" />
+                        <TextField fx:id="userText" layoutX="392.0" layoutY="184.0" promptText="Username" />
+                        <PasswordField fx:id="passText" layoutX="392.0" layoutY="224.0" promptText="Password" />
+                        <Button layoutX="444.0" layoutY="280.0" mnemonicParsing="false" onAction="#Login" text="Login" />
+                     </children>
+                  </AnchorPane>
+                  <VBox VBox.vgrow="ALWAYS" />
+               </children>
+            </VBox>
+            <HBox HBox.hgrow="ALWAYS" />
+         </children>
+      </HBox>
+      <HBox layoutX="10.0" layoutY="10.0" maxHeight="100.0" VBox.vgrow="ALWAYS" />
    </children>
-</AnchorPane>
+</VBox>
