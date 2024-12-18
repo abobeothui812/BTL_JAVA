@@ -52,22 +52,18 @@ public class SampleController {
 	        };
 	        Parent root = FXMLLoader.load(getClass().getResource(targetFXML));
 	        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-			double width = stage.getWidth();
-			double height = stage.getHeight();
-			Scene scene = new Scene(root, width, height);
-			stage.setScene(scene);
-			stage.show();
+	        Scene scene = new Scene(root);
+	        stage.setScene(scene);
+	        stage.show();
      	}
  	}
  
  @FXML
  private void Logout(ActionEvent event) throws IOException {
-    root = FXMLLoader.load(getClass().getResource("LoginMenu.fxml"));
-    stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-    double width = stage.getWidth();
-	double height = stage.getHeight();
-	Scene scene = new Scene(root, width, height);
-    stage.setScene(scene);	
-    stage.show();
+     root = FXMLLoader.load(getClass().getResource("LoginMenu.fxml"));
+     stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+     scene = new Scene(root);
+     stage.setScene(scene);
+     stage.show();
  	}
 }
