@@ -7,7 +7,7 @@ import java.util.Map;
 public class AccountManager {
     private static AccountManager instance;
     private Map<String, Account> accounts = new HashMap<>();
-    private final String FILE_PATH = "C:\\Users\\hienk\\eclipse-workspace\\Login\\src\\accounts.txt";
+    private final String FILE_PATH = "src/application/accounts.txt";
 
     private AccountManager() {
         loadAccounts();
@@ -60,6 +60,7 @@ public class AccountManager {
     private void loadAccounts() {
         File file = new File(FILE_PATH);
         if (!file.exists()) {
+            System.out.println("File accounts.txt không tìm thấy.");
             return; // Không làm gì nếu file chưa tồn tại
         }
         try (BufferedReader reader = new BufferedReader(new FileReader(FILE_PATH))) {

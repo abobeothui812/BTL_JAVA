@@ -9,7 +9,7 @@
             "type": "java",
             "name": "Main",
             "request": "launch",
-            "mainClass": "hellofx.Main",
+            "mainClass": "application.Main",
             "vmArgs": "--module-path lib --add-modules javafx.controls,javafx.fxml"
         }
     ]
