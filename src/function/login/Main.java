@@ -11,7 +11,9 @@ public class Main extends Application {
     public void start(Stage Stage) {
         try {
             VBox root = FXMLLoader.load(getClass().getResource("LoginMenu.fxml"));
-            Scene scene = new Scene(root);
+            double width = Stage.getWidth();
+			double height = Stage.getHeight();
+			Scene scene = new Scene(root, width, height);
             Stage.setScene(scene);
             Stage.show();
         } catch(Exception e) {
