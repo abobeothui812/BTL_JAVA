@@ -67,7 +67,7 @@ public class SampleController {
     double width = stage.getWidth();
 	double height = stage.getHeight();
 	Scene scene = new Scene(root, width, height);
-    stage.setScene(scene);
+    stage.setScene(scene);	
     stage.show();
  	}
 }
