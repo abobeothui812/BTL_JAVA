@@ -1,4 +1,5 @@
 package Class;
+////del
 public class StudentClass {
     private Student student;
     private Class aClass;

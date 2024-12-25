@@ -1,4 +1,7 @@
 package Class;
+
+import javafx.collections.*;
+
 public class Class {
     private int classID;
     private Course course;
@@ -6,15 +9,18 @@ public class Class {
     private String schedule;
     private int limitStudents;
     private int registeredStudents;
+    private Teacher teacher;
+    private ObservableList<Student> studentList = FXCollections.observableArrayList();
+
 
     // Constructor
-    public Class(int classID, Course course, String semester, String schedule, int limitStudents, int registeredStudents) {
+    public Class(int classID, Course course, String semester, String schedule, int limitStudents) {
         this.classID = classID;
         this.course = course;
         this.semester = semester;
         this.schedule = schedule;
         this.limitStudents = limitStudents;
-        this.registeredStudents = registeredStudents;
+        this.registeredStudents = 0;
     }
 
     // Getters and Setters

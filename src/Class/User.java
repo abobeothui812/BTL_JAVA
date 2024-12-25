@@ -9,6 +9,11 @@ public class User {
     private String gender;
 
     // Constructor, getters and setters
+
+    public User(String username, String password) {
+        this.username = username;
+        this.password = password;
+    }
     public User(int userID, String username, String password, String role, String email, String phone, String gender) {
         this.userID = userID;
         this.username = username;

@@ -4,10 +4,10 @@ public class Attendance {
     private Class aClass;
     private Student student;
     private String date;
-    private String status;
+    private boolean status;
 
     // Constructor
-    public Attendance(int attendanceID, Class aClass, Student student, String date, String status) {
+    public Attendance(int attendanceID, Class aClass, Student student, String date, boolean status) {
         this.attendanceID = attendanceID;
         this.aClass = aClass;
         this.student = student;
@@ -48,11 +48,11 @@ public class Attendance {
         this.date = date;
     }
 
-    public String getStatus() {
+    public boolean getStatus() {
         return status;
     }
 
-    public void setStatus(String status) {
+    public void setStatus(boolean status) {
         this.status = status;
     }
 }
