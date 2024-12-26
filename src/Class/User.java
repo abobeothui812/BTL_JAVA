@@ -1,14 +1,13 @@
 package Class;
 public class User {
     private int userID;
+    private String name;
     private String username;
     private String password;
     private String role;
     private String email;
     private String phone;
     private String gender;
-
-    // Constructor, getters and setters
 
     public User(String username, String password) {
         this.username = username;
@@ -23,7 +22,6 @@ public class User {
         this.phone = phone;
         this.gender = gender;
     }
-
     // Getters and Setters
     public int getUserID() {
         return userID;

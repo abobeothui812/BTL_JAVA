@@ -1,13 +1,22 @@
 package Class;
+
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.property.StringProperty;
+
 public class Attendance {
     private int attendanceID;
     private Class aClass;
     private Student student;
     private String date;
-    private boolean status;
+    private String status;
+    private StringProperty dynamic = new SimpleStringProperty("Present");;
 
+    public Attendance(Student student, Class aClass, String status) {
+        this.student = student;
+        this.status = status;
+    }
     // Constructor
-    public Attendance(int attendanceID, Class aClass, Student student, String date, boolean status) {
+    public Attendance(int attendanceID, Class aClass, Student student, String date, String status) {
         this.attendanceID = attendanceID;
         this.aClass = aClass;
         this.student = student;
@@ -48,12 +57,28 @@ public class Attendance {
         this.date = date;
     }
 
-    public boolean getStatus() {
+    public String getStatus() {
         return status;
     }
 
-    public void setStatus(boolean status) {
+    public void setStatus(String status) {
         this.status = status;
     }
+    public void setaClass(Class aClass) {
+        this.aClass = aClass;
+    }
+    public String getDynamicValue() {
+        return dynamic.get();
+    }
+    public void setDynamic(String Dynamic) {
+        dynamic.set(Dynamic);
+    }
+
+    public StringProperty getDynamicProperty() {
+        return dynamic;
+    }
+
+    
+
 }
 

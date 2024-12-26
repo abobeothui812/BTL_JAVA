@@ -3,10 +3,21 @@ package Class;
 import java.util.*;
 
 public class Student extends User {
+    private String name;
     private String studentId;
     private String major;
     private Map<String, List<Class>> semesterClasses;
     private Map<String, Map<Class, Double>> semesterScores;
+
+    public Student(String studentId, String name){
+        super(null, null); // Call User constructor (you can pass null or empty if you don't need to initialize username/password)
+        this.name = name;
+        this.studentId = studentId;
+    }
+
+    public String getName(){
+        return name;
+    }
 
     public Student(String username, String password, String studentId, String major) {
         super(username, password);
@@ -44,6 +55,7 @@ public class Student extends User {
         }
     }
 
+
     public void viewScores(String semester) {
         System.out.println("Scores for " + studentId + " in semester " + semester + ":");
         Map<Class, Double> scores = semesterScores.getOrDefault(semester, new HashMap<>());
@@ -63,4 +75,6 @@ public class Student extends User {
             System.out.println("Cannot update score. Class or semester not found.");
         }
     }
+
+
 }

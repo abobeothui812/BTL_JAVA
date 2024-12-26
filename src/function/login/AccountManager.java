@@ -7,7 +7,7 @@ import java.util.Map;
 public class AccountManager {
     private static AccountManager instance;
     private Map<String, Account> accounts = new HashMap<>();
-    private final String FILE_PATH = "C:\\Users\\hienk\\eclipse-workspace\\Login\\src\\accounts.txt";
+    private final String FILE_PATH = "src\\function\\login\\accounts.txt";
 
     private AccountManager() {
         loadAccounts();
@@ -21,8 +21,8 @@ public class AccountManager {
     }
 
     // Lưu tài khoản mới
-    public void addAccount(String username, String password, String role) {
-        accounts.put(username, new Account(username, password, role));
+    public void addAccount(String username, String password, String role, String id) {
+        accounts.put(username, new Account(username, password, role, id));
         saveAccounts();
     }
 
@@ -44,6 +44,13 @@ public class AccountManager {
         return null;
     }
 
+    public String getId(String username) {
+        if (accounts.containsKey(username)) {
+            return accounts.get(username).getId();
+        }
+        return null;
+    }
+
     // Ghi tài khoản vào file
     private void saveAccounts() {
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(FILE_PATH))) {
@@ -60,14 +67,15 @@ public class AccountManager {
     private void loadAccounts() {
         File file = new File(FILE_PATH);
         if (!file.exists()) {
+            System.out.println("File does not exist.");
             return; // Không làm gì nếu file chưa tồn tại
         }
         try (BufferedReader reader = new BufferedReader(new FileReader(FILE_PATH))) {
             String line;
             while ((line = reader.readLine()) != null) {
                 String[] parts = line.split(",");
-                if (parts.length == 3) {
-                    accounts.put(parts[0], new Account(parts[0], parts[1], parts[2]));
+                if (parts.length == 4) {
+                    accounts.put(parts[0], new Account(parts[0], parts[1], parts[2], parts[3]));
                 }
             }
         } catch (IOException e) {
@@ -80,11 +88,13 @@ class Account {
     private String username;
     private String password;
     private String role;
+    private String id;
 
-    public Account(String username, String password, String role) {
+    public Account(String username, String password, String role, String id) {
         this.username = username;
         this.password = password;
         this.role = role;
+        this.id = id;
     }
 
     public String getUsername() {
@@ -97,5 +107,9 @@ class Account {
 
     public String getRole() {
         return role;
+    }
+
+    public String getId() {    
+        return id;
     }
 }

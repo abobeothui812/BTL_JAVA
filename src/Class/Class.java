@@ -3,7 +3,7 @@ package Class;
 import javafx.collections.*;
 
 public class Class {
-    private int classID;
+    private String classID;
     private Course course;
     private String semester;
     private String schedule;
@@ -14,7 +14,10 @@ public class Class {
 
 
     // Constructor
-    public Class(int classID, Course course, String semester, String schedule, int limitStudents) {
+    public Class(String classID){
+        this.classID = classID;
+    }
+    public Class(String classID, Course course, String semester, String schedule, int limitStudents) {
         this.classID = classID;
         this.course = course;
         this.semester = semester;
@@ -24,11 +27,11 @@ public class Class {
     }
 
     // Getters and Setters
-    public int getClassID() {
+    public String getClassID() {
         return classID;
     }
 
-    public void setClassID(int classID) {
+    public void setClassID(String classID) {
         this.classID = classID;
     }
 
