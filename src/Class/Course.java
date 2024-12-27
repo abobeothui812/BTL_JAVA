@@ -1,16 +1,20 @@
 package Class;
+
+import javafx.collections.ObservableList;
+
 public class Course {
     private int courseID;
     private String courseName;
     private int credits;
-    private Teacher teacher;
+    private int courseLeaderID;
+    private ObservableList<Class> classList ;
 
     // Constructor
-    public Course(int courseID, String courseName, int credits, Teacher teacher) {
+    public Course(int courseID, String courseName, int credits, int courseLeaderID) {
         this.courseID = courseID;
         this.courseName = courseName;
         this.credits = credits;
-        this.teacher = teacher;
+        this.courseLeaderID = courseLeaderID;
     }
 
     // Getters and Setters
@@ -38,11 +42,19 @@ public class Course {
         this.credits = credits;
     }
 
-    public Teacher getTeacher() {
-        return teacher;
+    public int getTeacher() {
+        return courseLeaderID;
     }
 
-    public void setTeacher(Teacher teacher) {
-        this.teacher = teacher;
+    public void setTeacher(int courseLeaderID) {
+        this.courseLeaderID = courseLeaderID;
+    }
+
+    public ObservableList<Class> getClassList() {
+        return classList;
+    }
+
+    public void addClass(Class newClass) {
+        classList.add(newClass);
     }
 }

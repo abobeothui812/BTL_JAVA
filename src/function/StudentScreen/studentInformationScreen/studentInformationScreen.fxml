@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.shape.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1500.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <top>
+      <MenuBar prefHeight="28.0" prefWidth="1507.0" BorderPane.alignment="CENTER">
+         <menus>
+            <Menu mnemonicParsing="false" text="Dịch vụ">
+               <items>
+                  <MenuItem mnemonicParsing="false" text="Xem thông tin cá nhân" />
+                  <MenuItem mnemonicParsing="false" text="Đăng kí lớp" />
+                  <MenuItem mnemonicParsing="false" text="Thời khóa biểu" />
+               </items>
+            </Menu>
+            <Menu mnemonicParsing="false" text="Liên hệ">
+               <items>
+                  <MenuItem mnemonicParsing="false" text="Delete" />
+               </items>
+            </Menu>
+         </menus>
+      </MenuBar>
+   </top>
+   <center>
+      <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+         <children>
+            <HBox alignment="CENTER" prefHeight="62.0" prefWidth="1500.0">
+               <children>
+                  <Label text="Thông tin cá nhân của sinh viên">
+                     <font>
+                        <Font name="System Bold" size="40.0" />
+                     </font>
+                  </Label>
+               </children>
+            </HBox>
+            <HBox alignment="CENTER_LEFT" prefHeight="340.0" prefWidth="1480.0">
+               <children>
+                  <ImageView fitHeight="336.0" fitWidth="279.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@hung.jpg" />
+                     </image>
+                     <HBox.margin>
+                        <Insets right="20.0" />
+                     </HBox.margin>
+                  </ImageView>
+                  <VBox prefHeight="325.0" prefWidth="776.0">
+                     <children>
+                        <Label text="Label" />
+                        <Label text="Label" />
+                        <Label text="Label" />
+                        <Label text="Label" />
+                        <Label text="Label" />
+                        <Label text="Label" />
+                     </children></VBox>
+               </children>
+               <VBox.margin>
+                  <Insets left="20.0" />
+               </VBox.margin>
+            </HBox>
+         </children>
+      </VBox>
+   </center>
+</BorderPane>

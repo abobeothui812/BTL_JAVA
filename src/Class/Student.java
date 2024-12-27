@@ -1,35 +1,27 @@
 package Class;
-public class Student {
-    private int studentID;
-    private String studentClass;
+public class Student extends User {
+    private String studentClassID;
     private String major;
     private int enrollmentYear;
-    private User user; // Chứa đối tượng User tương ứng
 
     // Constructor
-    public Student(int studentID, String studentClass, String major, int enrollmentYear, User user) {
-        this.studentID = studentID;
-        this.studentClass = studentClass;
+    public Student( String studentClass, String major, int enrollmentYear,int userID, String username, String password, String role, String email, String phone, String gender) {
+        super(userID, username, password, role, email, phone, gender);
+        this.studentClassID = studentClass;
         this.major = major;
         this.enrollmentYear = enrollmentYear;
-        this.user = user;
+        
     }
 
     // Getters and Setters
-    public int getStudentID() {
-        return studentID;
+    
+
+    public String getStudentClassID() {
+        return studentClassID;
     }
 
-    public void setStudentID(int studentID) {
-        this.studentID = studentID;
-    }
-
-    public String getStudentClass() {
-        return studentClass;
-    }
-
-    public void setStudentClass(String studentClass) {
-        this.studentClass = studentClass;
+    public void setStudentClassID(String classID) {
+        this.studentClassID = classID;
     }
 
     public String getMajor() {
@@ -48,13 +40,7 @@ public class Student {
         this.enrollmentYear = enrollmentYear;
     }
 
-    public User getUser() {
-        return user;
-    }
-
-    public void setUser(User user) {
-        this.user = user;
-    }
+    
 }
 
 

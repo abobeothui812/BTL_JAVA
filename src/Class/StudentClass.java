@@ -1,28 +1,31 @@
 package Class;
+
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+
 public class StudentClass {
-    private Student student;
-    private Class aClass;
-
-    // Constructor
-    public StudentClass(Student student, Class aClass) {
-        this.student = student;
-        this.aClass = aClass;
+    private int studentID;
+    private ObservableList<Class> classList;
+    private static int count = 0;
+    public StudentClass() {
+        this.studentID = count++;
+        this.classList = FXCollections.observableArrayList(); // Initialize the classList
+        
     }
 
-    // Getters and Setters
-    public Student getStudent() {
-        return student;
+    public int getStudentID() {
+        return studentID;
     }
 
-    public void setStudent(Student student) {
-        this.student = student;
+    public void addClass(Class newClass) {
+        classList.add(newClass);
     }
 
-    public Class getaClass() {
-        return aClass;
+    public ObservableList<Class> getClassList() {
+        return classList;
     }
 
-    public void setaClass(Class aClass) {
-        this.aClass = aClass;
-    }
+
+
+    
 }

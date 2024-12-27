@@ -1,27 +1,17 @@
 package Class;
-public class Teacher {
-    private int teacherID;
+public class Teacher extends User {
     private String department;
     private String specialization;
-    private User user; // Chứa đối tượng User tương ứng
 
     // Constructor
-    public Teacher(int teacherID, String department, String specialization, User user) {
-        this.teacherID = teacherID;
+    public Teacher( String department, String specialization,int userID, String username, String password, String role, String email, String phone, String gender ) {
+        super(userID, username, password, role, email, phone, gender);
         this.department = department;
         this.specialization = specialization;
-        this.user = user;
     }
 
     // Getters and Setters
-    public int getTeacherID() {
-        return teacherID;
-    }
-
-    public void setTeacherID(int teacherID) {
-        this.teacherID = teacherID;
-    }
-
+    
     public String getDepartment() {
         return department;
     }
@@ -38,11 +28,5 @@ public class Teacher {
         this.specialization = specialization;
     }
 
-    public User getUser() {
-        return user;
-    }
-
-    public void setUser(User user) {
-        this.user = user;
-    }
+    
 }

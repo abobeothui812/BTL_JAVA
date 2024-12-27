@@ -16,7 +16,6 @@ import javafx.stage.Stage;
 public class SampleController {
 
  private Stage stage;
- private Scene scene;
  private Parent root;
  
  @FXML

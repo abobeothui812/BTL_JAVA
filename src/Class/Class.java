@@ -1,22 +1,41 @@
 package Class;
+
+import javafx.collections.ObservableList;
+
 public class Class {
     private int classID;
-    private Course course;
+    private int courseID;
+    private String courseName;
     private String semester;
     private String schedule;
     private int limitStudents;
     private int registeredStudents;
+    private ObservableList<Student> studentList = null; 
+    private int TeacherID;
+    private String teacherName;
+    
+
 
     // Constructor
-    public Class(int classID, Course course, String semester, String schedule, int limitStudents, int registeredStudents) {
-        this.classID = classID;
-        this.course = course;
+    public Class(int courseID, String courseName, String semester, String schedule, int limitStudents, int registeredStudents, int teacherID, String teacherName) {
+        this.classID = 0;
+        this.courseID = courseID;
+        this.courseName = courseName;
         this.semester = semester;
         this.schedule = schedule;
         this.limitStudents = limitStudents;
         this.registeredStudents = registeredStudents;
+        this.TeacherID = teacherID;
+        this.teacherName = teacherName;
     }
 
+    public int getTeacherID() {
+        return TeacherID;
+    }
+
+    public void setTeacherID(int teacherID) {
+        this.TeacherID = teacherID;
+    }
     // Getters and Setters
     public int getClassID() {
         return classID;
@@ -26,12 +45,12 @@ public class Class {
         this.classID = classID;
     }
 
-    public Course getCourse() {
-        return course;
+    public int getCourseID() {
+        return courseID;
     }
 
-    public void setCourse(Course course) {
-        this.course = course;
+    public void setCourseID(int courseID) {
+        this.courseID = courseID;
     }
 
     public String getSemester() {
@@ -64,5 +83,38 @@ public class Class {
 
     public void setRegisteredStudents(int registeredStudents) {
         this.registeredStudents = registeredStudents;
+    }
+
+    public ObservableList<Student> getStudentList() {
+        return studentList;
+    }
+    
+    public String getTeacherName() {
+        return teacherName;
+    }
+
+    public void setTeacherName(String teacherName) {
+        this.teacherName = teacherName;
+    }
+
+    public String getCourseName() {
+        return courseName;
+    }
+
+    public void setCourseName(String courseName) {
+        this.courseName = courseName;
+    }
+
+    public void addStudent(Student student) {
+        if(registeredStudents < limitStudents){
+            studentList.add(student);
+            registeredStudents++;
+        }else{
+            System.out.println("Class is full");
+        }
+    }
+
+    public void removeStudent(Student student){
+        studentList.remove(student);
     }
 }
