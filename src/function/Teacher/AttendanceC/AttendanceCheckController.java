@@ -1,4 +1,4 @@
-package function.login;
+package function.Teacher.AttendanceC;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -6,14 +6,12 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.layout.VBox;
 import java.sql.*;
 import java.time.LocalDate;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 
 import Class.Attendance;
-import Class.Student;
 
 public class AttendanceCheckController {
 

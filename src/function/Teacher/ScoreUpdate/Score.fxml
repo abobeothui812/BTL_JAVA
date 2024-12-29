@@ -14,7 +14,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="function.login.AttendanceCheckController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="function.Teacher.ScoreUpdate.ScoreUpdateController">
    <top>
       <MenuBar BorderPane.alignment="CENTER">
         <menus>
@@ -51,7 +51,7 @@
                         <Insets left="10.0" />
                      </HBox.margin>
                   </ComboBox>
-                  <Button fx:id="NewCheck" mnemonicParsing="false" onAction="#createNewCheck" text="Create New Attendance Check">
+                  <Button fx:id="UpdateScore" mnemonicParsing="false" onAction="#createUpdateRequest" text="Update Score">
                      <HBox.margin>
                         <Insets left="10.0" />
                      </HBox.margin>
@@ -62,11 +62,13 @@
               <content>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefWidth="600.0">
                      <children>
-                        <TableView fx:id="studentAttendance" prefHeight="300.0" prefWidth="600.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0">
+                        <TableView fx:id="studentGrade" prefHeight="300.0" prefWidth="600.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0">
                           <columns>
                             <TableColumn fx:id="stt" maxWidth="35.0" minWidth="35.0" prefWidth="35.0" text="STT" />
                             <TableColumn fx:id="name" maxWidth="200.0" minWidth="200.0" prefWidth="200.0" text="Họ và tên" />
                               <TableColumn fx:id="studentCode" maxWidth="100.0" minWidth="100.0" prefWidth="100.0" text="MSSV" />
+                              <TableColumn fx:id="QT" maxWidth="132.800048828125" minWidth="100.0" prefWidth="123.20001220703125" text="QT" />
+                              <TableColumn fx:id="T" maxWidth="125.5999633789063" minWidth="83.20001220703125" prefWidth="116.00006103515625" text="T" />
                           </columns>
                         </TableView>
                      </children>
