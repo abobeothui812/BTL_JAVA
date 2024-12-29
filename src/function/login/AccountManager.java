@@ -6,7 +6,7 @@ import java.util.Map;
 
 public class AccountManager {
     private static AccountManager instance;
-    private Map<String, Account> accounts = new HashMap<>();
+    private final Map<String, Account> accounts = new HashMap<>();
     private final String FILE_PATH = "C:\\Users\\hienk\\eclipse-workspace\\Login\\src\\accounts.txt";
 
     private AccountManager() {
