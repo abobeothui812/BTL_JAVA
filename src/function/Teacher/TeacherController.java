@@ -3,9 +3,12 @@ package function.Teacher;
 import java.io.IOException;
 import java.sql.*;
 
+import javax.swing.Action;
+
 import function.Teacher.AttendanceC.AttendanceCheckController;
 import function.Teacher.ScoreUpdate.ScoreUpdateController;
 import function.login.SampleController;
+import function.search.Student.searchStudentController;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -142,6 +145,26 @@ public class TeacherController extends SampleController {
 
             ScoreUpdateController controller = loader.getController();
             controller.initialize(dbConnection, id);
+
+            Stage stage = (Stage) department.getScene().getWindow();
+            double width = stage.getWidth();
+            double height = stage.getHeight();
+            Scene scene = new Scene(root, width, height);
+            stage.setScene(scene);
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @FXML
+    public void StudentSearchInit(ActionEvent event) throws IOException {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/function/search/Student/searchStudent.fxml"));
+            Parent root = loader.load();
+
+            searchStudentController controller = loader.getController();
+            controller.initialize(dbConnection);
 
             Stage stage = (Stage) department.getScene().getWindow();
             double width = stage.getWidth();
