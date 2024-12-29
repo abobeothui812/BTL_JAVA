@@ -1,3 +1,0 @@
-admin,admin123,admin
-teacher1,teachpass1,teacher
-student1,studentpass1,student
