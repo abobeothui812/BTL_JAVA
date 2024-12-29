@@ -1,5 +1,9 @@
 package function.login;
 
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+
 import javafx.application.Application;
 import javafx.stage.Stage;
 import javafx.scene.Scene;
@@ -22,6 +26,12 @@ public class Main extends Application {
     }
 
     public static void main(String[] args) {
+        try (Connection conn = DriverManager.getConnection(
+            "jdbc:mysql://localhost:3306/quanlylophoc1", "root", "mysql")) {
+        System.out.println("Ket noi thanh cong!");
+    } catch (SQLException e) {
+        System.out.println("Ket noi that bai: " + e.getMessage());
+    }
         launch(args);
     }
 }

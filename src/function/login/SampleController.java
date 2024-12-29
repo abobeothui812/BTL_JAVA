@@ -46,8 +46,8 @@ public class SampleController {
 	    } else {
 	    	String role = AccountManager.getInstance().getRole(username);
 	        String targetFXML = switch (role) {
-	            case "admin" -> "Admin.fxml";
-	            case "teacher" -> "Teacher.fxml";
+	            case "Admin" -> "Admin.fxml";
+	            case "Teacher" -> "Teacher.fxml";
 	            default -> "Student.fxml";
 	        };
 	        Parent root = FXMLLoader.load(getClass().getResource(targetFXML));
@@ -63,6 +63,17 @@ public class SampleController {
  @FXML
  private void Logout(ActionEvent event) throws IOException {
     root = FXMLLoader.load(getClass().getResource("LoginMenu.fxml"));
+    stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+    double width = stage.getWidth();
+	double height = stage.getHeight();
+	Scene scene = new Scene(root, width, height);
+    stage.setScene(scene);
+    stage.show();
+ 	}
+
+@FXML
+private void quanlisinhvien(ActionEvent event) throws IOException {
+    root = FXMLLoader.load(getClass().getResource("studentScreen.fxml"));
     stage = (Stage)((Node)event.getSource()).getScene().getWindow();
     double width = stage.getWidth();
 	double height = stage.getHeight();
