@@ -1,69 +1,125 @@
 package function.StudentScreen.mainmenu;
 import javafx.beans.property.ReadOnlyObjectWrapper;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
-
+import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
 
-import Class.Class;
-import Class.StudentClass;
+import java.sql.Connection;
+import java.util.stream.Collectors;
+
+import Class.Course;
+import function.StudentScreen.myClass.ClassDisplayForStudent;
+import function.StudentScreen.dbQuery.dbQuery;
+import function.StudentScreen.myClass.Grade;
 public class studentScreenController {
 
-    private StudentClass studentClass;
-    @FXML
-    private TableView<Class> tblStudent;
+    Connection dbConnection;
+    dbQuery db;
+
+    
 
     @FXML
-    private TableColumn<Class,Integer> columnCourseID;
+    private TableView<ClassDisplayForStudent> tblStudent;
 
     @FXML
-    private TableColumn<Class,String> columTeacher;
+    private TableColumn<ClassDisplayForStudent,Integer> columnCourseID;
 
     @FXML
-    private TableColumn<Class,Integer> columnOrder;
+    private TableColumn<ClassDisplayForStudent,String> columTeacher;
 
     @FXML
-    private TableColumn<Class,String> columnSchedule;
+    private TableColumn<ClassDisplayForStudent,Integer> columnOrder;
 
     @FXML
-    private TableColumn<Class,String> columnCourseName;
+    private TableColumn<ClassDisplayForStudent,String> columnSchedule;
 
     @FXML
-    private TableColumn<Class,Integer> columnClassID;
+    private TableColumn<ClassDisplayForStudent,String> columnCourseName;
+
+    @FXML
+    private TableColumn<ClassDisplayForStudent,Integer> columnClassID;
 
     @FXML
     private Label labelChuaChon;
 
+    @FXML
+    private ChoiceBox<String> semesterChoice;
+
+
+    public studentScreenController() {
+        db = new dbQuery();
+    }
+    
 
     public void initialize() {
-
+        // Set the default text for the label
         labelChuaChon.setText("Bạn chưa chọn lớp nào");
-        studentClass = new StudentClass();
-        columnClassID.setCellValueFactory(new PropertyValueFactory<Class, Integer>("classID"));
-        columnCourseID.setCellValueFactory(new PropertyValueFactory<Class, Integer>("courseID"));
-        columnCourseName.setCellValueFactory(new PropertyValueFactory<Class, String>("courseName"));
-        columnSchedule.setCellValueFactory(new PropertyValueFactory<Class, String>("schedule"));
+
+        // Set the cell value factory for the table columns
+        columnClassID.setCellValueFactory(new PropertyValueFactory<ClassDisplayForStudent, Integer>("classID"));
+        columnCourseID.setCellValueFactory(new PropertyValueFactory<ClassDisplayForStudent, Integer>("courseID"));
+        columnCourseName.setCellValueFactory(new PropertyValueFactory<ClassDisplayForStudent, String>("courseName"));
+        columnSchedule.setCellValueFactory(new PropertyValueFactory<ClassDisplayForStudent, String>("schedule"));
         columnOrder.setCellValueFactory(cellData -> {
             return new ReadOnlyObjectWrapper<>(tblStudent.getItems().indexOf(cellData.getValue()) + 1);
         });
-        columTeacher.setCellValueFactory(new PropertyValueFactory<Class, String>("teacherName"));
+        columTeacher.setCellValueFactory(new PropertyValueFactory<ClassDisplayForStudent, String>("teacherName")); 
 
-        studentClass.addClass(new Class(1, "Mathematics", "2021-2022", "Monday 7:30 - 9:30", 30, 0, 1, "Teacher 1"));
-        studentClass.addClass(new Class(2, "English", "2021-2022", "Tuesday 7:30 - 9:30", 30, 0, 2, "Teacher 2"));
-        studentClass.addClass(new Class(3, "Physics", "2021-2022", "Wednesday 7:30 - 9:30", 30, 0, 3, "Teacher 3"));
+        // Fetch all classes from the database
+        ObservableList<ClassDisplayForStudent> classList = db.getStudentClassesFromDB();
+        tblStudent.setItems(classList);
 
-        tblStudent.setItems(studentClass.getClassList());
+        // Populate the ChoiceBox with semester values
+        semesterChoice.setItems(FXCollections.observableArrayList(
+            classList.stream()
+                .map(ClassDisplayForStudent::getSemester)
+                .distinct()
+                .collect(Collectors.toList())
+        ));
+
+        semesterChoice.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
+
+            if (newValue != null) {
+                ObservableList<ClassDisplayForStudent> classListBySemester = FXCollections.observableArrayList();
+                for (ClassDisplayForStudent studentClass : classList) {
+                    if (studentClass.getSemester().equals(newValue)) {
+                        classListBySemester.add(studentClass);
+                    }
+                }
+                tblStudent.setItems(classListBySemester);
+                if (classListBySemester.isEmpty()) {
+                    labelChuaChon.setText("Không có lớp nào cho học kỳ này");
+                } 
+            }
+
+             else {
+                tblStudent.setItems(classList);
+            }}
+        );
+
 
 
         tblStudent.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
+
             if (newValue != null) {
+                Course course = db.getCourseFromClass(newValue.getCourseID());
+                String courseLeaderName = db.getTeacherName(course.getcourseLeaderID());
+                Grade grade = db.getGrade(16, newValue.getClassID());
                 labelChuaChon.setText(
-                    "Tên Học Phần: " + newValue.getCourseName() + "\n" +
-                    "Mã Học Phần: " + newValue.getCourseID() + "\n" +
-                    "Thời Khóa Biểu: " + newValue.getSchedule() + "\n" +
-                    "Giáo Viên: " + newValue.getTeacherName()
+                    
+                    "Tín chỉ: " + course.getCredits() + "\n" +
+                    "Học Kỳ: " + course.getSemester() + "\n" +
+                    "Chưởng bộ môn " + courseLeaderName + "\n\n" +
+
+                    "Điểm Giữa kì " + (grade == null ? "Chưa có" : grade.getMidtermScore()) + "\n" +
+                    "Điểm Cuối kì " + (grade == null ? "Chưa có" : grade.getFinalScore()) + "\n" +
+                    "Điểm Tổng kết " + (grade == null ? "Chưa có" : grade.getAverageScore())
+
                 );
             }else{
                 labelChuaChon.setText("Bạn chưa chọn lớp nào");

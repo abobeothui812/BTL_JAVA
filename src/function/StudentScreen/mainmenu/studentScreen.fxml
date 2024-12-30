@@ -8,7 +8,7 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-<Pane prefHeight="825.0" prefWidth="1502.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="function.StudentScreen.mainmenu.studentScreenController">
+<Pane prefHeight="807.0" prefWidth="1502.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="function.StudentScreen.mainmenu.studentScreenController">
    <children>
       <MenuBar prefHeight="28.0" prefWidth="1507.0">
         <menus>
@@ -24,18 +24,25 @@
               <MenuItem mnemonicParsing="false" text="Delete" />
             </items>
           </Menu>
+            <Menu mnemonicParsing="false" text="Tìm kiếm">
+               <items>
+                  <MenuItem mnemonicParsing="false" text="Sinh viên" />
+                  <MenuItem mnemonicParsing="false" text="Giảng viên" />
+                  <MenuItem mnemonicParsing="false" text="Môn học" />
+               </items>
+            </Menu>
         </menus>
       </MenuBar>
-      <VBox layoutY="57.0" prefHeight="766.0" prefWidth="1500.0">
+      <VBox layoutY="25.0" prefHeight="798.0" prefWidth="1500.0">
          <children>
-            <Pane prefHeight="68.0" prefWidth="1500.0">
+            <Pane prefHeight="55.0" prefWidth="1500.0">
                <children>
-                  <Label layoutX="621.0" layoutY="6.0" prefHeight="45.0" prefWidth="222.0" style="-fx-font-weight: bold;" text="Danh sách môn">
+                  <Label layoutX="639.0" layoutY="5.0" prefHeight="45.0" prefWidth="222.0" style="-fx-font-weight: bold;" text="Danh sách môn">
                      <font>
                         <Font name="System Bold" size="30.0" />
                      </font>
                   </Label>
-                  <ChoiceBox layoutX="5.0" layoutY="5.0" prefHeight="30.0" prefWidth="157.0" />
+                  <ChoiceBox fx:id="semesterChoice" layoutY="13.0" prefHeight="30.0" prefWidth="157.0" />
                </children>
                <padding>
                   <Insets left="8.0" right="5.0" />
@@ -43,21 +50,26 @@
             </Pane>
             <HBox prefHeight="720.0" prefWidth="1500.0">
                <children>
-                  <TableView fx:id="tblStudent" prefHeight="706.0" prefWidth="1252.0" style="-fx-border-color: black;">
+                  <TableView fx:id="tblStudent" prefHeight="706.0" prefWidth="1204.0" style="-fx-border-color: black;">
                     <columns>
                       <TableColumn fx:id="columnOrder" prefWidth="50.0" text="STT" />
                       <TableColumn fx:id="columnCourseName" prefWidth="300.0" text="Tên Học phần" />
                         <TableColumn fx:id="columnCourseID" prefWidth="100.0" text="Mã học phần" />
                         <TableColumn fx:id="columnClassID" prefWidth="100.0" text="Mã lớp" />
                         <TableColumn fx:id="columnSchedule" prefWidth="350.0" text="Thời khóa biểu" />
-                        <TableColumn fx:id="columTeacher" prefWidth="250.0" text="Giáo viên" />
+                        <TableColumn fx:id="columTeacher" prefWidth="300.0" text="Giáo viên" />
                     </columns>
                   </TableView>
-                  <VBox alignment="CENTER" prefHeight="717.0" prefWidth="349.0" style="-fx-border-color: black;">
+                  <Pane prefHeight="706.0" prefWidth="289.0" style="-fx-border-color: black;">
                      <children>
-                        <Label fx:id="labelChuaChon" text="Bạn chưa chọn môn nào" />
+                        <Label fx:id="labelChuaChon" layoutX="80.0" layoutY="345.0" text="Bạn chưa chọn môn nào" />
+                        <Label layoutX="41.0" layoutY="7.0" text="Thông tin môn học">
+                           <font>
+                              <Font name="System Bold" size="23.0" />
+                           </font>
+                        </Label>
                      </children>
-                  </VBox>
+                  </Pane>
                </children>
                <padding>
                   <Insets bottom="3.0" left="4.0" right="5.0" />
