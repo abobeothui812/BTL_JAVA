@@ -27,7 +27,7 @@ public class Main extends Application {
 
     public static void main(String[] args) {
         try (Connection conn = DriverManager.getConnection(
-            "jdbc:mysql://localhost:3306/quanlylophoc1", "root", "123456")) {
+            "jdbc:mysql://localhost:3306/quanlylophoc1", "root", "dangdz123")) {
         System.out.println("Ket noi thanh cong!");
     } catch (SQLException e) {
         System.out.println("Ket noi that bai: " + e.getMessage());
