@@ -13,7 +13,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
 
-<Pane xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="function.login.studentScreenController">
+<Pane xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="function.login.studentScreenController">
    <children>
       <VBox prefHeight="741.0" prefWidth="1500.0">
          <children>
@@ -32,32 +32,24 @@
                   </MenuButton>
                </children>
             </HBox>
-            <HBox prefHeight="629.0" prefWidth="1500.0">
+            <HBox alignment="CENTER" prefHeight="629.0" prefWidth="1500.0">
                <children>
-                  <TableView fx:id="User" prefHeight="514.0" prefWidth="1492.0" style="-fx-border-color: black;">
+                  <TableView fx:id="User" minHeight="500.0" minWidth="2000.0" style="-fx-border-color: black;">
                     <columns>
-                      <TableColumn fx:id="idColumn" prefWidth="50.0" text="UserID" />
-                      <TableColumn fx:id="nameColumn" prefWidth="184.0" text="Name" />
-                        <TableColumn fx:id="passColumn" prefWidth="216.79998779296875" text="Password" />
-                        <TableColumn fx:id="roleColumn" prefWidth="100.0" text="Role" />
-                        <TableColumn fx:id="emailColumn" prefWidth="187.20001220703125" text="Email" />
-                        <TableColumn fx:id="phoneColumn" prefWidth="176.0" text="Phone" />
-                        <TableColumn fx:id="genderColumn" prefWidth="50.0" text="Gender" />
+                      <TableColumn fx:id="idColumn" minWidth="50.0" prefWidth="50.0" text="UserID" />
+                      <TableColumn fx:id="nameColumn" minWidth="100.0" prefWidth="184.0" text="Name" />
+                        <TableColumn fx:id="passColumn" minWidth="100.0" prefWidth="216.79998779296875" text="Password" />
+                        <TableColumn fx:id="roleColumn" minWidth="100.0" prefWidth="100.0" text="Role" />
+                        <TableColumn fx:id="emailColumn" minWidth="100.0" prefWidth="187.20001220703125" text="Email" />
+                        <TableColumn fx:id="phoneColumn" minWidth="100.0" prefWidth="176.0" text="Phone" />
+                        <TableColumn fx:id="genderColumn" minWidth="100.0" prefWidth="206.4000244140625" text="Gender" />
                     </columns>
                   </TableView>
+                  <Pagination fx:id="pagination" maxHeight="1000.0" maxWidth="3000.0" minHeight="500.0" minWidth="2000.0" />
                </children>
                <padding>
                   <Insets bottom="3.0" left="4.0" right="5.0" />
                </padding>
-            </HBox>
-            <HBox alignment="CENTER_RIGHT" prefHeight="82.0" prefWidth="1500.0" spacing="50.0">
-               <padding>
-                  <Insets right="10.0" />
-               </padding>
-               <children>
-                  <Pagination prefHeight="100.0" prefWidth="300.0" />
-                  <HBox prefHeight="100.0" prefWidth="200.0" />
-               </children>
             </HBox>
          </children>
       </VBox>
