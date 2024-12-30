@@ -400,5 +400,24 @@ private void updateCourse(ActionEvent event) {
     });
 
     dialog.showAndWait();
-}   
+}
+@FXML
+private void viewClassList(ActionEvent event) {
+    try {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("ClassList.fxml"));
+        Parent root = loader.load();
+        
+        // Lấy Stage từ một Node hợp lệ trong giao diện người dùng
+        Stage stage = (Stage) Node.getEn.getScene().getWindow();
+        
+        double width = stage.getWidth();
+        double height = stage.getHeight();
+        Scene scene = new Scene(root, width, height); 
+        stage.setScene(scene);
+        stage.show();
+    } catch (IOException e) {
+        e.printStackTrace();
+    }
+}
+    
 }

@@ -43,7 +43,7 @@
             </HBox>
             <HBox prefHeight="629.0" prefWidth="1500.0">
                <children>
-                  <TableView fx:id="tblCourse" prefHeight="603.0" prefWidth="1504.0" style="-fx-border-color: black;">
+                  <TableView fx:id="tblCourse" minHeight="500.0" minWidth="1700.0" prefHeight="603.0" prefWidth="1504.0" style="-fx-border-color: black;">
                     <columns>
                       <TableColumn fx:id="columnOrder" prefWidth="50.0" text="STT" />
                       <TableColumn fx:id="columnCourseName" prefWidth="395.9999809265137" text="Tên Học phần" />
@@ -55,9 +55,9 @@
                      <contextMenu>
                         <ContextMenu>
                           <items>
-                            <MenuItem   mnemonicParsing="false" text="Chỉnh sửa" onAction='#updateCourse' />
-                            <MenuItem  mnemonicParsing="false" text="Xóa" onAction="#deleteCourse" />
-                            <MenuItem   mnemonicParsing="false" text="Danh sách lớp" onAction= "#viewClassList"/>
+                            <MenuItem mnemonicParsing="false" onAction="#updateCourse" text="Chỉnh sửa" />
+                            <MenuItem mnemonicParsing="false" onAction="#deleteCourse" text="Xóa" />
+                            <MenuItem mnemonicParsing="false" onAction="#viewClassList" text="Danh sách lớp" />
                           </items>
                         </ContextMenu>
                      </contextMenu>
