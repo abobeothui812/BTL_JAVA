@@ -3,178 +3,178 @@ create database quanlylophoc1;
 use quanlylophoc1;
 CREATE TABLE User (
     UserID INT PRIMARY KEY AUTO_INCREMENT,
-    Username VARCHAR(255) NOT NULL UNIQUE,
+    Name VARCHAR(255) NOT NULL UNIQUE,
     Password VARCHAR(255) NOT NULL,
     Role ENUM('Admin', 'Teacher', 'Student') NOT NULL,
     Email VARCHAR(255) NOT NULL UNIQUE,
     Phone VARCHAR(20),
     Gender enum('Nam','Nu') NOT NULL
 );
-INSERT INTO User (`UserID`,`Username`,`Password`,`Role`,`Email`,`Phone`,`Gender`) VALUES (1,'Khuat Van Bao','pass6214','Admin','user1@email.com','0907555711','Nu');
-INSERT INTO User (`UserID`,`Username`,`Password`,`Role`,`Email`,`Phone`,`Gender`) VALUES (2,'Pham Manh Hieu','pass8079','Admin','user2@email.com','0901208175','Nam');
-INSERT INTO User (`UserID`,`Username`,`Password`,`Role`,`Email`,`Phone`,`Gender`) VALUES (3,'Khuat Van Anh','pass9250','Admin','user3@email.com','0901104837','Nu');
-INSERT INTO User (`UserID`,`Username`,`Password`,`Role`,`Email`,`Phone`,`Gender`) VALUES (4,'Khuat Van Hieu','pass4205','Admin','user4@email.com','0908826348','Nam');
-INSERT INTO User (`UserID`,`Username`,`Password`,`Role`,`Email`,`Phone`,`Gender`) VALUES (5,'Tran Minh Huyen','pass8758','Admin','user5@email.com','0902264513','Nu');
-INSERT INTO User (`UserID`,`Username`,`Password`,`Role`,`Email`,`Phone`,`Gender`) VALUES (6,'Le Van Hoang','pass5356','Teacher','user6@email.com','0903038147','Nu');
-INSERT INTO User (`UserID`,`Username`,`Password`,`Role`,`Email`,`Phone`,`Gender`) VALUES (7,'Vuong Duc Bao','pass9250','Teacher','user7@email.com','0905893014','Nam');
-INSERT INTO User (`UserID`,`Username`,`Password`,`Role`,`Email`,`Phone`,`Gender`) VALUES (8,'Pham Thi Cuong','pass3004','Teacher','user8@email.com','0905161320','Nu');
-INSERT INTO User (`UserID`,`Username`,`Password`,`Role`,`Email`,`Phone`,`Gender`) VALUES (9,'Hoang Manh Dang','pass4584','Teacher','user9@email.com','0906172673','Nu');
-INSERT INTO User (`UserID`,`Username`,`Password`,`Role`,`Email`,`Phone`,`Gender`) VALUES (10,'Tran Thi Hieu','pass7173','Teacher','user10@email.com','0902747296','Nam');
-INSERT INTO User (`UserID`,`Username`,`Password`,`Role`,`Email`,`Phone`,`Gender`) VALUES (11,'Tran Manh Cuong','pass8842','Teacher','user11@email.com','0905547317','Nam');
-INSERT INTO User (`UserID`,`Username`,`Password`,`Role`,`Email`,`Phone`,`Gender`) VALUES (12,'Vuong Duc Kiet','pass2676','Teacher','user12@email.com','0903982683','Nam');
-INSERT INTO User (`UserID`,`Username`,`Password`,`Role`,`Email`,`Phone`,`Gender`) VALUES (13,'Tran Van Duc','pass2094','Teacher','user13@email.com','0906659273','Nu');
-INSERT INTO User (`UserID`,`Username`,`Password`,`Role`,`Email`,`Phone`,`Gender`) VALUES (14,'Pham Van Kiet','pass9406','Teacher','user14@email.com','0906648097','Nu');
-INSERT INTO User (`UserID`,`Username`,`Password`,`Role`,`Email`,`Phone`,`Gender`) VALUES (15,'Khuat Van An','pass8896','Teacher','user15@email.com','0909306646','Nu');
-INSERT INTO User (`UserID`,`Username`,`Password`,`Role`,`Email`,`Phone`,`Gender`) VALUES (16,'Le Van Binh','pass2812','Student','user16@email.com','0902644386','Nam');
-INSERT INTO User (`UserID`,`Username`,`Password`,`Role`,`Email`,`Phone`,`Gender`) VALUES (17,'Khuat Minh Duc','pass7631','Student','user17@email.com','0904898003','Nam');
-INSERT INTO User (`UserID`,`Username`,`Password`,`Role`,`Email`,`Phone`,`Gender`) VALUES (18,'Tran Thi Duc','pass9874','Student','user18@email.com','0905057216','Nu');
-INSERT INTO User (`UserID`,`Username`,`Password`,`Role`,`Email`,`Phone`,`Gender`) VALUES (19,'Vuong Manh Hieu','pass9357','Student','user19@email.com','0906177974','Nam');
-INSERT INTO User (`UserID`,`Username`,`Password`,`Role`,`Email`,`Phone`,`Gender`) VALUES (20,'Le Manh Hien','pass1422','Student','user20@email.com','0906228116','Nu');
-INSERT INTO User (`UserID`,`Username`,`Password`,`Role`,`Email`,`Phone`,`Gender`) VALUES (21,'Vuong Thi Hien','pass8533','Student','user21@email.com','0906155822','Nu');
-INSERT INTO User (`UserID`,`Username`,`Password`,`Role`,`Email`,`Phone`,`Gender`) VALUES (22,'Hoang Quoc Hieu','pass6172','Student','user22@email.com','0908706954','Nu');
-INSERT INTO User (`UserID`,`Username`,`Password`,`Role`,`Email`,`Phone`,`Gender`) VALUES (23,'Pham Manh Dang','pass8363','Student','user23@email.com','0909031403','Nam');
-INSERT INTO User (`UserID`,`Username`,`Password`,`Role`,`Email`,`Phone`,`Gender`) VALUES (24,'Le Manh An','pass7795','Student','user24@email.com','0901196621','Nam');
-INSERT INTO User (`UserID`,`Username`,`Password`,`Role`,`Email`,`Phone`,`Gender`) VALUES (25,'Pham Quoc Cuong','pass2441','Student','user25@email.com','0908892347','Nu');
-INSERT INTO User (`UserID`,`Username`,`Password`,`Role`,`Email`,`Phone`,`Gender`) VALUES (26,'Hoang Thi Bao','pass694','Student','user26@email.com','0908628236','Nam');
-INSERT INTO User (`UserID`,`Username`,`Password`,`Role`,`Email`,`Phone`,`Gender`) VALUES (27,'Le Van Kiet','pass2258','Student','user27@email.com','0902119620','Nam');
-INSERT INTO User (`UserID`,`Username`,`Password`,`Role`,`Email`,`Phone`,`Gender`) VALUES (28,'Vuong Minh An','pass1058','Student','user28@email.com','0908081','Nu');
-INSERT INTO User (`UserID`,`Username`,`Password`,`Role`,`Email`,`Phone`,`Gender`) VALUES (29,'Khuat Manh Hien','pass7763','Student','user29@email.com','0906600285','Nu');
-INSERT INTO User (`UserID`,`Username`,`Password`,`Role`,`Email`,`Phone`,`Gender`) VALUES (30,'Pham Van Dang','pass7798','Student','user30@email.com','0904954612','Nam');
-INSERT INTO User (`UserID`,`Username`,`Password`,`Role`,`Email`,`Phone`,`Gender`) VALUES (31,'Pham Manh An','pass1257','Student','user31@email.com','0905360076','Nam');
-INSERT INTO User (`UserID`,`Username`,`Password`,`Role`,`Email`,`Phone`,`Gender`) VALUES (32,'Pham Duc Dang','pass8546','Student','user32@email.com','0909458310','Nam');
-INSERT INTO User (`UserID`,`Username`,`Password`,`Role`,`Email`,`Phone`,`Gender`) VALUES (33,'Pham Hong Kiet','pass8850','Student','user33@email.com','0908903800','Nu');
-INSERT INTO User (`UserID`,`Username`,`Password`,`Role`,`Email`,`Phone`,`Gender`) VALUES (34,'Tran Minh Kiet','pass82','Student','user34@email.com','0903392483','Nu');
-INSERT INTO User (`UserID`,`Username`,`Password`,`Role`,`Email`,`Phone`,`Gender`) VALUES (35,'Pham Minh Dang','pass9282','Student','user35@email.com','0908426851','Nam');
-INSERT INTO User (`UserID`,`Username`,`Password`,`Role`,`Email`,`Phone`,`Gender`) VALUES (36,'Tran Duc Kiet','pass3283','Student','user36@email.com','0909168944','Nu');
-INSERT INTO User (`UserID`,`Username`,`Password`,`Role`,`Email`,`Phone`,`Gender`) VALUES (37,'Tran Minh An','pass8016','Student','user37@email.com','0901878924','Nu');
-INSERT INTO User (`UserID`,`Username`,`Password`,`Role`,`Email`,`Phone`,`Gender`) VALUES (38,'Nguyen Van Anh','pass415','Student','user38@email.com','0908437328','Nam');
-INSERT INTO User (`UserID`,`Username`,`Password`,`Role`,`Email`,`Phone`,`Gender`) VALUES (39,'Tran Duc Binh','pass2447','Student','user39@email.com','090207939','Nam');
-INSERT INTO User (`UserID`,`Username`,`Password`,`Role`,`Email`,`Phone`,`Gender`) VALUES (40,'Hoang Van Hoang','pass2238','Student','user40@email.com','0902364854','Nu');
-INSERT INTO User (`UserID`,`Username`,`Password`,`Role`,`Email`,`Phone`,`Gender`) VALUES (41,'Tran Manh Bao','pass7286','Student','user41@email.com','0902439212','Nam');
-INSERT INTO User (`UserID`,`Username`,`Password`,`Role`,`Email`,`Phone`,`Gender`) VALUES (42,'Tran Duc Cuong','pass9535','Student','user42@email.com','0909180548','Nu');
-INSERT INTO User (`UserID`,`Username`,`Password`,`Role`,`Email`,`Phone`,`Gender`) VALUES (43,'Tran Minh Hoang','pass4973','Student','user43@email.com','0908809831','Nu');
-INSERT INTO User (`UserID`,`Username`,`Password`,`Role`,`Email`,`Phone`,`Gender`) VALUES (44,'Khuat Duc Huyen','pass89','Student','user44@email.com','0906885720','Nam');
-INSERT INTO User (`UserID`,`Username`,`Password`,`Role`,`Email`,`Phone`,`Gender`) VALUES (45,'Nguyen Hong Bao','pass9688','Student','user45@email.com','0902033632','Nam');
-INSERT INTO User (`UserID`,`Username`,`Password`,`Role`,`Email`,`Phone`,`Gender`) VALUES (46,'Khuat Hong Cuong','pass9627','Student','user46@email.com','0902221563','Nam');
-INSERT INTO User (`UserID`,`Username`,`Password`,`Role`,`Email`,`Phone`,`Gender`) VALUES (47,'Hoang Van Hieu','pass2427','Student','user47@email.com','0905982668','Nam');
-INSERT INTO User (`UserID`,`Username`,`Password`,`Role`,`Email`,`Phone`,`Gender`) VALUES (48,'Nguyen Thi Bao','pass3546','Student','user48@email.com','0903266500','Nu');
-INSERT INTO User (`UserID`,`Username`,`Password`,`Role`,`Email`,`Phone`,`Gender`) VALUES (49,'Vuong Van Duc','pass8080','Student','user49@email.com','0907758737','Nam');
-INSERT INTO User (`UserID`,`Username`,`Password`,`Role`,`Email`,`Phone`,`Gender`) VALUES (50,'Le Thi Dang','pass8541','Student','user50@email.com','0904873132','Nu');
-INSERT INTO User (`UserID`,`Username`,`Password`,`Role`,`Email`,`Phone`,`Gender`) VALUES (51,'Nguyen Van Cuong','pass9531','Student','user51@email.com','0904401711','Nam');
-INSERT INTO User (`UserID`,`Username`,`Password`,`Role`,`Email`,`Phone`,`Gender`) VALUES (52,'Pham Thi Hieu','pass1672','Student','user52@email.com','0906739273','Nu');
-INSERT INTO User (`UserID`,`Username`,`Password`,`Role`,`Email`,`Phone`,`Gender`) VALUES (53,'Tran Minh Cuong','pass876','Student','user53@email.com','0903942009','Nu');
-INSERT INTO User (`UserID`,`Username`,`Password`,`Role`,`Email`,`Phone`,`Gender`) VALUES (54,'Vuong Van Dang','pass5088','Student','user54@email.com','0907954217','Nam');
-INSERT INTO User (`UserID`,`Username`,`Password`,`Role`,`Email`,`Phone`,`Gender`) VALUES (55,'Khuat Manh Anh','pass8168','Student','user55@email.com','0904789041','Nu');
-INSERT INTO User (`UserID`,`Username`,`Password`,`Role`,`Email`,`Phone`,`Gender`) VALUES (56,'Tran Duc Bao','pass4332','Student','user56@email.com','0908777722','Nam');
-INSERT INTO User (`UserID`,`Username`,`Password`,`Role`,`Email`,`Phone`,`Gender`) VALUES (57,'Khuat Hong Huyen','pass4512','Student','user57@email.com','090702518','Nu');
-INSERT INTO User (`UserID`,`Username`,`Password`,`Role`,`Email`,`Phone`,`Gender`) VALUES (58,'Pham Duc Anh','pass8984','Student','user58@email.com','0907531092','Nam');
-INSERT INTO User (`UserID`,`Username`,`Password`,`Role`,`Email`,`Phone`,`Gender`) VALUES (59,'Pham Van An','pass1223','Student','user59@email.com','0906854327','Nam');
-INSERT INTO User (`UserID`,`Username`,`Password`,`Role`,`Email`,`Phone`,`Gender`) VALUES (60,'Tran Van Anh','pass6331','Student','user60@email.com','0901047983','Nu');
-INSERT INTO User (`UserID`,`Username`,`Password`,`Role`,`Email`,`Phone`,`Gender`) VALUES (61,'Tran Quoc Bao','pass3368','Student','user61@email.com','0908085340','Nam');
-INSERT INTO User (`UserID`,`Username`,`Password`,`Role`,`Email`,`Phone`,`Gender`) VALUES (62,'Khuat Thi Bao','pass4741','Student','user62@email.com','0905694544','Nam');
-INSERT INTO User (`UserID`,`Username`,`Password`,`Role`,`Email`,`Phone`,`Gender`) VALUES (63,'Vuong Van Hieu','pass4336','Student','user63@email.com','0908199512','Nu');
-INSERT INTO User (`UserID`,`Username`,`Password`,`Role`,`Email`,`Phone`,`Gender`) VALUES (64,'Pham Manh Hien','pass9801','Student','user64@email.com','0902445010','Nam');
-INSERT INTO User (`UserID`,`Username`,`Password`,`Role`,`Email`,`Phone`,`Gender`) VALUES (65,'Tran Manh Hien','pass2245','Student','user65@email.com','0908909534','Nu');
-INSERT INTO User (`UserID`,`Username`,`Password`,`Role`,`Email`,`Phone`,`Gender`) VALUES (66,'Pham Minh Anh','pass9147','Student','user66@email.com','0904107207','Nam');
-INSERT INTO User (`UserID`,`Username`,`Password`,`Role`,`Email`,`Phone`,`Gender`) VALUES (67,'Vuong Van Anh','pass8700','Student','user67@email.com','0902033427','Nam');
-INSERT INTO User (`UserID`,`Username`,`Password`,`Role`,`Email`,`Phone`,`Gender`) VALUES (68,'Vuong Minh Cuong','pass4203','Student','user68@email.com','0902720152','Nam');
-INSERT INTO User (`UserID`,`Username`,`Password`,`Role`,`Email`,`Phone`,`Gender`) VALUES (69,'Tran Minh Hieu','pass7159','Student','user69@email.com','0907163254','Nam');
-INSERT INTO User (`UserID`,`Username`,`Password`,`Role`,`Email`,`Phone`,`Gender`) VALUES (70,'Nguyen Quoc Hieu','pass6628','Student','user70@email.com','0908617238','Nam');
-INSERT INTO User (`UserID`,`Username`,`Password`,`Role`,`Email`,`Phone`,`Gender`) VALUES (71,'Nguyen Thi Dang','pass5635','Student','user71@email.com','090961976','Nu');
-INSERT INTO User (`UserID`,`Username`,`Password`,`Role`,`Email`,`Phone`,`Gender`) VALUES (72,'Hoang Quoc Hoang','pass235','Student','user72@email.com','0906783405','Nam');
-INSERT INTO User (`UserID`,`Username`,`Password`,`Role`,`Email`,`Phone`,`Gender`) VALUES (73,'Khuat Minh Hien','pass3443','Student','user73@email.com','0904447615','Nam');
-INSERT INTO User (`UserID`,`Username`,`Password`,`Role`,`Email`,`Phone`,`Gender`) VALUES (74,'Hoang Manh Duc','pass4752','Student','user74@email.com','0907006175','Nam');
-INSERT INTO User (`UserID`,`Username`,`Password`,`Role`,`Email`,`Phone`,`Gender`) VALUES (75,'Tran Minh Anh','pass1857','Student','user75@email.com','0909564222','Nam');
-INSERT INTO User (`UserID`,`Username`,`Password`,`Role`,`Email`,`Phone`,`Gender`) VALUES (76,'Tran Van Bao','pass394','Student','user76@email.com','0905697522','Nu');
-INSERT INTO User (`UserID`,`Username`,`Password`,`Role`,`Email`,`Phone`,`Gender`) VALUES (77,'Tran Manh Duc','pass4741','Student','user77@email.com','090125952','Nu');
-INSERT INTO User (`UserID`,`Username`,`Password`,`Role`,`Email`,`Phone`,`Gender`) VALUES (78,'Le Van Hien','pass2322','Student','user78@email.com','0901336162','Nu');
-INSERT INTO User (`UserID`,`Username`,`Password`,`Role`,`Email`,`Phone`,`Gender`) VALUES (79,'Pham Duc Binh','pass8371','Student','user79@email.com','0908807708','Nu');
-INSERT INTO User (`UserID`,`Username`,`Password`,`Role`,`Email`,`Phone`,`Gender`) VALUES (80,'Pham Van Cuong','pass8712','Student','user80@email.com','0902354946','Nu');
-INSERT INTO User (`UserID`,`Username`,`Password`,`Role`,`Email`,`Phone`,`Gender`) VALUES (81,'Le Thi Anh','pass1556','Student','user81@email.com','0903434724','Nam');
-INSERT INTO User (`UserID`,`Username`,`Password`,`Role`,`Email`,`Phone`,`Gender`) VALUES (82,'Le Thi Cuong','pass3739','Student','user82@email.com','0905339475','Nu');
-INSERT INTO User (`UserID`,`Username`,`Password`,`Role`,`Email`,`Phone`,`Gender`) VALUES (83,'Tran Thi Bao','pass2476','Student','user83@email.com','0908525356','Nu');
-INSERT INTO User (`UserID`,`Username`,`Password`,`Role`,`Email`,`Phone`,`Gender`) VALUES (84,'Nguyen Van Hoang','pass7177','Student','user84@email.com','0906432369','Nam');
-INSERT INTO User (`UserID`,`Username`,`Password`,`Role`,`Email`,`Phone`,`Gender`) VALUES (85,'Vuong Van Kiet','pass5801','Student','user85@email.com','0902911907','Nu');
-INSERT INTO User (`UserID`,`Username`,`Password`,`Role`,`Email`,`Phone`,`Gender`) VALUES (86,'Hoang Van Duc','pass1732','Student','user86@email.com','0901059493','Nam');
-INSERT INTO User (`UserID`,`Username`,`Password`,`Role`,`Email`,`Phone`,`Gender`) VALUES (87,'Pham Quoc Bao','pass9337','Student','user87@email.com','0909409385','Nu');
-INSERT INTO User (`UserID`,`Username`,`Password`,`Role`,`Email`,`Phone`,`Gender`) VALUES (88,'Khuat Quoc Hien','pass8862','Student','user88@email.com','0906977628','Nu');
-INSERT INTO User (`UserID`,`Username`,`Password`,`Role`,`Email`,`Phone`,`Gender`) VALUES (89,'Nguyen Van Duc','pass3869','Student','user89@email.com','0905369892','Nu');
-INSERT INTO User (`UserID`,`Username`,`Password`,`Role`,`Email`,`Phone`,`Gender`) VALUES (90,'Nguyen Manh Hieu','pass509','Student','user90@email.com','0904287474','Nu');
-INSERT INTO User (`UserID`,`Username`,`Password`,`Role`,`Email`,`Phone`,`Gender`) VALUES (91,'Tran Duc Anh','pass5074','Student','user91@email.com','090591973','Nu');
-INSERT INTO User (`UserID`,`Username`,`Password`,`Role`,`Email`,`Phone`,`Gender`) VALUES (92,'Tran Van Cuong','pass6471','Student','user92@email.com','0908376337','Nam');
-INSERT INTO User (`UserID`,`Username`,`Password`,`Role`,`Email`,`Phone`,`Gender`) VALUES (93,'Tran Quoc Duc','pass6622','Student','user93@email.com','0901161474','Nu');
-INSERT INTO User (`UserID`,`Username`,`Password`,`Role`,`Email`,`Phone`,`Gender`) VALUES (94,'Khuat Minh Binh','pass3881','Student','user94@email.com','0907743881','Nu');
-INSERT INTO User (`UserID`,`Username`,`Password`,`Role`,`Email`,`Phone`,`Gender`) VALUES (95,'Le Duc Hieu','pass672','Student','user95@email.com','0904724636','Nam');
-INSERT INTO User (`UserID`,`Username`,`Password`,`Role`,`Email`,`Phone`,`Gender`) VALUES (96,'Pham Quoc Binh','pass5354','Student','user96@email.com','0905741339','Nam');
-INSERT INTO User (`UserID`,`Username`,`Password`,`Role`,`Email`,`Phone`,`Gender`) VALUES (97,'Tran Manh Binh','pass403','Student','user97@email.com','090160016','Nu');
-INSERT INTO User (`UserID`,`Username`,`Password`,`Role`,`Email`,`Phone`,`Gender`) VALUES (98,'Le Duc Cuong','pass6963','Student','user98@email.com','0907727610','Nu');
-INSERT INTO User (`UserID`,`Username`,`Password`,`Role`,`Email`,`Phone`,`Gender`) VALUES (99,'Khuat Thi Huyen','pass9146','Student','user99@email.com','0905108124','Nu');
-INSERT INTO User (`UserID`,`Username`,`Password`,`Role`,`Email`,`Phone`,`Gender`) VALUES (100,'Tran Quoc Cuong','pass3195','Student','user100@email.com','0902186052','Nam');
-INSERT INTO User (`UserID`,`Username`,`Password`,`Role`,`Email`,`Phone`,`Gender`) VALUES (101,'Hoang Hong Cuong','pass6900','Student','user101@email.com','0908694256','Nam');
-INSERT INTO User (`UserID`,`Username`,`Password`,`Role`,`Email`,`Phone`,`Gender`) VALUES (102,'Pham Thi Binh','pass5075','Student','user102@email.com','0901839497','Nam');
-INSERT INTO User (`UserID`,`Username`,`Password`,`Role`,`Email`,`Phone`,`Gender`) VALUES (103,'Khuat Thi Hoang','pass7245','Student','user103@email.com','0906886556','Nam');
-INSERT INTO User (`UserID`,`Username`,`Password`,`Role`,`Email`,`Phone`,`Gender`) VALUES (104,'Tran Manh Dang','pass7624','Student','user104@email.com','0908356306','Nu');
-INSERT INTO User (`UserID`,`Username`,`Password`,`Role`,`Email`,`Phone`,`Gender`) VALUES (105,'Tran Manh Hoang','pass9131','Student','user105@email.com','0909320565','Nu');
-INSERT INTO User (`UserID`,`Username`,`Password`,`Role`,`Email`,`Phone`,`Gender`) VALUES (106,'Tran Minh Binh','pass6618','Student','user106@email.com','0907875353','Nu');
-INSERT INTO User (`UserID`,`Username`,`Password`,`Role`,`Email`,`Phone`,`Gender`) VALUES (107,'Tran Thi Dang','pass5307','Student','user107@email.com','0909330721','Nam');
-INSERT INTO User (`UserID`,`Username`,`Password`,`Role`,`Email`,`Phone`,`Gender`) VALUES (108,'Khuat Thi Anh','pass8140','Student','user108@email.com','0903987219','Nu');
-INSERT INTO User (`UserID`,`Username`,`Password`,`Role`,`Email`,`Phone`,`Gender`) VALUES (109,'Khuat Manh Binh','pass3408','Student','user109@email.com','0909488336','Nu');
-INSERT INTO User (`UserID`,`Username`,`Password`,`Role`,`Email`,`Phone`,`Gender`) VALUES (110,'Vuong Thi Kiet','pass8562','Student','user110@email.com','0906363413','Nu');
-INSERT INTO User (`UserID`,`Username`,`Password`,`Role`,`Email`,`Phone`,`Gender`) VALUES (111,'Hoang Duc Cuong','pass9608','Student','user111@email.com','0903429192','Nu');
-INSERT INTO User (`UserID`,`Username`,`Password`,`Role`,`Email`,`Phone`,`Gender`) VALUES (112,'Nguyen Thi Hoang','pass7220','Student','user112@email.com','0908085395','Nu');
-INSERT INTO User (`UserID`,`Username`,`Password`,`Role`,`Email`,`Phone`,`Gender`) VALUES (113,'Pham Thi Hoang','pass9190','Student','user113@email.com','0909036952','Nu');
-INSERT INTO User (`UserID`,`Username`,`Password`,`Role`,`Email`,`Phone`,`Gender`) VALUES (114,'Nguyen Minh An','pass4500','Student','user114@email.com','0906181843','Nu');
-INSERT INTO User (`UserID`,`Username`,`Password`,`Role`,`Email`,`Phone`,`Gender`) VALUES (115,'Nguyen Minh Cuong','pass9418','Student','user115@email.com','0906513237','Nam');
-INSERT INTO User (`UserID`,`Username`,`Password`,`Role`,`Email`,`Phone`,`Gender`) VALUES (116,'Nguyen Quoc Dang','pass2608','Student','user116@email.com','0904492000','Nam');
-INSERT INTO User (`UserID`,`Username`,`Password`,`Role`,`Email`,`Phone`,`Gender`) VALUES (117,'Nguyen Quoc Kiet','pass6326','Student','user117@email.com','0903326874','Nu');
-INSERT INTO User (`UserID`,`Username`,`Password`,`Role`,`Email`,`Phone`,`Gender`) VALUES (118,'Tran Quoc Hien','pass4264','Student','user118@email.com','0905779667','Nu');
-INSERT INTO User (`UserID`,`Username`,`Password`,`Role`,`Email`,`Phone`,`Gender`) VALUES (119,'Hoang Minh Huyen','pass8368','Student','user119@email.com','090688702','Nu');
-INSERT INTO User (`UserID`,`Username`,`Password`,`Role`,`Email`,`Phone`,`Gender`) VALUES (120,'Hoang Quoc Bao','pass5163','Student','user120@email.com','0903029885','Nu');
-INSERT INTO User (`UserID`,`Username`,`Password`,`Role`,`Email`,`Phone`,`Gender`) VALUES (121,'Pham Quoc Hien','pass9522','Student','user121@email.com','0902511451','Nam');
-INSERT INTO User (`UserID`,`Username`,`Password`,`Role`,`Email`,`Phone`,`Gender`) VALUES (122,'Tran Quoc Dang','pass4432','Student','user122@email.com','0907023904','Nam');
-INSERT INTO User (`UserID`,`Username`,`Password`,`Role`,`Email`,`Phone`,`Gender`) VALUES (123,'Khuat Manh Cuong','pass681','Student','user123@email.com','0907626952','Nu');
-INSERT INTO User (`UserID`,`Username`,`Password`,`Role`,`Email`,`Phone`,`Gender`) VALUES (124,'Le Minh Dang','pass3541','Student','user124@email.com','0906258550','Nam');
-INSERT INTO User (`UserID`,`Username`,`Password`,`Role`,`Email`,`Phone`,`Gender`) VALUES (125,'Le Duc Hoang','pass5000','Student','user125@email.com','0907268274','Nam');
-INSERT INTO User (`UserID`,`Username`,`Password`,`Role`,`Email`,`Phone`,`Gender`) VALUES (126,'Tran Minh Duc','pass9565','Student','user126@email.com','0901640600','Nu');
-INSERT INTO User (`UserID`,`Username`,`Password`,`Role`,`Email`,`Phone`,`Gender`) VALUES (127,'Tran Van An','pass7772','Student','user127@email.com','0904858943','Nam');
-INSERT INTO User (`UserID`,`Username`,`Password`,`Role`,`Email`,`Phone`,`Gender`) VALUES (128,'Vuong Van Bao','pass8013','Student','user128@email.com','0906249597','Nu');
-INSERT INTO User (`UserID`,`Username`,`Password`,`Role`,`Email`,`Phone`,`Gender`) VALUES (129,'Nguyen Minh Hien','pass8575','Student','user129@email.com','090730301','Nu');
-INSERT INTO User (`UserID`,`Username`,`Password`,`Role`,`Email`,`Phone`,`Gender`) VALUES (130,'Hoang Van Dang','pass6818','Student','user130@email.com','0906872114','Nam');
-INSERT INTO User (`UserID`,`Username`,`Password`,`Role`,`Email`,`Phone`,`Gender`) VALUES (131,'Hoang Duc Hieu','pass5311','Student','user131@email.com','0906385354','Nu');
-INSERT INTO User (`UserID`,`Username`,`Password`,`Role`,`Email`,`Phone`,`Gender`) VALUES (132,'Nguyen Hong Hoang','pass1652','Student','user132@email.com','0909578133','Nam');
-INSERT INTO User (`UserID`,`Username`,`Password`,`Role`,`Email`,`Phone`,`Gender`) VALUES (133,'Tran Duc Hien','pass7934','Student','user133@email.com','0904058400','Nu');
-INSERT INTO User (`UserID`,`Username`,`Password`,`Role`,`Email`,`Phone`,`Gender`) VALUES (134,'Nguyen Duc An','pass1753','Student','user134@email.com','0901341738','Nam');
-INSERT INTO User (`UserID`,`Username`,`Password`,`Role`,`Email`,`Phone`,`Gender`) VALUES (135,'Hoang Minh Bao','pass1859','Student','user135@email.com','0903116962','Nam');
-INSERT INTO User (`UserID`,`Username`,`Password`,`Role`,`Email`,`Phone`,`Gender`) VALUES (136,'Nguyen Quoc Huyen','pass7954','Student','user136@email.com','0908593504','Nu');
-INSERT INTO User (`UserID`,`Username`,`Password`,`Role`,`Email`,`Phone`,`Gender`) VALUES (137,'Khuat Thi Cuong','pass5412','Student','user137@email.com','0902116356','Nam');
-INSERT INTO User (`UserID`,`Username`,`Password`,`Role`,`Email`,`Phone`,`Gender`) VALUES (138,'Le Van Cuong','pass9126','Student','user138@email.com','0905314645','Nu');
-INSERT INTO User (`UserID`,`Username`,`Password`,`Role`,`Email`,`Phone`,`Gender`) VALUES (139,'Tran Thi Cuong','pass9832','Student','user139@email.com','0901276788','Nu');
-INSERT INTO User (`UserID`,`Username`,`Password`,`Role`,`Email`,`Phone`,`Gender`) VALUES (140,'Hoang Manh Kiet','pass6720','Student','user140@email.com','0907125798','Nu');
-INSERT INTO User (`UserID`,`Username`,`Password`,`Role`,`Email`,`Phone`,`Gender`) VALUES (141,'Khuat Duc Kiet','pass2836','Student','user141@email.com','0901918892','Nam');
-INSERT INTO User (`UserID`,`Username`,`Password`,`Role`,`Email`,`Phone`,`Gender`) VALUES (142,'Vuong Thi Hoang','pass1266','Student','user142@email.com','0901315159','Nam');
-INSERT INTO User (`UserID`,`Username`,`Password`,`Role`,`Email`,`Phone`,`Gender`) VALUES (143,'Pham Van Binh','pass7321','Student','user143@email.com','0907224509','Nam');
-INSERT INTO User (`UserID`,`Username`,`Password`,`Role`,`Email`,`Phone`,`Gender`) VALUES (144,'Khuat Thi Hien','pass2682','Student','user144@email.com','0904956544','Nu');
-INSERT INTO User (`UserID`,`Username`,`Password`,`Role`,`Email`,`Phone`,`Gender`) VALUES (145,'Pham Manh Huyen','pass9483','Student','user145@email.com','0903322364','Nu');
-INSERT INTO User (`UserID`,`Username`,`Password`,`Role`,`Email`,`Phone`,`Gender`) VALUES (146,'Pham Quoc Kiet','pass2335','Student','user146@email.com','0902241751','Nam');
-INSERT INTO User (`UserID`,`Username`,`Password`,`Role`,`Email`,`Phone`,`Gender`) VALUES (147,'Le Duc Bao','pass1604','Student','user147@email.com','0909230446','Nam');
-INSERT INTO User (`UserID`,`Username`,`Password`,`Role`,`Email`,`Phone`,`Gender`) VALUES (148,'Nguyen Duc Hoang','pass7670','Student','user148@email.com','0906436254','Nu');
-INSERT INTO User (`UserID`,`Username`,`Password`,`Role`,`Email`,`Phone`,`Gender`) VALUES (149,'Hoang Manh Hien','pass4032','Student','user149@email.com','0903277112','Nam');
-INSERT INTO User (`UserID`,`Username`,`Password`,`Role`,`Email`,`Phone`,`Gender`) VALUES (150,'Vuong Quoc Binh','pass1681','Student','user150@email.com','090152968','Nu');
-INSERT INTO User (`UserID`,`Username`,`Password`,`Role`,`Email`,`Phone`,`Gender`) VALUES (151,'Tran Thi Anh','pass2843','Student','user151@email.com','0908485253','Nam');
-INSERT INTO User (`UserID`,`Username`,`Password`,`Role`,`Email`,`Phone`,`Gender`) VALUES (152,'Vuong Hong Hoang','pass3164','Student','user152@email.com','0901514386','Nu');
-INSERT INTO User (`UserID`,`Username`,`Password`,`Role`,`Email`,`Phone`,`Gender`) VALUES (153,'Khuat Van Cuong','pass1843','Student','user153@email.com','0904617508','Nu');
-INSERT INTO User (`UserID`,`Username`,`Password`,`Role`,`Email`,`Phone`,`Gender`) VALUES (154,'Khuat Van Hoang','pass4164','Student','user154@email.com','0908601301','Nam');
-INSERT INTO User (`UserID`,`Username`,`Password`,`Role`,`Email`,`Phone`,`Gender`) VALUES (155,'Hoang Duc Binh','pass4994','Student','user155@email.com','0901641269','Nam');
-INSERT INTO User (`UserID`,`Username`,`Password`,`Role`,`Email`,`Phone`,`Gender`) VALUES (156,'Hoang Thi Binh','pass111','Student','user156@email.com','0904419814','Nam');
-INSERT INTO User (`UserID`,`Username`,`Password`,`Role`,`Email`,`Phone`,`Gender`) VALUES (157,'Khuat Manh Hieu','pass9832','Student','user157@email.com','0903776666','Nu');
-INSERT INTO User (`UserID`,`Username`,`Password`,`Role`,`Email`,`Phone`,`Gender`) VALUES (158,'Khuat Hong Anh','pass1588','Student','user158@email.com','0907478900','Nam');
-INSERT INTO User (`UserID`,`Username`,`Password`,`Role`,`Email`,`Phone`,`Gender`) VALUES (159,'Vuong Duc Hien','pass7749','Student','user159@email.com','0908888206','Nam');
-INSERT INTO User (`UserID`,`Username`,`Password`,`Role`,`Email`,`Phone`,`Gender`) VALUES (160,'Khuat Manh Kiet','pass3944','Student','user160@email.com','0906628502','Nam');
-INSERT INTO User (`UserID`,`Username`,`Password`,`Role`,`Email`,`Phone`,`Gender`) VALUES (161,'Hoang Thi Hieu','pass297','Student','user161@email.com','0903041562','Nam');
-INSERT INTO User (`UserID`,`Username`,`Password`,`Role`,`Email`,`Phone`,`Gender`) VALUES (162,'Khuat Manh Dang','pass5494','Student','user162@email.com','0908265502','Nam');
-INSERT INTO User (`UserID`,`Username`,`Password`,`Role`,`Email`,`Phone`,`Gender`) VALUES (163,'Khuat Hong Dang','pass7037','Student','user163@email.com','0904978772','Nam');
-INSERT INTO User (`UserID`,`Username`,`Password`,`Role`,`Email`,`Phone`,`Gender`) VALUES (164,'Le Hong Cuong','pass835','Student','user164@email.com','0906144349','Nu');
-INSERT INTO User (`UserID`,`Username`,`Password`,`Role`,`Email`,`Phone`,`Gender`) VALUES (165,'Vuong Manh Kiet','pass5243','Student','user165@email.com','0908911091','Nu');
+INSERT INTO User (`UserID`,`Name`,`Password`,`Role`,`Email`,`Phone`,`Gender`) VALUES (1,'Khuat Van Bao','pass6214','Admin','user1@email.com','0907555711','Nu');
+INSERT INTO User (`UserID`,`Name`,`Password`,`Role`,`Email`,`Phone`,`Gender`) VALUES (2,'Pham Manh Hieu','pass8079','Admin','user2@email.com','0901208175','Nam');
+INSERT INTO User (`UserID`,`Name`,`Password`,`Role`,`Email`,`Phone`,`Gender`) VALUES (3,'Khuat Van Anh','pass9250','Admin','user3@email.com','0901104837','Nu');
+INSERT INTO User (`UserID`,`Name`,`Password`,`Role`,`Email`,`Phone`,`Gender`) VALUES (4,'Khuat Van Hieu','pass4205','Admin','user4@email.com','0908826348','Nam');
+INSERT INTO User (`UserID`,`Name`,`Password`,`Role`,`Email`,`Phone`,`Gender`) VALUES (5,'Tran Minh Huyen','pass8758','Admin','user5@email.com','0902264513','Nu');
+INSERT INTO User (`UserID`,`Name`,`Password`,`Role`,`Email`,`Phone`,`Gender`) VALUES (6,'Le Van Hoang','pass5356','Teacher','user6@email.com','0903038147','Nu');
+INSERT INTO User (`UserID`,`Name`,`Password`,`Role`,`Email`,`Phone`,`Gender`) VALUES (7,'Vuong Duc Bao','pass9250','Teacher','user7@email.com','0905893014','Nam');
+INSERT INTO User (`UserID`,`Name`,`Password`,`Role`,`Email`,`Phone`,`Gender`) VALUES (8,'Pham Thi Cuong','pass3004','Teacher','user8@email.com','0905161320','Nu');
+INSERT INTO User (`UserID`,`Name`,`Password`,`Role`,`Email`,`Phone`,`Gender`) VALUES (9,'Hoang Manh Dang','pass4584','Teacher','user9@email.com','0906172673','Nu');
+INSERT INTO User (`UserID`,`Name`,`Password`,`Role`,`Email`,`Phone`,`Gender`) VALUES (10,'Tran Thi Hieu','pass7173','Teacher','user10@email.com','0902747296','Nam');
+INSERT INTO User (`UserID`,`Name`,`Password`,`Role`,`Email`,`Phone`,`Gender`) VALUES (11,'Tran Manh Cuong','pass8842','Teacher','user11@email.com','0905547317','Nam');
+INSERT INTO User (`UserID`,`Name`,`Password`,`Role`,`Email`,`Phone`,`Gender`) VALUES (12,'Vuong Duc Kiet','pass2676','Teacher','user12@email.com','0903982683','Nam');
+INSERT INTO User (`UserID`,`Name`,`Password`,`Role`,`Email`,`Phone`,`Gender`) VALUES (13,'Tran Van Duc','pass2094','Teacher','user13@email.com','0906659273','Nu');
+INSERT INTO User (`UserID`,`Name`,`Password`,`Role`,`Email`,`Phone`,`Gender`) VALUES (14,'Pham Van Kiet','pass9406','Teacher','user14@email.com','0906648097','Nu');
+INSERT INTO User (`UserID`,`Name`,`Password`,`Role`,`Email`,`Phone`,`Gender`) VALUES (15,'Khuat Van An','pass8896','Teacher','user15@email.com','0909306646','Nu');
+INSERT INTO User (`UserID`,`Name`,`Password`,`Role`,`Email`,`Phone`,`Gender`) VALUES (16,'Le Van Binh','pass2812','Student','user16@email.com','0902644386','Nam');
+INSERT INTO User (`UserID`,`Name`,`Password`,`Role`,`Email`,`Phone`,`Gender`) VALUES (17,'Khuat Minh Duc','pass7631','Student','user17@email.com','0904898003','Nam');
+INSERT INTO User (`UserID`,`Name`,`Password`,`Role`,`Email`,`Phone`,`Gender`) VALUES (18,'Tran Thi Duc','pass9874','Student','user18@email.com','0905057216','Nu');
+INSERT INTO User (`UserID`,`Name`,`Password`,`Role`,`Email`,`Phone`,`Gender`) VALUES (19,'Vuong Manh Hieu','pass9357','Student','user19@email.com','0906177974','Nam');
+INSERT INTO User (`UserID`,`Name`,`Password`,`Role`,`Email`,`Phone`,`Gender`) VALUES (20,'Le Manh Hien','pass1422','Student','user20@email.com','0906228116','Nu');
+INSERT INTO User (`UserID`,`Name`,`Password`,`Role`,`Email`,`Phone`,`Gender`) VALUES (21,'Vuong Thi Hien','pass8533','Student','user21@email.com','0906155822','Nu');
+INSERT INTO User (`UserID`,`Name`,`Password`,`Role`,`Email`,`Phone`,`Gender`) VALUES (22,'Hoang Quoc Hieu','pass6172','Student','user22@email.com','0908706954','Nu');
+INSERT INTO User (`UserID`,`Name`,`Password`,`Role`,`Email`,`Phone`,`Gender`) VALUES (23,'Pham Manh Dang','pass8363','Student','user23@email.com','0909031403','Nam');
+INSERT INTO User (`UserID`,`Name`,`Password`,`Role`,`Email`,`Phone`,`Gender`) VALUES (24,'Le Manh An','pass7795','Student','user24@email.com','0901196621','Nam');
+INSERT INTO User (`UserID`,`Name`,`Password`,`Role`,`Email`,`Phone`,`Gender`) VALUES (25,'Pham Quoc Cuong','pass2441','Student','user25@email.com','0908892347','Nu');
+INSERT INTO User (`UserID`,`Name`,`Password`,`Role`,`Email`,`Phone`,`Gender`) VALUES (26,'Hoang Thi Bao','pass694','Student','user26@email.com','0908628236','Nam');
+INSERT INTO User (`UserID`,`Name`,`Password`,`Role`,`Email`,`Phone`,`Gender`) VALUES (27,'Le Van Kiet','pass2258','Student','user27@email.com','0902119620','Nam');
+INSERT INTO User (`UserID`,`Name`,`Password`,`Role`,`Email`,`Phone`,`Gender`) VALUES (28,'Vuong Minh An','pass1058','Student','user28@email.com','0908081','Nu');
+INSERT INTO User (`UserID`,`Name`,`Password`,`Role`,`Email`,`Phone`,`Gender`) VALUES (29,'Khuat Manh Hien','pass7763','Student','user29@email.com','0906600285','Nu');
+INSERT INTO User (`UserID`,`Name`,`Password`,`Role`,`Email`,`Phone`,`Gender`) VALUES (30,'Pham Van Dang','pass7798','Student','user30@email.com','0904954612','Nam');
+INSERT INTO User (`UserID`,`Name`,`Password`,`Role`,`Email`,`Phone`,`Gender`) VALUES (31,'Pham Manh An','pass1257','Student','user31@email.com','0905360076','Nam');
+INSERT INTO User (`UserID`,`Name`,`Password`,`Role`,`Email`,`Phone`,`Gender`) VALUES (32,'Pham Duc Dang','pass8546','Student','user32@email.com','0909458310','Nam');
+INSERT INTO User (`UserID`,`Name`,`Password`,`Role`,`Email`,`Phone`,`Gender`) VALUES (33,'Pham Hong Kiet','pass8850','Student','user33@email.com','0908903800','Nu');
+INSERT INTO User (`UserID`,`Name`,`Password`,`Role`,`Email`,`Phone`,`Gender`) VALUES (34,'Tran Minh Kiet','pass82','Student','user34@email.com','0903392483','Nu');
+INSERT INTO User (`UserID`,`Name`,`Password`,`Role`,`Email`,`Phone`,`Gender`) VALUES (35,'Pham Minh Dang','pass9282','Student','user35@email.com','0908426851','Nam');
+INSERT INTO User (`UserID`,`Name`,`Password`,`Role`,`Email`,`Phone`,`Gender`) VALUES (36,'Tran Duc Kiet','pass3283','Student','user36@email.com','0909168944','Nu');
+INSERT INTO User (`UserID`,`Name`,`Password`,`Role`,`Email`,`Phone`,`Gender`) VALUES (37,'Tran Minh An','pass8016','Student','user37@email.com','0901878924','Nu');
+INSERT INTO User (`UserID`,`Name`,`Password`,`Role`,`Email`,`Phone`,`Gender`) VALUES (38,'Nguyen Van Anh','pass415','Student','user38@email.com','0908437328','Nam');
+INSERT INTO User (`UserID`,`Name`,`Password`,`Role`,`Email`,`Phone`,`Gender`) VALUES (39,'Tran Duc Binh','pass2447','Student','user39@email.com','090207939','Nam');
+INSERT INTO User (`UserID`,`Name`,`Password`,`Role`,`Email`,`Phone`,`Gender`) VALUES (40,'Hoang Van Hoang','pass2238','Student','user40@email.com','0902364854','Nu');
+INSERT INTO User (`UserID`,`Name`,`Password`,`Role`,`Email`,`Phone`,`Gender`) VALUES (41,'Tran Manh Bao','pass7286','Student','user41@email.com','0902439212','Nam');
+INSERT INTO User (`UserID`,`Name`,`Password`,`Role`,`Email`,`Phone`,`Gender`) VALUES (42,'Tran Duc Cuong','pass9535','Student','user42@email.com','0909180548','Nu');
+INSERT INTO User (`UserID`,`Name`,`Password`,`Role`,`Email`,`Phone`,`Gender`) VALUES (43,'Tran Minh Hoang','pass4973','Student','user43@email.com','0908809831','Nu');
+INSERT INTO User (`UserID`,`Name`,`Password`,`Role`,`Email`,`Phone`,`Gender`) VALUES (44,'Khuat Duc Huyen','pass89','Student','user44@email.com','0906885720','Nam');
+INSERT INTO User (`UserID`,`Name`,`Password`,`Role`,`Email`,`Phone`,`Gender`) VALUES (45,'Nguyen Hong Bao','pass9688','Student','user45@email.com','0902033632','Nam');
+INSERT INTO User (`UserID`,`Name`,`Password`,`Role`,`Email`,`Phone`,`Gender`) VALUES (46,'Khuat Hong Cuong','pass9627','Student','user46@email.com','0902221563','Nam');
+INSERT INTO User (`UserID`,`Name`,`Password`,`Role`,`Email`,`Phone`,`Gender`) VALUES (47,'Hoang Van Hieu','pass2427','Student','user47@email.com','0905982668','Nam');
+INSERT INTO User (`UserID`,`Name`,`Password`,`Role`,`Email`,`Phone`,`Gender`) VALUES (48,'Nguyen Thi Bao','pass3546','Student','user48@email.com','0903266500','Nu');
+INSERT INTO User (`UserID`,`Name`,`Password`,`Role`,`Email`,`Phone`,`Gender`) VALUES (49,'Vuong Van Duc','pass8080','Student','user49@email.com','0907758737','Nam');
+INSERT INTO User (`UserID`,`Name`,`Password`,`Role`,`Email`,`Phone`,`Gender`) VALUES (50,'Le Thi Dang','pass8541','Student','user50@email.com','0904873132','Nu');
+INSERT INTO User (`UserID`,`Name`,`Password`,`Role`,`Email`,`Phone`,`Gender`) VALUES (51,'Nguyen Van Cuong','pass9531','Student','user51@email.com','0904401711','Nam');
+INSERT INTO User (`UserID`,`Name`,`Password`,`Role`,`Email`,`Phone`,`Gender`) VALUES (52,'Pham Thi Hieu','pass1672','Student','user52@email.com','0906739273','Nu');
+INSERT INTO User (`UserID`,`Name`,`Password`,`Role`,`Email`,`Phone`,`Gender`) VALUES (53,'Tran Minh Cuong','pass876','Student','user53@email.com','0903942009','Nu');
+INSERT INTO User (`UserID`,`Name`,`Password`,`Role`,`Email`,`Phone`,`Gender`) VALUES (54,'Vuong Van Dang','pass5088','Student','user54@email.com','0907954217','Nam');
+INSERT INTO User (`UserID`,`Name`,`Password`,`Role`,`Email`,`Phone`,`Gender`) VALUES (55,'Khuat Manh Anh','pass8168','Student','user55@email.com','0904789041','Nu');
+INSERT INTO User (`UserID`,`Name`,`Password`,`Role`,`Email`,`Phone`,`Gender`) VALUES (56,'Tran Duc Bao','pass4332','Student','user56@email.com','0908777722','Nam');
+INSERT INTO User (`UserID`,`Name`,`Password`,`Role`,`Email`,`Phone`,`Gender`) VALUES (57,'Khuat Hong Huyen','pass4512','Student','user57@email.com','090702518','Nu');
+INSERT INTO User (`UserID`,`Name`,`Password`,`Role`,`Email`,`Phone`,`Gender`) VALUES (58,'Pham Duc Anh','pass8984','Student','user58@email.com','0907531092','Nam');
+INSERT INTO User (`UserID`,`Name`,`Password`,`Role`,`Email`,`Phone`,`Gender`) VALUES (59,'Pham Van An','pass1223','Student','user59@email.com','0906854327','Nam');
+INSERT INTO User (`UserID`,`Name`,`Password`,`Role`,`Email`,`Phone`,`Gender`) VALUES (60,'Tran Van Anh','pass6331','Student','user60@email.com','0901047983','Nu');
+INSERT INTO User (`UserID`,`Name`,`Password`,`Role`,`Email`,`Phone`,`Gender`) VALUES (61,'Tran Quoc Bao','pass3368','Student','user61@email.com','0908085340','Nam');
+INSERT INTO User (`UserID`,`Name`,`Password`,`Role`,`Email`,`Phone`,`Gender`) VALUES (62,'Khuat Thi Bao','pass4741','Student','user62@email.com','0905694544','Nam');
+INSERT INTO User (`UserID`,`Name`,`Password`,`Role`,`Email`,`Phone`,`Gender`) VALUES (63,'Vuong Van Hieu','pass4336','Student','user63@email.com','0908199512','Nu');
+INSERT INTO User (`UserID`,`Name`,`Password`,`Role`,`Email`,`Phone`,`Gender`) VALUES (64,'Pham Manh Hien','pass9801','Student','user64@email.com','0902445010','Nam');
+INSERT INTO User (`UserID`,`Name`,`Password`,`Role`,`Email`,`Phone`,`Gender`) VALUES (65,'Tran Manh Hien','pass2245','Student','user65@email.com','0908909534','Nu');
+INSERT INTO User (`UserID`,`Name`,`Password`,`Role`,`Email`,`Phone`,`Gender`) VALUES (66,'Pham Minh Anh','pass9147','Student','user66@email.com','0904107207','Nam');
+INSERT INTO User (`UserID`,`Name`,`Password`,`Role`,`Email`,`Phone`,`Gender`) VALUES (67,'Vuong Van Anh','pass8700','Student','user67@email.com','0902033427','Nam');
+INSERT INTO User (`UserID`,`Name`,`Password`,`Role`,`Email`,`Phone`,`Gender`) VALUES (68,'Vuong Minh Cuong','pass4203','Student','user68@email.com','0902720152','Nam');
+INSERT INTO User (`UserID`,`Name`,`Password`,`Role`,`Email`,`Phone`,`Gender`) VALUES (69,'Tran Minh Hieu','pass7159','Student','user69@email.com','0907163254','Nam');
+INSERT INTO User (`UserID`,`Name`,`Password`,`Role`,`Email`,`Phone`,`Gender`) VALUES (70,'Nguyen Quoc Hieu','pass6628','Student','user70@email.com','0908617238','Nam');
+INSERT INTO User (`UserID`,`Name`,`Password`,`Role`,`Email`,`Phone`,`Gender`) VALUES (71,'Nguyen Thi Dang','pass5635','Student','user71@email.com','090961976','Nu');
+INSERT INTO User (`UserID`,`Name`,`Password`,`Role`,`Email`,`Phone`,`Gender`) VALUES (72,'Hoang Quoc Hoang','pass235','Student','user72@email.com','0906783405','Nam');
+INSERT INTO User (`UserID`,`Name`,`Password`,`Role`,`Email`,`Phone`,`Gender`) VALUES (73,'Khuat Minh Hien','pass3443','Student','user73@email.com','0904447615','Nam');
+INSERT INTO User (`UserID`,`Name`,`Password`,`Role`,`Email`,`Phone`,`Gender`) VALUES (74,'Hoang Manh Duc','pass4752','Student','user74@email.com','0907006175','Nam');
+INSERT INTO User (`UserID`,`Name`,`Password`,`Role`,`Email`,`Phone`,`Gender`) VALUES (75,'Tran Minh Anh','pass1857','Student','user75@email.com','0909564222','Nam');
+INSERT INTO User (`UserID`,`Name`,`Password`,`Role`,`Email`,`Phone`,`Gender`) VALUES (76,'Tran Van Bao','pass394','Student','user76@email.com','0905697522','Nu');
+INSERT INTO User (`UserID`,`Name`,`Password`,`Role`,`Email`,`Phone`,`Gender`) VALUES (77,'Tran Manh Duc','pass4741','Student','user77@email.com','090125952','Nu');
+INSERT INTO User (`UserID`,`Name`,`Password`,`Role`,`Email`,`Phone`,`Gender`) VALUES (78,'Le Van Hien','pass2322','Student','user78@email.com','0901336162','Nu');
+INSERT INTO User (`UserID`,`Name`,`Password`,`Role`,`Email`,`Phone`,`Gender`) VALUES (79,'Pham Duc Binh','pass8371','Student','user79@email.com','0908807708','Nu');
+INSERT INTO User (`UserID`,`Name`,`Password`,`Role`,`Email`,`Phone`,`Gender`) VALUES (80,'Pham Van Cuong','pass8712','Student','user80@email.com','0902354946','Nu');
+INSERT INTO User (`UserID`,`Name`,`Password`,`Role`,`Email`,`Phone`,`Gender`) VALUES (81,'Le Thi Anh','pass1556','Student','user81@email.com','0903434724','Nam');
+INSERT INTO User (`UserID`,`Name`,`Password`,`Role`,`Email`,`Phone`,`Gender`) VALUES (82,'Le Thi Cuong','pass3739','Student','user82@email.com','0905339475','Nu');
+INSERT INTO User (`UserID`,`Name`,`Password`,`Role`,`Email`,`Phone`,`Gender`) VALUES (83,'Tran Thi Bao','pass2476','Student','user83@email.com','0908525356','Nu');
+INSERT INTO User (`UserID`,`Name`,`Password`,`Role`,`Email`,`Phone`,`Gender`) VALUES (84,'Nguyen Van Hoang','pass7177','Student','user84@email.com','0906432369','Nam');
+INSERT INTO User (`UserID`,`Name`,`Password`,`Role`,`Email`,`Phone`,`Gender`) VALUES (85,'Vuong Van Kiet','pass5801','Student','user85@email.com','0902911907','Nu');
+INSERT INTO User (`UserID`,`Name`,`Password`,`Role`,`Email`,`Phone`,`Gender`) VALUES (86,'Hoang Van Duc','pass1732','Student','user86@email.com','0901059493','Nam');
+INSERT INTO User (`UserID`,`Name`,`Password`,`Role`,`Email`,`Phone`,`Gender`) VALUES (87,'Pham Quoc Bao','pass9337','Student','user87@email.com','0909409385','Nu');
+INSERT INTO User (`UserID`,`Name`,`Password`,`Role`,`Email`,`Phone`,`Gender`) VALUES (88,'Khuat Quoc Hien','pass8862','Student','user88@email.com','0906977628','Nu');
+INSERT INTO User (`UserID`,`Name`,`Password`,`Role`,`Email`,`Phone`,`Gender`) VALUES (89,'Nguyen Van Duc','pass3869','Student','user89@email.com','0905369892','Nu');
+INSERT INTO User (`UserID`,`Name`,`Password`,`Role`,`Email`,`Phone`,`Gender`) VALUES (90,'Nguyen Manh Hieu','pass509','Student','user90@email.com','0904287474','Nu');
+INSERT INTO User (`UserID`,`Name`,`Password`,`Role`,`Email`,`Phone`,`Gender`) VALUES (91,'Tran Duc Anh','pass5074','Student','user91@email.com','090591973','Nu');
+INSERT INTO User (`UserID`,`Name`,`Password`,`Role`,`Email`,`Phone`,`Gender`) VALUES (92,'Tran Van Cuong','pass6471','Student','user92@email.com','0908376337','Nam');
+INSERT INTO User (`UserID`,`Name`,`Password`,`Role`,`Email`,`Phone`,`Gender`) VALUES (93,'Tran Quoc Duc','pass6622','Student','user93@email.com','0901161474','Nu');
+INSERT INTO User (`UserID`,`Name`,`Password`,`Role`,`Email`,`Phone`,`Gender`) VALUES (94,'Khuat Minh Binh','pass3881','Student','user94@email.com','0907743881','Nu');
+INSERT INTO User (`UserID`,`Name`,`Password`,`Role`,`Email`,`Phone`,`Gender`) VALUES (95,'Le Duc Hieu','pass672','Student','user95@email.com','0904724636','Nam');
+INSERT INTO User (`UserID`,`Name`,`Password`,`Role`,`Email`,`Phone`,`Gender`) VALUES (96,'Pham Quoc Binh','pass5354','Student','user96@email.com','0905741339','Nam');
+INSERT INTO User (`UserID`,`Name`,`Password`,`Role`,`Email`,`Phone`,`Gender`) VALUES (97,'Tran Manh Binh','pass403','Student','user97@email.com','090160016','Nu');
+INSERT INTO User (`UserID`,`Name`,`Password`,`Role`,`Email`,`Phone`,`Gender`) VALUES (98,'Le Duc Cuong','pass6963','Student','user98@email.com','0907727610','Nu');
+INSERT INTO User (`UserID`,`Name`,`Password`,`Role`,`Email`,`Phone`,`Gender`) VALUES (99,'Khuat Thi Huyen','pass9146','Student','user99@email.com','0905108124','Nu');
+INSERT INTO User (`UserID`,`Name`,`Password`,`Role`,`Email`,`Phone`,`Gender`) VALUES (100,'Tran Quoc Cuong','pass3195','Student','user100@email.com','0902186052','Nam');
+INSERT INTO User (`UserID`,`Name`,`Password`,`Role`,`Email`,`Phone`,`Gender`) VALUES (101,'Hoang Hong Cuong','pass6900','Student','user101@email.com','0908694256','Nam');
+INSERT INTO User (`UserID`,`Name`,`Password`,`Role`,`Email`,`Phone`,`Gender`) VALUES (102,'Pham Thi Binh','pass5075','Student','user102@email.com','0901839497','Nam');
+INSERT INTO User (`UserID`,`Name`,`Password`,`Role`,`Email`,`Phone`,`Gender`) VALUES (103,'Khuat Thi Hoang','pass7245','Student','user103@email.com','0906886556','Nam');
+INSERT INTO User (`UserID`,`Name`,`Password`,`Role`,`Email`,`Phone`,`Gender`) VALUES (104,'Tran Manh Dang','pass7624','Student','user104@email.com','0908356306','Nu');
+INSERT INTO User (`UserID`,`Name`,`Password`,`Role`,`Email`,`Phone`,`Gender`) VALUES (105,'Tran Manh Hoang','pass9131','Student','user105@email.com','0909320565','Nu');
+INSERT INTO User (`UserID`,`Name`,`Password`,`Role`,`Email`,`Phone`,`Gender`) VALUES (106,'Tran Minh Binh','pass6618','Student','user106@email.com','0907875353','Nu');
+INSERT INTO User (`UserID`,`Name`,`Password`,`Role`,`Email`,`Phone`,`Gender`) VALUES (107,'Tran Thi Dang','pass5307','Student','user107@email.com','0909330721','Nam');
+INSERT INTO User (`UserID`,`Name`,`Password`,`Role`,`Email`,`Phone`,`Gender`) VALUES (108,'Khuat Thi Anh','pass8140','Student','user108@email.com','0903987219','Nu');
+INSERT INTO User (`UserID`,`Name`,`Password`,`Role`,`Email`,`Phone`,`Gender`) VALUES (109,'Khuat Manh Binh','pass3408','Student','user109@email.com','0909488336','Nu');
+INSERT INTO User (`UserID`,`Name`,`Password`,`Role`,`Email`,`Phone`,`Gender`) VALUES (110,'Vuong Thi Kiet','pass8562','Student','user110@email.com','0906363413','Nu');
+INSERT INTO User (`UserID`,`Name`,`Password`,`Role`,`Email`,`Phone`,`Gender`) VALUES (111,'Hoang Duc Cuong','pass9608','Student','user111@email.com','0903429192','Nu');
+INSERT INTO User (`UserID`,`Name`,`Password`,`Role`,`Email`,`Phone`,`Gender`) VALUES (112,'Nguyen Thi Hoang','pass7220','Student','user112@email.com','0908085395','Nu');
+INSERT INTO User (`UserID`,`Name`,`Password`,`Role`,`Email`,`Phone`,`Gender`) VALUES (113,'Pham Thi Hoang','pass9190','Student','user113@email.com','0909036952','Nu');
+INSERT INTO User (`UserID`,`Name`,`Password`,`Role`,`Email`,`Phone`,`Gender`) VALUES (114,'Nguyen Minh An','pass4500','Student','user114@email.com','0906181843','Nu');
+INSERT INTO User (`UserID`,`Name`,`Password`,`Role`,`Email`,`Phone`,`Gender`) VALUES (115,'Nguyen Minh Cuong','pass9418','Student','user115@email.com','0906513237','Nam');
+INSERT INTO User (`UserID`,`Name`,`Password`,`Role`,`Email`,`Phone`,`Gender`) VALUES (116,'Nguyen Quoc Dang','pass2608','Student','user116@email.com','0904492000','Nam');
+INSERT INTO User (`UserID`,`Name`,`Password`,`Role`,`Email`,`Phone`,`Gender`) VALUES (117,'Nguyen Quoc Kiet','pass6326','Student','user117@email.com','0903326874','Nu');
+INSERT INTO User (`UserID`,`Name`,`Password`,`Role`,`Email`,`Phone`,`Gender`) VALUES (118,'Tran Quoc Hien','pass4264','Student','user118@email.com','0905779667','Nu');
+INSERT INTO User (`UserID`,`Name`,`Password`,`Role`,`Email`,`Phone`,`Gender`) VALUES (119,'Hoang Minh Huyen','pass8368','Student','user119@email.com','090688702','Nu');
+INSERT INTO User (`UserID`,`Name`,`Password`,`Role`,`Email`,`Phone`,`Gender`) VALUES (120,'Hoang Quoc Bao','pass5163','Student','user120@email.com','0903029885','Nu');
+INSERT INTO User (`UserID`,`Name`,`Password`,`Role`,`Email`,`Phone`,`Gender`) VALUES (121,'Pham Quoc Hien','pass9522','Student','user121@email.com','0902511451','Nam');
+INSERT INTO User (`UserID`,`Name`,`Password`,`Role`,`Email`,`Phone`,`Gender`) VALUES (122,'Tran Quoc Dang','pass4432','Student','user122@email.com','0907023904','Nam');
+INSERT INTO User (`UserID`,`Name`,`Password`,`Role`,`Email`,`Phone`,`Gender`) VALUES (123,'Khuat Manh Cuong','pass681','Student','user123@email.com','0907626952','Nu');
+INSERT INTO User (`UserID`,`Name`,`Password`,`Role`,`Email`,`Phone`,`Gender`) VALUES (124,'Le Minh Dang','pass3541','Student','user124@email.com','0906258550','Nam');
+INSERT INTO User (`UserID`,`Name`,`Password`,`Role`,`Email`,`Phone`,`Gender`) VALUES (125,'Le Duc Hoang','pass5000','Student','user125@email.com','0907268274','Nam');
+INSERT INTO User (`UserID`,`Name`,`Password`,`Role`,`Email`,`Phone`,`Gender`) VALUES (126,'Tran Minh Duc','pass9565','Student','user126@email.com','0901640600','Nu');
+INSERT INTO User (`UserID`,`Name`,`Password`,`Role`,`Email`,`Phone`,`Gender`) VALUES (127,'Tran Van An','pass7772','Student','user127@email.com','0904858943','Nam');
+INSERT INTO User (`UserID`,`Name`,`Password`,`Role`,`Email`,`Phone`,`Gender`) VALUES (128,'Vuong Van Bao','pass8013','Student','user128@email.com','0906249597','Nu');
+INSERT INTO User (`UserID`,`Name`,`Password`,`Role`,`Email`,`Phone`,`Gender`) VALUES (129,'Nguyen Minh Hien','pass8575','Student','user129@email.com','090730301','Nu');
+INSERT INTO User (`UserID`,`Name`,`Password`,`Role`,`Email`,`Phone`,`Gender`) VALUES (130,'Hoang Van Dang','pass6818','Student','user130@email.com','0906872114','Nam');
+INSERT INTO User (`UserID`,`Name`,`Password`,`Role`,`Email`,`Phone`,`Gender`) VALUES (131,'Hoang Duc Hieu','pass5311','Student','user131@email.com','0906385354','Nu');
+INSERT INTO User (`UserID`,`Name`,`Password`,`Role`,`Email`,`Phone`,`Gender`) VALUES (132,'Nguyen Hong Hoang','pass1652','Student','user132@email.com','0909578133','Nam');
+INSERT INTO User (`UserID`,`Name`,`Password`,`Role`,`Email`,`Phone`,`Gender`) VALUES (133,'Tran Duc Hien','pass7934','Student','user133@email.com','0904058400','Nu');
+INSERT INTO User (`UserID`,`Name`,`Password`,`Role`,`Email`,`Phone`,`Gender`) VALUES (134,'Nguyen Duc An','pass1753','Student','user134@email.com','0901341738','Nam');
+INSERT INTO User (`UserID`,`Name`,`Password`,`Role`,`Email`,`Phone`,`Gender`) VALUES (135,'Hoang Minh Bao','pass1859','Student','user135@email.com','0903116962','Nam');
+INSERT INTO User (`UserID`,`Name`,`Password`,`Role`,`Email`,`Phone`,`Gender`) VALUES (136,'Nguyen Quoc Huyen','pass7954','Student','user136@email.com','0908593504','Nu');
+INSERT INTO User (`UserID`,`Name`,`Password`,`Role`,`Email`,`Phone`,`Gender`) VALUES (137,'Khuat Thi Cuong','pass5412','Student','user137@email.com','0902116356','Nam');
+INSERT INTO User (`UserID`,`Name`,`Password`,`Role`,`Email`,`Phone`,`Gender`) VALUES (138,'Le Van Cuong','pass9126','Student','user138@email.com','0905314645','Nu');
+INSERT INTO User (`UserID`,`Name`,`Password`,`Role`,`Email`,`Phone`,`Gender`) VALUES (139,'Tran Thi Cuong','pass9832','Student','user139@email.com','0901276788','Nu');
+INSERT INTO User (`UserID`,`Name`,`Password`,`Role`,`Email`,`Phone`,`Gender`) VALUES (140,'Hoang Manh Kiet','pass6720','Student','user140@email.com','0907125798','Nu');
+INSERT INTO User (`UserID`,`Name`,`Password`,`Role`,`Email`,`Phone`,`Gender`) VALUES (141,'Khuat Duc Kiet','pass2836','Student','user141@email.com','0901918892','Nam');
+INSERT INTO User (`UserID`,`Name`,`Password`,`Role`,`Email`,`Phone`,`Gender`) VALUES (142,'Vuong Thi Hoang','pass1266','Student','user142@email.com','0901315159','Nam');
+INSERT INTO User (`UserID`,`Name`,`Password`,`Role`,`Email`,`Phone`,`Gender`) VALUES (143,'Pham Van Binh','pass7321','Student','user143@email.com','0907224509','Nam');
+INSERT INTO User (`UserID`,`Name`,`Password`,`Role`,`Email`,`Phone`,`Gender`) VALUES (144,'Khuat Thi Hien','pass2682','Student','user144@email.com','0904956544','Nu');
+INSERT INTO User (`UserID`,`Name`,`Password`,`Role`,`Email`,`Phone`,`Gender`) VALUES (145,'Pham Manh Huyen','pass9483','Student','user145@email.com','0903322364','Nu');
+INSERT INTO User (`UserID`,`Name`,`Password`,`Role`,`Email`,`Phone`,`Gender`) VALUES (146,'Pham Quoc Kiet','pass2335','Student','user146@email.com','0902241751','Nam');
+INSERT INTO User (`UserID`,`Name`,`Password`,`Role`,`Email`,`Phone`,`Gender`) VALUES (147,'Le Duc Bao','pass1604','Student','user147@email.com','0909230446','Nam');
+INSERT INTO User (`UserID`,`Name`,`Password`,`Role`,`Email`,`Phone`,`Gender`) VALUES (148,'Nguyen Duc Hoang','pass7670','Student','user148@email.com','0906436254','Nu');
+INSERT INTO User (`UserID`,`Name`,`Password`,`Role`,`Email`,`Phone`,`Gender`) VALUES (149,'Hoang Manh Hien','pass4032','Student','user149@email.com','0903277112','Nam');
+INSERT INTO User (`UserID`,`Name`,`Password`,`Role`,`Email`,`Phone`,`Gender`) VALUES (150,'Vuong Quoc Binh','pass1681','Student','user150@email.com','090152968','Nu');
+INSERT INTO User (`UserID`,`Name`,`Password`,`Role`,`Email`,`Phone`,`Gender`) VALUES (151,'Tran Thi Anh','pass2843','Student','user151@email.com','0908485253','Nam');
+INSERT INTO User (`UserID`,`Name`,`Password`,`Role`,`Email`,`Phone`,`Gender`) VALUES (152,'Vuong Hong Hoang','pass3164','Student','user152@email.com','0901514386','Nu');
+INSERT INTO User (`UserID`,`Name`,`Password`,`Role`,`Email`,`Phone`,`Gender`) VALUES (153,'Khuat Van Cuong','pass1843','Student','user153@email.com','0904617508','Nu');
+INSERT INTO User (`UserID`,`Name`,`Password`,`Role`,`Email`,`Phone`,`Gender`) VALUES (154,'Khuat Van Hoang','pass4164','Student','user154@email.com','0908601301','Nam');
+INSERT INTO User (`UserID`,`Name`,`Password`,`Role`,`Email`,`Phone`,`Gender`) VALUES (155,'Hoang Duc Binh','pass4994','Student','user155@email.com','0901641269','Nam');
+INSERT INTO User (`UserID`,`Name`,`Password`,`Role`,`Email`,`Phone`,`Gender`) VALUES (156,'Hoang Thi Binh','pass111','Student','user156@email.com','0904419814','Nam');
+INSERT INTO User (`UserID`,`Name`,`Password`,`Role`,`Email`,`Phone`,`Gender`) VALUES (157,'Khuat Manh Hieu','pass9832','Student','user157@email.com','0903776666','Nu');
+INSERT INTO User (`UserID`,`Name`,`Password`,`Role`,`Email`,`Phone`,`Gender`) VALUES (158,'Khuat Hong Anh','pass1588','Student','user158@email.com','0907478900','Nam');
+INSERT INTO User (`UserID`,`Name`,`Password`,`Role`,`Email`,`Phone`,`Gender`) VALUES (159,'Vuong Duc Hien','pass7749','Student','user159@email.com','0908888206','Nam');
+INSERT INTO User (`UserID`,`Name`,`Password`,`Role`,`Email`,`Phone`,`Gender`) VALUES (160,'Khuat Manh Kiet','pass3944','Student','user160@email.com','0906628502','Nam');
+INSERT INTO User (`UserID`,`Name`,`Password`,`Role`,`Email`,`Phone`,`Gender`) VALUES (161,'Hoang Thi Hieu','pass297','Student','user161@email.com','0903041562','Nam');
+INSERT INTO User (`UserID`,`Name`,`Password`,`Role`,`Email`,`Phone`,`Gender`) VALUES (162,'Khuat Manh Dang','pass5494','Student','user162@email.com','0908265502','Nam');
+INSERT INTO User (`UserID`,`Name`,`Password`,`Role`,`Email`,`Phone`,`Gender`) VALUES (163,'Khuat Hong Dang','pass7037','Student','user163@email.com','0904978772','Nam');
+INSERT INTO User (`UserID`,`Name`,`Password`,`Role`,`Email`,`Phone`,`Gender`) VALUES (164,'Le Hong Cuong','pass835','Student','user164@email.com','0906144349','Nu');
+INSERT INTO User (`UserID`,`Name`,`Password`,`Role`,`Email`,`Phone`,`Gender`) VALUES (165,'Vuong Manh Kiet','pass5243','Student','user165@email.com','0908911091','Nu');
 CREATE TABLE Student (
     StudentID INT PRIMARY KEY,
     Class VARCHAR(100),
@@ -369,123 +369,125 @@ CREATE TABLE Course (
     CourseName VARCHAR(255) NOT NULL,
     Credits INT NOT NULL,
     TeacherID INT,
-    FOREIGN KEY (TeacherID) REFERENCES Teacher(TeacherID)
+    semester varchar(50),
+    FOREIGN KEY (TeacherID) REFERENCES teacher(TeacherID)
 );
-INSERT INTO Course(CourseName, Credits, TeacherID)
+INSERT INTO Course(CourseName, Credits, TeacherID,semester)
 values
-    ('Dai so tuyen tinh', 4,10),
-    ('Giai tich 1', 3,13),
-    ('Giai tich 2', 2,12),
-    ('Giai tich 3', 3,11),
+    ('Dai so tuyen tinh', 4,10,'2024.1'),
+    ('Giai tich 1', 3,13,'2024.1'),
+    ('Giai tich 2', 2,12,'2024.1'),
+    ('Giai tich 3', 3,11,'2024.1'),
     -- nhung mon ki sau
-	('Xac suat thong ke', 4,10),
-    ('Giai tich 4', 3,12),
-    ('Giai tich 5', 2,11),
-    ('Giai tich 6', 3,11),
+	('Xac suat thong ke', 4,10,'2024.2'),
+    ('Giai tich 4', 3,12,'2024.2'),
+    ('Giai tich 5', 2,11,'2024.2'),
+    ('Giai tich 6', 3,11,'2024.2'),
     
-    ('Vat li dai cuong 1', 4,14),
-    ('Vat li dai cuong 2', 3,15),
-    ('Vat li dai cuong 3', 3,15),
-    ('Nhap mon ki thuat vat li ', 2,14),
+    ('Vat li dai cuong 1', 4,14,'2024.1'),
+    ('Vat li dai cuong 2', 3,15,'2024.1'),
+    ('Vat li dai cuong 3', 3,15,'2024.1'),
+    ('Nhap mon ki thuat vat li ', 2,14,'2024.1'),
     -- nhung mon ki sau
-	('Vat li dai cuong 4', 4,14),
-    ('Vat li dai cuong 5', 3,14),
-    ('Vat li dai cuong 6', 3,15),
+	('Vat li dai cuong 4', 4,14,'2024.2'),
+    ('Vat li dai cuong 5', 3,14,'2024.2'),
+    ('Vat li dai cuong 6', 3,15,'2024.2'),
     
-    ('Nhap mon cong nghe thong tin va truyen thong', 2,6),
-    ('Tin hoc dai cuong', 3,8),
-    ('Lap trinh huong doi tuong', 4,9),
-    ('Mang may tinh', 3,7),
+    ('Nhap mon cong nghe thong tin va truyen thong', 2,6,'2024.1'),
+    ('Tin hoc dai cuong', 3,8,'2024.1'),
+    ('Lap trinh huong doi tuong', 4,9,'2024.1'),
+    ('Mang may tinh', 3,7,'2024.1'),
 -- nhung mon ki sau
-    ('Nhap mon AI', 2,6),
-    ('He Nhung', 3,7),
-    ('Co so du lieu', 4,8),
-    ('He dieu hanh', 3,9);
+    ('Nhap mon AI', 2,6,'2024.2'),
+    ('He Nhung', 3,7,'2024.2'),
+    ('Co so du lieu', 4,8,'2024.2'),
+    ('He dieu hanh', 3,9,'2024.2');
 
 CREATE TABLE Class (
     ClassID INT PRIMARY KEY AUTO_INCREMENT,
     CourseID INT NOT NULL,
-    Semester varchar(45) NOT NULL,
     Schedule VARCHAR(255),
     LimitStudents INT NOT NULL,
     RegisteredStudents INT DEFAULT 0,
-    FOREIGN KEY (CourseID) REFERENCES Course(CourseID)
+    teacher int,
+    FOREIGN KEY (CourseID) REFERENCES Course(CourseID),
+    FOREIGN KEY (teacher) REFERENCES teacher(TeacherID)
 );
-INSERT INTO Class (CourseID, Semester, Schedule, LimitStudents, RegisteredStudents) 
+INSERT INTO Class (CourseID, Schedule, LimitStudents, RegisteredStudents,teacher) 
 VALUES
-    (1, '2024.1', 'Sáng thứ Hai, 8:00 - 9:30', 50, 49),
-    (1, '2024.1', 'Chiều thứ Tư, 13:00 - 14:30', 50, 48),
-    (1, '2024.1', 'Tối thứ Sáu, 18:00 - 19:30', 50, 47),
+    (1, 'Sáng thứ Hai, 8:00 - 9:30', 50, 49,10),
+    (1, 'Chiều thứ Tư, 13:00 - 14:30', 50, 48,11),
+    (1, 'Tối thứ Sáu, 18:00 - 19:30', 50, 47,12),
 
-    (2, '2024.1', 'Sáng thứ Ba, 9:00 - 10:30', 50, 49),
-    (2, '2024.1', 'Chiều thứ Năm, 14:00 - 15:30', 50, 50),
-    (2, '2024.1', 'Tối thứ Bảy, 19:00 - 20:30', 50, 50),
+    (2, 'Sáng thứ Ba, 9:00 - 10:30', 50, 49,13),
+    (2, 'Chiều thứ Năm, 14:00 - 15:30', 50, 50,10),
+    (2, 'Tối thứ Bảy, 19:00 - 20:30', 50, 50,11),
 
-    (3, '2024.1', 'Sáng thứ Tư, 10:00 - 11:30', 50, 45),
-    (3, '2024.1', 'Chiều thứ Sáu, 15:00 - 16:30', 50, 46),
-    (3, '2024.1', 'Tối Chủ Nhật, 18:00 - 19:30', 50, 50),
+    (3, 'Sáng thứ Tư, 10:00 - 11:30', 50, 45,12),
+    (3, 'Chiều thứ Sáu, 15:00 - 16:30', 50, 46,13),
+    (3, 'Tối Chủ Nhật, 18:00 - 19:30', 50, 50,10),
 
-    (4, '2024.1', 'Sáng thứ Hai, 8:00 - 9:30', 50, 50),
-    (4, '2024.1', 'Chiều thứ Tư, 13:00 - 14:30', 50, 49),
-    (4, '2024.1', 'Tối thứ Sáu, 18:00 - 19:30', 50, 48),
+    (4, 'Sáng thứ Hai, 8:00 - 9:30', 50, 50,11),
+    (4, 'Chiều thứ Tư, 13:00 - 14:30', 50, 49,12),
+    (4, 'Tối thứ Sáu, 18:00 - 19:30', 50, 48,13),
 
-    (5, '2024.2', 'Sáng thứ Hai, 8:00 - 9:30', 30, 25),
-    (5, '2024.2', 'Chiều thứ Ba, 13:00 - 14:30', 30, 25),
+    (5, 'Sáng thứ Hai, 8:00 - 9:30', 30, 25,10),
+    (5, 'Chiều thứ Ba, 13:00 - 14:30', 30, 25,11),
 
-    (6, '2024.2', 'Sáng thứ Ba, 9:00 - 10:30', 30, 26),
-    (6, '2024.2', 'Chiều thứ Tư, 14:00 - 15:30', 30, 24),
+    (6, 'Sáng thứ Ba, 9:00 - 10:30', 30, 26,12),
+    (6, 'Chiều thứ Tư, 14:00 - 15:30', 30, 24,13),
 
-    (7, '2024.2', 'Sáng thứ Tư, 10:00 - 11:30', 30, 28),
-    (7, '2024.2', 'Chiều thứ Năm, 15:00 - 16:30', 30, 22),
+    (7, 'Sáng thứ Tư, 10:00 - 11:30', 30, 28,10),
+    (7, 'Chiều thứ Năm, 15:00 - 16:30', 30, 22,11),
 
-    (8, '2024.2', 'Sáng thứ Hai, 9:00 - 10:30', 30, 25),
-    (8, '2024.2', 'Chiều thứ Ba, 14:00 - 15:30', 30, 25),
+    (8, 'Sáng thứ Hai, 9:00 - 10:30', 30, 25,12),
+    (8, 'Chiều thứ Ba, 14:00 - 15:30', 30, 25,13),
 
-    (9, '2024.1', 'Sáng thứ Ba, 8:00 - 9:30', 30, 24),
-    (9, '2024.1', 'Tối thứ Bảy, 18:00 - 19:30', 30, 26),
+    (9, 'Sáng thứ Ba, 8:00 - 9:30', 30, 24,14),
+    (9, 'Tối thứ Bảy, 18:00 - 19:30', 30, 26,15),
 
-    (10, '2024.1', 'Sáng thứ Tư, 10:00 - 11:30', 30, 25),
-    (10, '2024.1', 'Chiều thứ Sáu, 14:00 - 15:30', 30, 25),
+    (10, 'Sáng thứ Tư, 10:00 - 11:30', 30, 25,14),
+    (10, 'Chiều thứ Sáu, 14:00 - 15:30', 30, 25,15),
 
-    (11, '2024.1', 'Sáng thứ Hai, 8:00 - 9:30', 30, 23),
-    (11, '2024.1', 'Chiều thứ Ba, 13:00 - 14:30', 30, 27),
+    (11, 'Sáng thứ Hai, 8:00 - 9:30', 30, 23,14),
+    (11, 'Chiều thứ Ba, 13:00 - 14:30', 30, 27,15),
 
-    (12, '2024.1', 'Sáng thứ Ba, 9:00 - 10:30', 30, 25),
-    (12, '2024.1', 'Chiều thứ Năm, 14:00 - 15:30', 30, 25),
- -- ki sau   
-    (13, '2024.2', 'Sáng thứ Hai, 8:00 - 9:30', 50, 30),
-    (13, '2024.2', 'Chiều thứ Tư, 13:00 - 14:30', 50, 25),
-    (13, '2024.2', 'Tối thứ Sáu, 18:00 - 19:30', 50, 24),
+    (12, 'Sáng thứ Ba, 9:00 - 10:30', 30, 25,14),
+    (12, 'Chiều thứ Năm, 14:00 - 15:30', 30, 25,15),
+ 
+    (13, 'Sáng thứ Hai, 8:00 - 9:30', 50, 30,14),
+    (13, 'Chiều thứ Tư, 13:00 - 14:30', 50, 25,15),
+    (13, 'Tối thứ Sáu, 18:00 - 19:30', 50, 24,14),
 
-    (14, '2024.2', 'Sáng thứ Ba, 9:00 - 10:30', 30, 20),
-    (14, '2024.2', 'Chiều thứ Năm, 14:00 - 15:30', 30, 12),
+    (14, 'Sáng thứ Ba, 9:00 - 10:30', 30, 20,15),
+    (14, 'Chiều thứ Năm, 14:00 - 15:30', 30, 12,14),
 
-    (15, '2024.2', 'Sáng thứ Tư, 10:00 - 11:30', 30, 16),
-    (15, '2024.2', 'Chiều thứ Sáu, 15:00 - 16:30', 30, 13),
+    (15, 'Sáng thứ Tư, 10:00 - 11:30', 30, 16,15),
+    (15, 'Chiều thứ Sáu, 15:00 - 16:30', 30, 13,14),
 
-    (16, '2024.1', 'Sáng thứ Hai, 8:00 - 9:30', 30, 17),
-    (16, '2024.1', 'Chiều thứ Tư, 13:00 - 14:30', 30, 18),
+    (16, 'Sáng thứ Hai, 8:00 - 9:30', 30, 17,6),
+    (16, 'Chiều thứ Tư, 13:00 - 14:30', 30, 18,7),
 
-    (17, '2024.1', 'Sáng thứ Hai, 8:00 - 9:30', 30, 11),
-    (17, '2024.1', 'Chiều thứ Ba, 13:00 - 14:30', 30, 19),
+    (17, 'Sáng thứ Hai, 8:00 - 9:30', 30, 11,8),
+    (17, 'Chiều thứ Ba, 13:00 - 14:30', 30, 19,9),
 
-    (18, '2024.1', 'Sáng thứ Ba, 9:00 - 10:30', 30, 16),
-    (18, '2024.1', 'Chiều thứ Tư, 14:00 - 15:30', 30, 14),
+    (18, 'Sáng thứ Ba, 9:00 - 10:30', 30, 16,6),
+    (18, 'Chiều thứ Tư, 14:00 - 15:30', 30, 14,7),
 
-    (19, '2024.1', 'Sáng thứ Tư, 10:00 - 11:30', 30, 21),
-    (19, '2024.1', 'Chiều thứ Năm, 15:00 - 16:30', 30, 11),
+    (19, 'Sáng thứ Tư, 10:00 - 11:30', 30, 21,8),
+    (19, 'Chiều thứ Năm, 15:00 - 16:30', 30, 11,9),
 
-    (20, '2024.2', 'Sáng thứ Hai, 9:00 - 10:30', 30, 11),
-    (20, '2024.2', 'Chiều thứ Ba, 14:00 - 15:30', 30, 12),
+    (20, 'Sáng thứ Hai, 9:00 - 10:30', 30, 11,6),
+    (20, 'Chiều thứ Ba, 14:00 - 15:30', 30, 12,7),
 
-    (21, '2024.2', 'Sáng thứ Ba, 8:00 - 9:30', 30, 13),
-    (21, '2024.2', 'Tối thứ Bảy, 18:00 - 19:30', 30, 16),
+    (21, 'Sáng thứ Ba, 8:00 - 9:30', 30, 13,8),
+    (21, 'Tối thứ Bảy, 18:00 - 19:30', 30, 16,9),
 
-    (22, '2024.2', 'Sáng thứ Tư, 10:00 - 11:30', 30, 17),
-    (22, '2024.2', 'Chiều thứ Sáu, 14:00 - 15:30', 30, 18),
+    (22, 'Sáng thứ Tư, 10:00 - 11:30', 30, 17,6),
+    (22, 'Chiều thứ Sáu, 14:00 - 15:30', 30, 18,7),
 
-    (23, '2024.2', 'Sáng thứ Hai, 8:00 - 9:30', 30, 10),
-    (23, '2024.2', 'Chiều thứ Ba, 13:00 - 14:30', 30, 8);
+    (23, 'Sáng thứ Hai, 8:00 - 9:30', 30, 10,8),
+    (23, 'Chiều thứ Ba, 13:00 - 14:30', 30, 8,9);
 
 CREATE TABLE StudentClass (
     StudentID INT,
@@ -5482,3 +5484,166 @@ INSERT INTO LeaveReason (ReasonText) VALUES
 ('Em có lịch phỏng vấn, mong cô thông cảm'),
 ('Em bị gãy chân, cần nghỉ ngơi và điều trị'),
 ('Em đi khám sức khỏe định kỳ, cần thời gian nghỉ để thực hiện');
+create table ketquahoctap(
+	studentID int,
+    Semester varchar(50),
+    GPA float,
+    CPA float,
+    FOREIGN KEY (StudentID) REFERENCES Student(StudentID)
+);
+INSERT INTO ketquahoctap (`StudentID`,`Semester`,`GPA`,`CPA`) VALUES (16,'2024.1',7.1875,7.1875);
+INSERT INTO ketquahoctap (`StudentID`,`Semester`,`GPA`,`CPA`) VALUES (17,'2024.1',7.0625,7.0625);
+INSERT INTO ketquahoctap (`StudentID`,`Semester`,`GPA`,`CPA`) VALUES (18,'2024.1',6.833333333333333,6.833333333333333);
+INSERT INTO ketquahoctap (`StudentID`,`Semester`,`GPA`,`CPA`) VALUES (19,'2024.1',7.25,7.25);
+INSERT INTO ketquahoctap (`StudentID`,`Semester`,`GPA`,`CPA`) VALUES (20,'2024.1',7.0625,7.0625);
+INSERT INTO ketquahoctap (`StudentID`,`Semester`,`GPA`,`CPA`) VALUES (21,'2024.1',6.6875,6.6875);
+INSERT INTO ketquahoctap (`StudentID`,`Semester`,`GPA`,`CPA`) VALUES (22,'2024.1',7.1875,7.1875);
+INSERT INTO ketquahoctap (`StudentID`,`Semester`,`GPA`,`CPA`) VALUES (23,'2024.1',6.958333333333333,6.958333333333333);
+INSERT INTO ketquahoctap (`StudentID`,`Semester`,`GPA`,`CPA`) VALUES (24,'2024.1',6.625,6.625);
+INSERT INTO ketquahoctap (`StudentID`,`Semester`,`GPA`,`CPA`) VALUES (25,'2024.1',7.770833333333333,7.770833333333333);
+INSERT INTO ketquahoctap (`StudentID`,`Semester`,`GPA`,`CPA`) VALUES (26,'2024.1',7.291666666666667,7.291666666666667);
+INSERT INTO ketquahoctap (`StudentID`,`Semester`,`GPA`,`CPA`) VALUES (27,'2024.1',7.375,7.375);
+INSERT INTO ketquahoctap (`StudentID`,`Semester`,`GPA`,`CPA`) VALUES (28,'2024.1',7.041666666666667,7.041666666666667);
+INSERT INTO ketquahoctap (`StudentID`,`Semester`,`GPA`,`CPA`) VALUES (29,'2024.1',6.625,6.625);
+INSERT INTO ketquahoctap (`StudentID`,`Semester`,`GPA`,`CPA`) VALUES (30,'2024.1',7.291666666666667,7.291666666666667);
+INSERT INTO ketquahoctap (`StudentID`,`Semester`,`GPA`,`CPA`) VALUES (31,'2024.1',6.75,6.75);
+INSERT INTO ketquahoctap (`StudentID`,`Semester`,`GPA`,`CPA`) VALUES (32,'2024.1',7.854166666666667,7.854166666666667);
+INSERT INTO ketquahoctap (`StudentID`,`Semester`,`GPA`,`CPA`) VALUES (33,'2024.1',7.229166666666667,7.229166666666667);
+INSERT INTO ketquahoctap (`StudentID`,`Semester`,`GPA`,`CPA`) VALUES (34,'2024.1',7.166666666666667,7.166666666666667);
+INSERT INTO ketquahoctap (`StudentID`,`Semester`,`GPA`,`CPA`) VALUES (35,'2024.1',7.5625,7.5625);
+INSERT INTO ketquahoctap (`StudentID`,`Semester`,`GPA`,`CPA`) VALUES (36,'2024.1',7.291666666666667,7.291666666666667);
+INSERT INTO ketquahoctap (`StudentID`,`Semester`,`GPA`,`CPA`) VALUES (37,'2024.1',7.25,7.25);
+INSERT INTO ketquahoctap (`StudentID`,`Semester`,`GPA`,`CPA`) VALUES (38,'2024.1',7.208333333333333,7.208333333333333);
+INSERT INTO ketquahoctap (`StudentID`,`Semester`,`GPA`,`CPA`) VALUES (39,'2024.1',7.270833333333333,7.270833333333333);
+INSERT INTO ketquahoctap (`StudentID`,`Semester`,`GPA`,`CPA`) VALUES (40,'2024.1',7.541666666666667,7.541666666666667);
+INSERT INTO ketquahoctap (`StudentID`,`Semester`,`GPA`,`CPA`) VALUES (41,'2024.1',6.729166666666667,6.729166666666667);
+INSERT INTO ketquahoctap (`StudentID`,`Semester`,`GPA`,`CPA`) VALUES (42,'2024.1',7.0625,7.0625);
+INSERT INTO ketquahoctap (`StudentID`,`Semester`,`GPA`,`CPA`) VALUES (43,'2024.1',7.208333333333333,7.208333333333333);
+INSERT INTO ketquahoctap (`StudentID`,`Semester`,`GPA`,`CPA`) VALUES (44,'2024.1',7.3125,7.3125);
+INSERT INTO ketquahoctap (`StudentID`,`Semester`,`GPA`,`CPA`) VALUES (45,'2024.1',7.854166666666667,7.854166666666667);
+INSERT INTO ketquahoctap (`StudentID`,`Semester`,`GPA`,`CPA`) VALUES (46,'2024.1',7.791666666666667,7.791666666666667);
+INSERT INTO ketquahoctap (`StudentID`,`Semester`,`GPA`,`CPA`) VALUES (47,'2024.1',7.0625,7.0625);
+INSERT INTO ketquahoctap (`StudentID`,`Semester`,`GPA`,`CPA`) VALUES (48,'2024.1',8.270833333333334,8.270833333333334);
+INSERT INTO ketquahoctap (`StudentID`,`Semester`,`GPA`,`CPA`) VALUES (49,'2024.1',6.875,6.875);
+INSERT INTO ketquahoctap (`StudentID`,`Semester`,`GPA`,`CPA`) VALUES (50,'2024.1',6.854166666666667,6.854166666666667);
+INSERT INTO ketquahoctap (`StudentID`,`Semester`,`GPA`,`CPA`) VALUES (51,'2024.1',7.375,7.375);
+INSERT INTO ketquahoctap (`StudentID`,`Semester`,`GPA`,`CPA`) VALUES (52,'2024.1',7.166666666666667,7.166666666666667);
+INSERT INTO ketquahoctap (`StudentID`,`Semester`,`GPA`,`CPA`) VALUES (53,'2024.1',6.729166666666667,6.729166666666667);
+INSERT INTO ketquahoctap (`StudentID`,`Semester`,`GPA`,`CPA`) VALUES (54,'2024.1',7.208333333333333,7.208333333333333);
+INSERT INTO ketquahoctap (`StudentID`,`Semester`,`GPA`,`CPA`) VALUES (55,'2024.1',7.041666666666667,7.041666666666667);
+INSERT INTO ketquahoctap (`StudentID`,`Semester`,`GPA`,`CPA`) VALUES (56,'2024.1',6.8125,6.8125);
+INSERT INTO ketquahoctap (`StudentID`,`Semester`,`GPA`,`CPA`) VALUES (57,'2024.1',7.395833333333333,7.395833333333333);
+INSERT INTO ketquahoctap (`StudentID`,`Semester`,`GPA`,`CPA`) VALUES (58,'2024.1',7.375,7.375);
+INSERT INTO ketquahoctap (`StudentID`,`Semester`,`GPA`,`CPA`) VALUES (59,'2024.1',7.166666666666667,7.166666666666667);
+INSERT INTO ketquahoctap (`StudentID`,`Semester`,`GPA`,`CPA`) VALUES (60,'2024.1',7.416666666666667,7.416666666666667);
+INSERT INTO ketquahoctap (`StudentID`,`Semester`,`GPA`,`CPA`) VALUES (61,'2024.1',6.958333333333333,6.958333333333333);
+INSERT INTO ketquahoctap (`StudentID`,`Semester`,`GPA`,`CPA`) VALUES (62,'2024.1',6.958333333333333,6.958333333333333);
+INSERT INTO ketquahoctap (`StudentID`,`Semester`,`GPA`,`CPA`) VALUES (63,'2024.1',7.208333333333333,7.208333333333333);
+INSERT INTO ketquahoctap (`StudentID`,`Semester`,`GPA`,`CPA`) VALUES (64,'2024.1',7.833333333333333,7.833333333333333);
+INSERT INTO ketquahoctap (`StudentID`,`Semester`,`GPA`,`CPA`) VALUES (65,'2024.1',7.1875,7.1875);
+INSERT INTO ketquahoctap (`StudentID`,`Semester`,`GPA`,`CPA`) VALUES (66,'2024.1',6.625,6.625);
+INSERT INTO ketquahoctap (`StudentID`,`Semester`,`GPA`,`CPA`) VALUES (67,'2024.1',8.041666666666666,8.041666666666666);
+INSERT INTO ketquahoctap (`StudentID`,`Semester`,`GPA`,`CPA`) VALUES (68,'2024.1',5.666666666666667,5.666666666666667);
+INSERT INTO ketquahoctap (`StudentID`,`Semester`,`GPA`,`CPA`) VALUES (69,'2024.1',7.541666666666667,7.541666666666667);
+INSERT INTO ketquahoctap (`StudentID`,`Semester`,`GPA`,`CPA`) VALUES (70,'2024.1',6.5,6.5);
+INSERT INTO ketquahoctap (`StudentID`,`Semester`,`GPA`,`CPA`) VALUES (71,'2024.1',7.333333333333333,7.333333333333333);
+INSERT INTO ketquahoctap (`StudentID`,`Semester`,`GPA`,`CPA`) VALUES (72,'2024.1',7.5,7.5);
+INSERT INTO ketquahoctap (`StudentID`,`Semester`,`GPA`,`CPA`) VALUES (73,'2024.1',6.791666666666667,6.791666666666667);
+INSERT INTO ketquahoctap (`StudentID`,`Semester`,`GPA`,`CPA`) VALUES (74,'2024.1',7.625,7.625);
+INSERT INTO ketquahoctap (`StudentID`,`Semester`,`GPA`,`CPA`) VALUES (75,'2024.1',7.875,7.875);
+INSERT INTO ketquahoctap (`StudentID`,`Semester`,`GPA`,`CPA`) VALUES (76,'2024.1',8,8);
+INSERT INTO ketquahoctap (`StudentID`,`Semester`,`GPA`,`CPA`) VALUES (77,'2024.1',6.708333333333333,6.708333333333333);
+INSERT INTO ketquahoctap (`StudentID`,`Semester`,`GPA`,`CPA`) VALUES (78,'2024.1',6.458333333333333,6.458333333333333);
+INSERT INTO ketquahoctap (`StudentID`,`Semester`,`GPA`,`CPA`) VALUES (79,'2024.1',7.5,7.5);
+INSERT INTO ketquahoctap (`StudentID`,`Semester`,`GPA`,`CPA`) VALUES (80,'2024.1',6.75,6.75);
+INSERT INTO ketquahoctap (`StudentID`,`Semester`,`GPA`,`CPA`) VALUES (81,'2024.1',6.041666666666667,6.041666666666667);
+INSERT INTO ketquahoctap (`StudentID`,`Semester`,`GPA`,`CPA`) VALUES (82,'2024.1',7,7);
+INSERT INTO ketquahoctap (`StudentID`,`Semester`,`GPA`,`CPA`) VALUES (83,'2024.1',8.125,8.125);
+INSERT INTO ketquahoctap (`StudentID`,`Semester`,`GPA`,`CPA`) VALUES (84,'2024.1',7.958333333333333,7.958333333333333);
+INSERT INTO ketquahoctap (`StudentID`,`Semester`,`GPA`,`CPA`) VALUES (85,'2024.1',7.208333333333333,7.208333333333333);
+INSERT INTO ketquahoctap (`StudentID`,`Semester`,`GPA`,`CPA`) VALUES (86,'2024.1',7.458333333333333,7.458333333333333);
+INSERT INTO ketquahoctap (`StudentID`,`Semester`,`GPA`,`CPA`) VALUES (87,'2024.1',7.375,7.375);
+INSERT INTO ketquahoctap (`StudentID`,`Semester`,`GPA`,`CPA`) VALUES (88,'2024.1',7.333333333333333,7.333333333333333);
+INSERT INTO ketquahoctap (`StudentID`,`Semester`,`GPA`,`CPA`) VALUES (89,'2024.1',7.083333333333333,7.083333333333333);
+INSERT INTO ketquahoctap (`StudentID`,`Semester`,`GPA`,`CPA`) VALUES (90,'2024.1',7.291666666666667,7.291666666666667);
+INSERT INTO ketquahoctap (`StudentID`,`Semester`,`GPA`,`CPA`) VALUES (91,'2024.1',7.541666666666667,7.541666666666667);
+INSERT INTO ketquahoctap (`StudentID`,`Semester`,`GPA`,`CPA`) VALUES (92,'2024.1',6.75,6.75);
+INSERT INTO ketquahoctap (`StudentID`,`Semester`,`GPA`,`CPA`) VALUES (93,'2024.1',7.416666666666667,7.416666666666667);
+INSERT INTO ketquahoctap (`StudentID`,`Semester`,`GPA`,`CPA`) VALUES (94,'2024.1',7.125,7.125);
+INSERT INTO ketquahoctap (`StudentID`,`Semester`,`GPA`,`CPA`) VALUES (95,'2024.1',7.5,7.5);
+INSERT INTO ketquahoctap (`StudentID`,`Semester`,`GPA`,`CPA`) VALUES (96,'2024.1',7.375,7.375);
+INSERT INTO ketquahoctap (`StudentID`,`Semester`,`GPA`,`CPA`) VALUES (97,'2024.1',7.041666666666667,7.041666666666667);
+INSERT INTO ketquahoctap (`StudentID`,`Semester`,`GPA`,`CPA`) VALUES (98,'2024.1',8,8);
+INSERT INTO ketquahoctap (`StudentID`,`Semester`,`GPA`,`CPA`) VALUES (99,'2024.1',7.25,7.25);
+INSERT INTO ketquahoctap (`StudentID`,`Semester`,`GPA`,`CPA`) VALUES (100,'2024.1',6.708333333333333,6.708333333333333);
+INSERT INTO ketquahoctap (`StudentID`,`Semester`,`GPA`,`CPA`) VALUES (101,'2024.1',5.666666666666667,5.666666666666667);
+INSERT INTO ketquahoctap (`StudentID`,`Semester`,`GPA`,`CPA`) VALUES (102,'2024.1',6.416666666666667,6.416666666666667);
+INSERT INTO ketquahoctap (`StudentID`,`Semester`,`GPA`,`CPA`) VALUES (103,'2024.1',6.166666666666667,6.166666666666667);
+INSERT INTO ketquahoctap (`StudentID`,`Semester`,`GPA`,`CPA`) VALUES (104,'2024.1',7.166666666666667,7.166666666666667);
+INSERT INTO ketquahoctap (`StudentID`,`Semester`,`GPA`,`CPA`) VALUES (105,'2024.1',6.5,6.5);
+INSERT INTO ketquahoctap (`StudentID`,`Semester`,`GPA`,`CPA`) VALUES (106,'2024.1',7.333333333333333,7.333333333333333);
+INSERT INTO ketquahoctap (`StudentID`,`Semester`,`GPA`,`CPA`) VALUES (107,'2024.1',6.583333333333333,6.583333333333333);
+INSERT INTO ketquahoctap (`StudentID`,`Semester`,`GPA`,`CPA`) VALUES (108,'2024.1',7.666666666666667,7.666666666666667);
+INSERT INTO ketquahoctap (`StudentID`,`Semester`,`GPA`,`CPA`) VALUES (109,'2024.1',7.5,7.5);
+INSERT INTO ketquahoctap (`StudentID`,`Semester`,`GPA`,`CPA`) VALUES (110,'2024.1',6.958333333333333,6.958333333333333);
+INSERT INTO ketquahoctap (`StudentID`,`Semester`,`GPA`,`CPA`) VALUES (111,'2024.1',6.25,6.25);
+INSERT INTO ketquahoctap (`StudentID`,`Semester`,`GPA`,`CPA`) VALUES (112,'2024.1',8.041666666666666,8.041666666666666);
+INSERT INTO ketquahoctap (`StudentID`,`Semester`,`GPA`,`CPA`) VALUES (113,'2024.1',7,7);
+INSERT INTO ketquahoctap (`StudentID`,`Semester`,`GPA`,`CPA`) VALUES (114,'2024.1',7.25,7.25);
+INSERT INTO ketquahoctap (`StudentID`,`Semester`,`GPA`,`CPA`) VALUES (115,'2024.1',7.25,7.25);
+INSERT INTO ketquahoctap (`StudentID`,`Semester`,`GPA`,`CPA`) VALUES (116,'2024.1',7.166666666666667,7.166666666666667);
+INSERT INTO ketquahoctap (`StudentID`,`Semester`,`GPA`,`CPA`) VALUES (117,'2024.1',7.333333333333333,7.333333333333333);
+INSERT INTO ketquahoctap (`StudentID`,`Semester`,`GPA`,`CPA`) VALUES (118,'2024.1',7.229166666666667,7.229166666666667);
+INSERT INTO ketquahoctap (`StudentID`,`Semester`,`GPA`,`CPA`) VALUES (119,'2024.1',7,7);
+INSERT INTO ketquahoctap (`StudentID`,`Semester`,`GPA`,`CPA`) VALUES (120,'2024.1',7.395833333333333,7.395833333333333);
+INSERT INTO ketquahoctap (`StudentID`,`Semester`,`GPA`,`CPA`) VALUES (121,'2024.1',7.125,7.125);
+INSERT INTO ketquahoctap (`StudentID`,`Semester`,`GPA`,`CPA`) VALUES (122,'2024.1',7.104166666666667,7.104166666666667);
+INSERT INTO ketquahoctap (`StudentID`,`Semester`,`GPA`,`CPA`) VALUES (123,'2024.1',7.520833333333333,7.520833333333333);
+INSERT INTO ketquahoctap (`StudentID`,`Semester`,`GPA`,`CPA`) VALUES (124,'2024.1',6.9375,6.9375);
+INSERT INTO ketquahoctap (`StudentID`,`Semester`,`GPA`,`CPA`) VALUES (125,'2024.1',7.395833333333333,7.395833333333333);
+INSERT INTO ketquahoctap (`StudentID`,`Semester`,`GPA`,`CPA`) VALUES (126,'2024.1',7.395833333333333,7.395833333333333);
+INSERT INTO ketquahoctap (`StudentID`,`Semester`,`GPA`,`CPA`) VALUES (127,'2024.1',7.25,7.25);
+INSERT INTO ketquahoctap (`StudentID`,`Semester`,`GPA`,`CPA`) VALUES (128,'2024.1',7.229166666666667,7.229166666666667);
+INSERT INTO ketquahoctap (`StudentID`,`Semester`,`GPA`,`CPA`) VALUES (129,'2024.1',6.729166666666667,6.729166666666667);
+INSERT INTO ketquahoctap (`StudentID`,`Semester`,`GPA`,`CPA`) VALUES (130,'2024.1',7.354166666666667,7.354166666666667);
+INSERT INTO ketquahoctap (`StudentID`,`Semester`,`GPA`,`CPA`) VALUES (131,'2024.1',6.854166666666667,6.854166666666667);
+INSERT INTO ketquahoctap (`StudentID`,`Semester`,`GPA`,`CPA`) VALUES (132,'2024.1',7.6875,7.6875);
+INSERT INTO ketquahoctap (`StudentID`,`Semester`,`GPA`,`CPA`) VALUES (133,'2024.1',6.895833333333333,6.895833333333333);
+INSERT INTO ketquahoctap (`StudentID`,`Semester`,`GPA`,`CPA`) VALUES (134,'2024.1',6.75,6.75);
+INSERT INTO ketquahoctap (`StudentID`,`Semester`,`GPA`,`CPA`) VALUES (135,'2024.1',7.208333333333333,7.208333333333333);
+INSERT INTO ketquahoctap (`StudentID`,`Semester`,`GPA`,`CPA`) VALUES (136,'2024.1',6.729166666666667,6.729166666666667);
+INSERT INTO ketquahoctap (`StudentID`,`Semester`,`GPA`,`CPA`) VALUES (137,'2024.1',7.4375,7.4375);
+INSERT INTO ketquahoctap (`StudentID`,`Semester`,`GPA`,`CPA`) VALUES (138,'2024.1',7.520833333333333,7.520833333333333);
+INSERT INTO ketquahoctap (`StudentID`,`Semester`,`GPA`,`CPA`) VALUES (139,'2024.1',7.4375,7.4375);
+INSERT INTO ketquahoctap (`StudentID`,`Semester`,`GPA`,`CPA`) VALUES (140,'2024.1',6.958333333333333,6.958333333333333);
+INSERT INTO ketquahoctap (`StudentID`,`Semester`,`GPA`,`CPA`) VALUES (141,'2024.1',6.625,6.625);
+INSERT INTO ketquahoctap (`StudentID`,`Semester`,`GPA`,`CPA`) VALUES (142,'2024.1',7.708333333333333,7.708333333333333);
+INSERT INTO ketquahoctap (`StudentID`,`Semester`,`GPA`,`CPA`) VALUES (143,'2024.1',7.020833333333333,7.020833333333333);
+INSERT INTO ketquahoctap (`StudentID`,`Semester`,`GPA`,`CPA`) VALUES (144,'2024.1',6.916666666666667,6.916666666666667);
+INSERT INTO ketquahoctap (`StudentID`,`Semester`,`GPA`,`CPA`) VALUES (145,'2024.1',6.583333333333333,6.583333333333333);
+INSERT INTO ketquahoctap (`StudentID`,`Semester`,`GPA`,`CPA`) VALUES (146,'2024.1',7.104166666666667,7.104166666666667);
+INSERT INTO ketquahoctap (`StudentID`,`Semester`,`GPA`,`CPA`) VALUES (147,'2024.1',7.395833333333333,7.395833333333333);
+INSERT INTO ketquahoctap (`StudentID`,`Semester`,`GPA`,`CPA`) VALUES (148,'2024.1',7.0625,7.0625);
+INSERT INTO ketquahoctap (`StudentID`,`Semester`,`GPA`,`CPA`) VALUES (149,'2024.1',7.416666666666667,7.416666666666667);
+INSERT INTO ketquahoctap (`StudentID`,`Semester`,`GPA`,`CPA`) VALUES (150,'2024.1',7.3125,7.3125);
+INSERT INTO ketquahoctap (`StudentID`,`Semester`,`GPA`,`CPA`) VALUES (151,'2024.1',6.708333333333333,6.708333333333333);
+INSERT INTO ketquahoctap (`StudentID`,`Semester`,`GPA`,`CPA`) VALUES (152,'2024.1',7.916666666666667,7.916666666666667);
+INSERT INTO ketquahoctap (`StudentID`,`Semester`,`GPA`,`CPA`) VALUES (153,'2024.1',6.895833333333333,6.895833333333333);
+INSERT INTO ketquahoctap (`StudentID`,`Semester`,`GPA`,`CPA`) VALUES (154,'2024.1',7.375,7.375);
+INSERT INTO ketquahoctap (`StudentID`,`Semester`,`GPA`,`CPA`) VALUES (155,'2024.1',7.458333333333333,7.458333333333333);
+INSERT INTO ketquahoctap (`StudentID`,`Semester`,`GPA`,`CPA`) VALUES (156,'2024.1',7.0625,7.0625);
+INSERT INTO ketquahoctap (`StudentID`,`Semester`,`GPA`,`CPA`) VALUES (157,'2024.1',7.8125,7.8125);
+INSERT INTO ketquahoctap (`StudentID`,`Semester`,`GPA`,`CPA`) VALUES (158,'2024.1',6.916666666666667,6.916666666666667);
+INSERT INTO ketquahoctap (`StudentID`,`Semester`,`GPA`,`CPA`) VALUES (159,'2024.1',7,7);
+INSERT INTO ketquahoctap (`StudentID`,`Semester`,`GPA`,`CPA`) VALUES (160,'2024.1',7.791666666666667,7.791666666666667);
+INSERT INTO ketquahoctap (`StudentID`,`Semester`,`GPA`,`CPA`) VALUES (161,'2024.1',7.083333333333333,7.083333333333333);
+INSERT INTO ketquahoctap (`StudentID`,`Semester`,`GPA`,`CPA`) VALUES (162,'2024.1',7.0625,7.0625);
+INSERT INTO ketquahoctap (`StudentID`,`Semester`,`GPA`,`CPA`) VALUES (163,'2024.1',6.333333333333333,6.333333333333333);
+INSERT INTO ketquahoctap (`StudentID`,`Semester`,`GPA`,`CPA`) VALUES (164,'2024.1',8.104166666666666,8.104166666666666);
+INSERT INTO ketquahoctap (`StudentID`,`Semester`,`GPA`,`CPA`) VALUES (165,'2024.1',6.6875,6.6875);
+ALTER TABLE grade
+ADD COLUMN averagescore FLOAT;
+SET SQL_SAFE_UPDATES = 0;
+UPDATE grade
+SET averagescore = (MidtermScore + FinalScore) / 2;
+ALTER TABLE user ADD COLUMN is_delete TINYINT(1) DEFAULT 0;
