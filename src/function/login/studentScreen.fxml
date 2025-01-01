@@ -34,7 +34,7 @@
             </HBox>
             <HBox alignment="CENTER" prefHeight="629.0" prefWidth="1500.0">
                <children>
-                  <TableView fx:id="User" minHeight="500.0" minWidth="2000.0" style="-fx-border-color: black;">
+                  <TableView fx:id="User" minHeight="500.0" minWidth="2000.0" style="-fx-border-color: black;" editable="true">
                     <columns>
                       <TableColumn fx:id="idColumn" minWidth="50.0" prefWidth="50.0" text="UserID" />
                       <TableColumn fx:id="nameColumn" minWidth="100.0" prefWidth="184.0" text="Name" />
