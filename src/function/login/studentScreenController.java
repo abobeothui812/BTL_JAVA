@@ -65,6 +65,8 @@ public class studentScreenController {
     @FXML
     private Pagination pagination;
 
+    private boolean isShowingDeletedUsers = false;
+
     private static final String DB_URL = "jdbc:mysql://localhost:3306/quanlylophoc1";
     private static final String DB_USER = "root";
     private static final String DB_PASSWORD = "mysql";
@@ -88,7 +90,6 @@ public class studentScreenController {
             passColumn.setCellFactory(TextFieldTableCell.forTableColumn());
             emailColumn.setCellFactory(TextFieldTableCell.forTableColumn());
             phoneColumn.setCellFactory(TextFieldTableCell.forTableColumn());
-            roleColumn.setCellFactory(TextFieldTableCell.forTableColumn());
             genderColumn.setCellFactory(TextFieldTableCell.forTableColumn());
 
             // Lắng nghe sự kiện chỉnh sửa cho từng cột
@@ -114,12 +115,6 @@ public class studentScreenController {
                 User user = event.getRowValue();
                 user.setPhone(event.getNewValue());
                 updateUserInDatabase(user, "Phone", event.getNewValue());
-            });
-
-            roleColumn.setOnEditCommit(event -> {
-                User user = event.getRowValue();
-                user.setRole(event.getNewValue());
-                updateUserInDatabase(user, "Role", event.getNewValue());
             });
 
             genderColumn.setOnEditCommit(event -> {
@@ -150,10 +145,16 @@ public class studentScreenController {
 
     public void loadDataFromDatabase(int pageIndex) {
         userData.clear();
+        String query;
         int offset = pageIndex * ROWS_PER_PAGE;
-
-        String query = "SELECT * FROM user WHERE is_delete = 0 AND (Role = 'Student' OR Role = 'Teacher') LIMIT " 
+        if(isShowingDeletedUsers == false){
+            query = "SELECT * FROM user WHERE is_delete = 0 AND (Role = 'Student' OR Role = 'Teacher') LIMIT " 
                + ROWS_PER_PAGE + " OFFSET " + offset;
+        }else{
+            query = "SELECT * FROM user WHERE is_delete = 1 AND (Role = 'Student' OR Role = 'Teacher') LIMIT " 
+               + ROWS_PER_PAGE + " OFFSET " + offset;
+        }
+        
 
         try (Connection conn = DriverManager.getConnection(DB_URL, DB_USER, DB_PASSWORD);
                 Statement stmt = conn.createStatement();
@@ -181,7 +182,7 @@ public class studentScreenController {
         String name = nameText.getText().trim();
         userData.clear();
         StringBuilder query = new StringBuilder("SELECT * FROM user WHERE is_delete = 0 AND (Role = 'Student' OR Role = 'Teacher') and ");
-
+        isShowingDeletedUsers = false;
         if (!userId.isEmpty()) {
             query.append("UserID = ").append(userId);
         }
@@ -223,19 +224,29 @@ public class studentScreenController {
 
 
     private int getTotalUserCount() {
-        String query = "SELECT COUNT(*) AS total FROM user WHERE is_delete = 0 and (Role = 'Student' OR Role = 'Teacher')";
+        String query;
+        
+        if (!isShowingDeletedUsers) {
+            query = "SELECT COUNT(*) AS total FROM user WHERE is_delete = 0 and (Role = 'Student' OR Role = 'Teacher')";
+        } else {
+            query = "SELECT COUNT(*) AS total FROM user WHERE is_delete = 1 and (Role = 'Student' OR Role = 'Teacher')";
+        }
+    
         try (Connection conn = DriverManager.getConnection(DB_URL, DB_USER, DB_PASSWORD);
-                Statement stmt = conn.createStatement();
-                ResultSet rs = stmt.executeQuery(query)) {
-
+             Statement stmt = conn.createStatement();
+             ResultSet rs = stmt.executeQuery(query)) {
+    
             if (rs.next()) {
                 return rs.getInt("total");
             }
         } catch (SQLException e) {
             e.printStackTrace();
         }
+    
         return 0;
     }
+    
+    
 
 private void updateUserInDatabase(User user, String field, String newValue) {
     String sql = "UPDATE User SET " + field + " = ? WHERE UserID = ?";
@@ -381,8 +392,7 @@ private void showAlert(Alert.AlertType alertType, String title, String header, S
 @FXML
 private void showdeleteuser(ActionEvent event) {
     userData.clear();
-
-    
+    isShowingDeletedUsers = true;
     String query = "SELECT * FROM user WHERE is_delete = 1";
 
     try (Connection conn = DriverManager.getConnection(DB_URL, DB_USER, DB_PASSWORD);
@@ -405,6 +415,13 @@ private void showdeleteuser(ActionEvent event) {
                     "There are no deleted users in the system.");
         } else {
             User.setItems(userData);
+            int totalUsers = getTotalUserCount();
+            int pageCount = (int) Math.ceil((double) totalUsers / ROWS_PER_PAGE);
+            pagination.setPageCount(pageCount);
+            pagination.setPageFactory(pageIndex -> {
+                loadDataFromDatabase(pageIndex); // Tải dữ liệu trang hiện tại
+                return User;
+            });
         }
     } catch (SQLException e) {
         e.printStackTrace();
@@ -444,6 +461,6 @@ private void restoreDeletedUser(ActionEvent event) {
         System.out.println("Invalid UserID format. Please enter a number.");
     }
 }
-
+    
 }
 

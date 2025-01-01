@@ -17,13 +17,13 @@
                   <VBox VBox.vgrow="ALWAYS" />
                   <AnchorPane maxHeight="400.0" maxWidth="600.0" minHeight="400.0" minWidth="600.0">
                      <children>
-                        <Button layoutX="272.0" layoutY="287.0" mnemonicParsing="false" onAction="#Logout" text="Logout" />
-                        <Button layoutX="211.0" layoutY="126.0" mnemonicParsing="false" onAction="#quanlisinhvien" text="Quản lý sinh viên">
+                        <Button layoutX="283.0" layoutY="286.0" mnemonicParsing="false" onAction="#Logout" text="Logout" />
+                        <Button layoutX="211.0" layoutY="126.0" mnemonicParsing="false" onAction="#Quanlinguoidung" text="Quản lý người dùng">
                            <font>
                               <Font size="20.0" />
                            </font>
                         </Button>
-                        <Button layoutX="209.0" layoutY="200.0" mnemonicParsing="false" text="Quản lý giáo viên">
+                        <Button layoutX="209.0" layoutY="200.0" mnemonicParsing="false" prefHeight="43.0" prefWidth="204.0" text="Quản lý khoá học">
                            <font>
                               <Font size="20.0" />
                            </font>
