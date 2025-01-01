@@ -20,6 +20,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.control.cell.TextFieldTableCell;
 
 public class studentScreenController {
     @FXML
@@ -67,6 +68,53 @@ public class studentScreenController {
     public void initialize() {
 
         try {
+            User.setEditable(true);
+            nameColumn.setCellFactory(TextFieldTableCell.forTableColumn());
+            passColumn.setCellFactory(TextFieldTableCell.forTableColumn());
+            emailColumn.setCellFactory(TextFieldTableCell.forTableColumn());
+            phoneColumn.setCellFactory(TextFieldTableCell.forTableColumn());
+            roleColumn.setCellFactory(TextFieldTableCell.forTableColumn());
+            genderColumn.setCellFactory(TextFieldTableCell.forTableColumn());
+
+            // Lắng nghe sự kiện chỉnh sửa cho từng cột
+            nameColumn.setOnEditCommit(event -> {
+                User user = event.getRowValue();
+                user.setName(event.getNewValue());
+                updateUserInDatabase(user, "Name", event.getNewValue());
+            });
+
+            passColumn.setOnEditCommit(event -> {
+                User user = event.getRowValue();
+                user.setPassword(event.getNewValue());
+                updateUserInDatabase(user, "Password", event.getNewValue());
+            });
+
+            emailColumn.setOnEditCommit(event -> {
+                User user = event.getRowValue();
+                user.setEmail(event.getNewValue());
+                updateUserInDatabase(user, "Email", event.getNewValue());
+            });
+
+            phoneColumn.setOnEditCommit(event -> {
+                User user = event.getRowValue();
+                user.setPhone(event.getNewValue());
+                updateUserInDatabase(user, "Phone", event.getNewValue());
+            });
+
+            roleColumn.setOnEditCommit(event -> {
+                User user = event.getRowValue();
+                user.setRole(event.getNewValue());
+                updateUserInDatabase(user, "Role", event.getNewValue());
+            });
+
+            genderColumn.setOnEditCommit(event -> {
+                User user = event.getRowValue();
+                user.setGender(event.getNewValue());
+                updateUserInDatabase(user, "Gender", event.getNewValue());
+            });
+
+            loadDataFromDatabase(1);
+            User.setItems(userData);
             // Liên kết cột với thuộc tính của đối tượng
             idColumn.setCellValueFactory(new PropertyValueFactory<>("UserID"));
             nameColumn.setCellValueFactory(new PropertyValueFactory<>("Name"));
@@ -262,6 +310,18 @@ public class studentScreenController {
             e.printStackTrace();
             showAlert(Alert.AlertType.ERROR, "Database Error", "Error Fetching Data",
                     "An error occurred while fetching deleted users.");
+        }
+    }
+
+    private void updateUserInDatabase(User user, String field, String newValue) {
+        String sql = "UPDATE User SET " + field + " = ? WHERE UserID = ?";
+        try (Connection conn = DriverManager.getConnection(DB_URL, DB_USER, DB_PASSWORD);
+                PreparedStatement stmt = conn.prepareStatement(sql)) {
+            stmt.setString(1, newValue);
+            stmt.setInt(2, user.getUserID());
+            stmt.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
         }
     }
 }

@@ -26,15 +26,16 @@
                   <Button mnemonicParsing="false" onAction="#search" prefHeight="26.0" prefWidth="92.0" text="Search" />
                   <MenuButton mnemonicParsing="false" prefHeight="26.0" prefWidth="100.0" text="Option">
                     <items>
-                      <MenuItem mnemonicParsing="false" text="Delete" />
+                      <MenuItem mnemonicParsing="false" onAction="#delete" text="Delete" />
                       <MenuItem mnemonicParsing="false" text="Add" />
                     </items>
                   </MenuButton>
+                  <Button layoutX="446.0" layoutY="47.0" minWidth="120.0" mnemonicParsing="false" onAction="#showdeleteuser" prefHeight="26.0" prefWidth="92.0" text="show delete user" />
                </children>
             </HBox>
             <HBox alignment="CENTER" prefHeight="629.0" prefWidth="1500.0">
                <children>
-                  <TableView fx:id="User" minHeight="500.0" minWidth="2000.0" style="-fx-border-color: black;" editable="true">
+                  <TableView fx:id="User" minHeight="500.0" minWidth="2000.0" style="-fx-border-color: black;">
                     <columns>
                       <TableColumn fx:id="idColumn" minWidth="50.0" prefWidth="50.0" text="UserID" />
                       <TableColumn fx:id="nameColumn" minWidth="100.0" prefWidth="184.0" text="Name" />
