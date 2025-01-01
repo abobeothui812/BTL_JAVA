@@ -9,7 +9,7 @@ public class AccountManager {
     private Map<String, Account> accounts = new HashMap<>();
     private final String DB_URL = "jdbc:mysql://localhost:3306/quanlylophoc1";
     private final String DB_USER = "root";
-    private final String DB_PASSWORD = "mysql";
+    private final String DB_PASSWORD = "123456";
 
     private AccountManager() {
         loadAccounts();
