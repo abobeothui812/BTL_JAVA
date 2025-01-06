@@ -1,13 +1,15 @@
 package function.login;
 
-import java.io.*;
+import java.sql.*;
 import java.util.HashMap;
 import java.util.Map;
 
 public class AccountManager {
     private static AccountManager instance;
     private Map<String, Account> accounts = new HashMap<>();
-    private final String FILE_PATH = "C:\\Users\\hienk\\eclipse-workspace\\Login\\src\\accounts.txt";
+    private final String DB_URL = "jdbc:mysql://localhost:3306/quanlylophoc1";
+    private final String DB_USER = "root";
+    private final String DB_PASSWORD = "_E#./FywmS,w43S";
 
     private AccountManager() {
         loadAccounts();
@@ -20,75 +22,73 @@ public class AccountManager {
         return instance;
     }
 
-    // Lưu tài khoản mới
-    public void addAccount(String username, String password, String role) {
-        accounts.put(username, new Account(username, password, role));
-        saveAccounts();
-    }
-
-    // Kiểm tra tài khoản tồn tại
-    public boolean accountExists(String username) {
-        return accounts.containsKey(username);
-    }
-
-    // Xác thực thông tin đăng nhập
-    public boolean validateCredentials(String username, String password) {
-        return accounts.containsKey(username) && accounts.get(username).getPassword().equals(password);
-    }
-
-    // Lấy vai trò tài khoản
-    public String getRole(String username) {
-        if (accounts.containsKey(username)) {
-            return accounts.get(username).getRole();
-        }
-        return null;
-    }
-
-    // Ghi tài khoản vào file
-    private void saveAccounts() {
-        try (BufferedWriter writer = new BufferedWriter(new FileWriter(FILE_PATH))) {
-            for (Account account : accounts.values()) {
-                writer.write(account.getUsername() + "," + account.getPassword() + "," + account.getRole());
-                writer.newLine();
-            }
-        } catch (IOException e) {
+    // Lưu tài khoản mới vào cơ sở dữ liệu
+    public void addAccount(String name, String password, String role, String email, String phone, String gender) {
+        String query = "INSERT INTO User (Name, Password, Role, Email, Phone, Gender) VALUES (?, ?, ?, ?, ?, ?)";
+        try (Connection conn = DriverManager.getConnection(DB_URL, DB_USER, DB_PASSWORD);
+             PreparedStatement stmt = conn.prepareStatement(query)) {
+            stmt.setString(1, name);
+            stmt.setString(2, password);
+            stmt.setString(3, role);
+            stmt.setString(4, email);
+            stmt.setString(5, phone);
+            stmt.setString(6, gender);
+            stmt.executeUpdate();
+            accounts.put(email, new Account(email, password, role));
+        } catch (SQLException e) {
             e.printStackTrace();
         }
     }
 
-    // Đọc tài khoản từ file
-    private void loadAccounts() {
-        File file = new File(FILE_PATH);
-        if (!file.exists()) {
-            return; // Không làm gì nếu file chưa tồn tại
+    // Kiểm tra tài khoản tồn tại
+    public boolean accountExists(String email) {
+        return accounts.containsKey(email);
+    }
+
+    // Xác thực thông tin đăng nhập
+    public boolean validateCredentials(String email, String password) {
+        return accounts.containsKey(email) && accounts.get(email).getPassword().equals(password);
+    }
+
+    // Lấy vai trò tài khoản
+    public String getRole(String email) {
+        if (accounts.containsKey(email)) {
+            return accounts.get(email).getRole();
         }
-        try (BufferedReader reader = new BufferedReader(new FileReader(FILE_PATH))) {
-            String line;
-            while ((line = reader.readLine()) != null) {
-                String[] parts = line.split(",");
-                if (parts.length == 3) {
-                    accounts.put(parts[0], new Account(parts[0], parts[1], parts[2]));
-                }
+        return null;
+    }
+
+    // Tải tài khoản từ cơ sở dữ liệu
+    private void loadAccounts() {
+        String query = "SELECT Email, Password, Role FROM user where is_delete =0";
+        try (Connection conn = DriverManager.getConnection(DB_URL, DB_USER, DB_PASSWORD);
+             Statement stmt = conn.createStatement();
+             ResultSet rs = stmt.executeQuery(query)) {
+            while (rs.next()) {
+                String email = rs.getString("Email");
+                String password = rs.getString("Password");
+                String role = rs.getString("Role");
+                accounts.put(email, new Account(email, password, role));
             }
-        } catch (IOException e) {
+        } catch (SQLException e) {
             e.printStackTrace();
         }
     }
 }
 
 class Account {
-    private String username;
+    private String email;
     private String password;
     private String role;
 
-    public Account(String username, String password, String role) {
-        this.username = username;
+    public Account(String email, String password, String role) {
+        this.email = email;
         this.password = password;
         this.role = role;
     }
 
-    public String getUsername() {
-        return username;
+    public String getEmail() {
+        return email;
     }
 
     public String getPassword() {

@@ -1,10 +1,14 @@
 package function.login;
 
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+
 import javafx.application.Application;
-import javafx.stage.Stage;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.layout.VBox;
-import javafx.fxml.FXMLLoader;
+import javafx.stage.Stage;
 
 public class Main extends Application {
     @Override
@@ -22,6 +26,7 @@ public class Main extends Application {
     }
 
     public static void main(String[] args) {
+        System.out.println("Ket noi thanh cong!");
         launch(args);
     }
 }
