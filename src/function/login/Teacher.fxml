@@ -1,37 +1,93 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Button?>
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
-<?import javafx.scene.text.Font?>
 
-<VBox xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="function.login.SampleController">
-   <children>
-      <HBox maxHeight="100.0" VBox.vgrow="ALWAYS" />
-      <HBox VBox.vgrow="ALWAYS">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="function.Teacher.TeacherController">
+   <top>
+      <MenuBar BorderPane.alignment="CENTER">
+        <menus>
+          <Menu mnemonicParsing="false" text="Thông tin cá nhân">
+            <items>
+                  <MenuItem mnemonicParsing="false" text="Xem hồ sơ cá nhân" />
+                  <MenuItem mnemonicParsing="false" text="Đổi mật khẩu" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Quản lý lớp học">
+            <items>
+              <MenuItem fx:id="attendancecheck" mnemonicParsing="false" onAction="#AttendanceInit" text="Điểm danh" />
+                  <MenuItem fx:id="ScoreUpdate" mnemonicParsing="false" onAction="#ScoreInit" text="Cập nhật điểm" />
+                  <MenuItem mnemonicParsing="false" onAction="#ReviewRequestInit" text="Phúc khảo" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Tra cứu">
+            <items>
+              <MenuItem mnemonicParsing="false" onAction="#TeacherSearchInit" text="Giáo Viên" />
+                  <MenuItem fx:id="studentSearch" mnemonicParsing="false" onAction="#StudentSearchInit" text="Sinh Viên" />
+                  <MenuItem mnemonicParsing="false" onAction="#CourseSearchInit" text="Học phần" />
+                  <MenuItem mnemonicParsing="false" text="Lớp" />
+            </items>
+          </Menu>
+        </menus>
+      </MenuBar>
+   </top>
+   <center>
+      <HBox prefHeight="374.0" prefWidth="395.0" BorderPane.alignment="CENTER">
          <children>
-            <HBox HBox.hgrow="ALWAYS" />
-            <VBox maxWidth="600.0" HBox.hgrow="ALWAYS">
+            <VBox prefHeight="374.0" prefWidth="100.0">
                <children>
-                  <VBox VBox.vgrow="ALWAYS" />
-                  <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0">
-                     <children>
-                        <Label layoutX="231.0" layoutY="171.0" text="Teacher">
-                           <font>
-                              <Font size="40.0" />
-                           </font>
-                        </Label>
-                        <Button layoutX="274.0" layoutY="241.0" mnemonicParsing="false" onAction="#Logout" text="Logout" />
-                     </children>
-                  </AnchorPane>
-                  <VBox VBox.vgrow="ALWAYS" />
+                  <ImageView fx:id="img" fitHeight="150.0" fitWidth="90.0" pickOnBounds="true" preserveRatio="true">
+                     <VBox.margin>
+                        <Insets left="5.0" top="5.0" />
+                     </VBox.margin></ImageView>
                </children>
             </VBox>
-            <HBox HBox.hgrow="ALWAYS" />
+            <VBox prefHeight="374.0" prefWidth="250.0">
+               <children>
+                  <Label fx:id="hovaten" prefHeight="22.0" prefWidth="186.0" text="Họ và tên: ">
+                     <padding>
+                        <Insets bottom="10.0" left="5.0" top="10.0" />
+                     </padding>
+                  </Label>
+                  <Label fx:id="enrollyear" prefHeight="22.0" prefWidth="186.0" text="Năm vào trường">
+                     <padding>
+                        <Insets bottom="10.0" left="5.0" top="10.0" />
+                     </padding>
+                  </Label>
+                  <Label fx:id="department" prefHeight="22.0" prefWidth="186.0" text="Khoa:">
+                     <padding>
+                        <Insets bottom="10.0" left="5.0" top="10.0" />
+                     </padding>
+                  </Label>
+               </children>
+            </VBox>
+            <VBox prefHeight="374.0" prefWidth="250.0">
+               <children>
+                  <Label fx:id="gender" prefHeight="22.0" prefWidth="186.0" text="Giới tính:">
+                     <padding>
+                        <Insets bottom="10.0" left="5.0" top="10.0" />
+                     </padding>
+                  </Label>
+                  <Label fx:id="speciality" prefHeight="22.0" prefWidth="186.0" text="Chuyên môn:">
+                     <padding>
+                        <Insets bottom="10.0" left="5.0" top="10.0" />
+                     </padding>
+                  </Label>
+                  <Label fx:id="mail" prefHeight="22.0" prefWidth="186.0" text="Email">
+                     <padding>
+                        <Insets bottom="10.0" left="5.0" top="10.0" />
+                     </padding>
+                  </Label>
+               </children>
+            </VBox>
          </children>
       </HBox>
-      <HBox layoutX="10.0" layoutY="10.0" maxHeight="100.0" VBox.vgrow="ALWAYS" />
-   </children>
-</VBox>
+   </center>
+</BorderPane>

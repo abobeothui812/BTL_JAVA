@@ -36,6 +36,11 @@ public class Course {
         this.teacherID = teacherID;   
     }
 
+    public Course(int CourseID, String courseNameInit, int courseCreditInit) {
+        this.courseID = CourseID;
+        this.courseName = courseNameInit;
+        this.credits = courseCreditInit;
+    }
     // Getters and Setters
     public int getCourseID() {
         return courseID;

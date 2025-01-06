@@ -57,10 +57,15 @@ public class AccountManager {
         }
         return null;
     }
-
+    public String getID(String email) {
+        if (accounts.containsKey(email)) {
+            return String.valueOf(accounts.get(email).getID());
+        }
+        return null;
+    }
     // Tải tài khoản từ cơ sở dữ liệu
     private void loadAccounts() {
-        String query = "SELECT Email, Password, Role FROM user where is_delete =0";
+        String query = "SELECT Email, Password, Role, UserID FROM user where is_delete =0";
         try (Connection conn = DriverManager.getConnection(DB_URL, DB_USER, DB_PASSWORD);
              Statement stmt = conn.createStatement();
              ResultSet rs = stmt.executeQuery(query)) {
@@ -68,7 +73,8 @@ public class AccountManager {
                 String email = rs.getString("Email");
                 String password = rs.getString("Password");
                 String role = rs.getString("Role");
-                accounts.put(email, new Account(email, password, role));
+                String ID = rs.getString("UserID");
+                accounts.put(email, new Account(email, password, role, Integer.parseInt(ID)));
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -80,6 +86,13 @@ class Account {
     private String email;
     private String password;
     private String role;
+    private int ID;
+    public Account(String email, String password, String role, int ID) {
+        this.email = email;
+        this.password = password;
+        this.role = role;
+        this.ID = ID;
+    }
 
     public Account(String email, String password, String role) {
         this.email = email;
@@ -97,5 +110,8 @@ class Account {
 
     public String getRole() {
         return role;
+    }
+    public int getID(){
+        return ID;
     }
 }
