@@ -2,20 +2,28 @@ package Class;
 public class User {
     private int userID;
     private String name;
+<<<<<<< HEAD
     private String username;
+=======
+>>>>>>> main
     private String password;
     private String role;
     private String email;
     private String phone;
     private String gender;
 
+<<<<<<< HEAD
     public User(String username, String password) {
         this.username = username;
         this.password = password;
     }
     public User(int userID, String username, String password, String role, String email, String phone, String gender) {
+=======
+    // Constructor, getters and setters
+    public User(int userID, String name, String password, String role, String email, String phone, String gender) {
+>>>>>>> main
         this.userID = userID;
-        this.username = username;
+        this.name = name;
         this.password = password;
         this.role = role;
         this.email = email;
@@ -31,12 +39,12 @@ public class User {
         this.userID = userID;
     }
 
-    public String getUsername() {
-        return username;
+    public String getName() {
+        return name;
     }
 
-    public void setUsername(String username) {
-        this.username = username;
+    public void setName(String name) {
+        this.name = name;
     }
 
     public String getPassword() {
