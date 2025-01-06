@@ -20,7 +20,9 @@ import Class.Attendance;
 import Class.Grade;
 import javafx.collections.FXCollections;
 
-public class ScoreUpdateController {
+import function.Teacher.TeacherController;
+
+public class ScoreUpdateController extends TeacherController {
     private Connection dbConnection;
     DatabaseHelper helper = new DatabaseHelper();
     ObservableList<Grade> StudentList = FXCollections.observableArrayList();
@@ -89,7 +91,7 @@ void createUpdateRequest() {
     String selectedClass = classSelector.getSelectionModel().getSelectedItem();
     if (selectedClass != null) {
         String[] parts = selectedClass.split(" - ");
-        String classID = parts[0];
+        int classID = Integer.parseInt(parts[0]);
 
         StudentList = helper.fetchStudentFromDatabaseWithClass(classID);
 
@@ -107,8 +109,9 @@ void createUpdateRequest() {
         name.setEditable(false); // Ensure this column is not editable
 
         studentCode.setCellValueFactory(cellData -> 
-            new SimpleStringProperty(cellData.getValue().getStudent().getStudentId())
+            new SimpleStringProperty(String.valueOf(cellData.getValue().getStudent().getStudentId()))
         );
+
 
         studentCode.setCellFactory(col -> new TableCell<Grade, String>() {
             @Override

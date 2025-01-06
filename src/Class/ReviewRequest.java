@@ -7,6 +7,13 @@ public class ReviewRequest {
     private String status;
 
     // Constructor
+    public ReviewRequest(Class aclass, Student student, String reason, String status) {
+        this.aClass = aclass;
+        this.student = student;
+        this.reason = reason;
+        this.status = status;
+        
+    }
     public ReviewRequest(int requestID, Student student, Class aClass, String reason, String status) {
         this.requestID = requestID;
         this.student = student;

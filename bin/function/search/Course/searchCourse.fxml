@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="function.search.Course.searchCourseController">
+   <top>
+      <MenuBar BorderPane.alignment="CENTER">
+         <menus>
+            <Menu mnemonicParsing="false" text="Thông tin cá nhân">
+               <items>
+                  <MenuItem mnemonicParsing="false" text="Xem hồ sơ cá nhân" />
+                  <MenuItem mnemonicParsing="false" text="Đổi mật khẩu" />
+               </items>
+            </Menu>
+            <Menu mnemonicParsing="false" text="Quản lý lớp học">
+               <items>
+                  <MenuItem fx:id="attendancecheck" mnemonicParsing="false" onAction="#AttendanceInit" text="Điểm danh" />
+                  <MenuItem fx:id="ScoreUpdate" mnemonicParsing="false" onAction="#ScoreInit" text="Cập nhật điểm" />
+               </items>
+            </Menu>
+            <Menu mnemonicParsing="false" text="Tra cứu">
+               <items>
+                  <MenuItem mnemonicParsing="false" text="Giáo Viên" />
+                  <MenuItem mnemonicParsing="false" text="Sinh Viên" />
+                  <MenuItem mnemonicParsing="false" text="Học phần" />
+                  <MenuItem mnemonicParsing="false" text="Lớp" />
+               </items>
+            </Menu>
+         </menus>
+      </MenuBar>
+   </top>
+   <center>
+      <VBox prefHeight="400.0" prefWidth="600.0" spacing="10" BorderPane.alignment="CENTER">
+         <children>
+            <HBox alignment="CENTER" spacing="10">
+               <children>
+                  <TextField fx:id="CourseIdField" prefWidth="400.0" promptText="Nhập mã học phần (Course ID)">
+                  </TextField>
+                  <Button fx:id="searchButton" onAction="#handleSearch" text="Tìm kiếm" />
+               </children>
+            </HBox>
+            <HBox prefHeight="100.0" prefWidth="200.0">
+               <children>
+                  <Label fx:id="CourseName" prefHeight="18.0" prefWidth="300.0" text="Tên học phần:">
+                     <HBox.margin>
+                        <Insets bottom="5.0" left="5.0" top="5.0" />
+                     </HBox.margin>
+                  </Label>
+                  <Label fx:id="credit" prefHeight="18.0" prefWidth="200.0" text="Số tín chỉ:">
+                     <HBox.margin>
+                        <Insets bottom="5.0" left="10.0" top="5.0" />
+                     </HBox.margin>
+                  </Label>
+               </children>
+            </HBox>
+            <ScrollPane fx:id="scrollPane" fitToWidth="true" prefHeight="350.0" prefWidth="600.0">
+               <content>
+                  <AnchorPane fx:id="scrollPaneContent" />
+               </content>
+            </ScrollPane>
+         </children>
+         <padding>
+            <Insets bottom="10" left="10" right="10" top="10" />
+         </padding>
+      </VBox>
+   </center>
+</BorderPane>

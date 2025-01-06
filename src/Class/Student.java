@@ -4,12 +4,12 @@ import java.util.*;
 
 public class Student extends User {
     private String name;
-    private String studentId;
+    private int studentId;
     private String major;
     private Map<String, List<Class>> semesterClasses;
     private Map<String, Map<Class, Double>> semesterScores;
 
-    public Student(String studentId, String name){
+    public Student(int studentId, String name){
         super(null, null); // Call User constructor (you can pass null or empty if you don't need to initialize username/password)
         this.name = name;
         this.studentId = studentId;
@@ -19,7 +19,7 @@ public class Student extends User {
         return name;
     }
 
-    public Student(String username, String password, String studentId, String major) {
+    public Student(String username, String password, int studentId, String major) {
         super(username, password);
         this.studentId = studentId;
         this.major = major;
@@ -27,11 +27,11 @@ public class Student extends User {
         this.semesterScores = new HashMap<>();
     }
 
-    public String getStudentId() {
+    public int getStudentId() {
         return studentId;
     }
 
-    public void setStudentId(String studentId) {
+    public void setStudentId(int studentId) {
         this.studentId = studentId;
     }
 

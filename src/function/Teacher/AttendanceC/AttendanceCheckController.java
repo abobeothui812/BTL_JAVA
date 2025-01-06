@@ -83,48 +83,49 @@ public class AttendanceCheckController {
     }
 
     @FXML
-    private void createNewCheck(){
-        String selectedClass = classSelector.getSelectionModel().getSelectedItem();
-        if (selectedClass != null) {
-            String[] parts = selectedClass.split(" - ");
-            String classID = parts[0];
-            
-            StudentList = helper.fetchStudentFromDatabaseWithClass(classID);
-            
-            //name.setCellValueFactory(new PropertyValueFactory<Attendance, String>("Student.name"));
-            //studentCode.setCellValueFactory(new PropertyValueFactory<Attendance, String>("Student.studentId"));
-            name.setCellValueFactory(cellData -> 
-                new SimpleStringProperty(cellData.getValue().getStudent().getName())
-            );
+private void createNewCheck() {
+    String selectedClass = classSelector.getSelectionModel().getSelectedItem();
+    if (selectedClass != null) {
+        String[] parts = selectedClass.split(" - ");
+        int classID = Integer.parseInt(parts[0]);
 
-            studentCode.setCellValueFactory(cellData -> 
-                new SimpleStringProperty(cellData.getValue().getStudent().getStudentId())
-            );
+        // Fetch students for the selected class
+        StudentList = helper.fetchStudentFromDatabaseWithClass(classID);
 
-            stt.setCellFactory(col -> new TableCell<Attendance, String>() {
-                @Override
-                protected void updateItem(String item, boolean empty) {
-                    super.updateItem(item, empty);
-                    if (!empty) {
-                        int index = getIndex() + 1;  // Row numbers are index + 1
-                        setText(String.valueOf(index));
-                    } else {
-                        setText(null);
-                    }
+        // Set cell value factories
+        name.setCellValueFactory(cellData ->
+            new SimpleStringProperty(cellData.getValue().getStudent().getName())
+        );
+
+        studentCode.setCellValueFactory(cellData ->
+            new SimpleStringProperty(String.valueOf(cellData.getValue().getStudent().getStudentId()))
+        );
+
+        stt.setCellFactory(col -> new TableCell<Attendance, String>() {
+            @Override
+            protected void updateItem(String item, boolean empty) {
+                super.updateItem(item, empty);
+                if (!empty) {
+                    int index = getIndex() + 1; // Row numbers are index + 1
+                    setText(String.valueOf(index));
+                } else {
+                    setText(null);
                 }
-            });
-            saveButton.setVisible(true);
+            }
+        });
 
+        // Set the student list to the table
+        studentAttendance.setItems(StudentList);
 
-            studentAttendance.setItems(StudentList);
+        // Clear any previously added dynamic columns
+        studentAttendance.getColumns().removeIf(column -> column.getText().contains("Check"));
 
-            String date = LocalDate.now().toString();
+        // Create and add the dynamic toggle column
+        String date = LocalDate.now().toString();
+        TableColumn<Attendance, String> toggleColumn = new TableColumn<>("Check " + date);
+        toggleColumn.setCellValueFactory(cellData -> cellData.getValue().getDynamicProperty());
 
-            TableColumn<Attendance, String> toggleColumn = new TableColumn<>("Check " + date);
-            toggleColumn.setCellValueFactory(cellData -> cellData.getValue().getDynamicProperty());
-
-
-            toggleColumn.setCellFactory(tc -> new TableCell<>() {
+        toggleColumn.setCellFactory(tc -> new TableCell<>() {
             private final Button button = new Button();
 
             @Override
@@ -147,9 +148,13 @@ public class AttendanceCheckController {
             }
         });
 
-            studentAttendance.getColumns().add(toggleColumn);
-        }
+        studentAttendance.getColumns().add(toggleColumn);
+
+        // Make the save button visible
+        saveButton.setVisible(true);
     }
+}
+
 
     @FXML
     void save(ActionEvent event) {

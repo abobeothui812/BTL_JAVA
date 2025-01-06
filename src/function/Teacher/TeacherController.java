@@ -6,9 +6,12 @@ import java.sql.*;
 import javax.swing.Action;
 
 import function.Teacher.AttendanceC.AttendanceCheckController;
+import function.Teacher.RequestScore.ScoreRequestController;
 import function.Teacher.ScoreUpdate.ScoreUpdateController;
 import function.login.SampleController;
+import function.search.Course.searchCourseController;
 import function.search.Student.searchStudentController;
+import function.search.Teacher.searchTeacherController;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -70,8 +73,8 @@ public class TeacherController extends SampleController {
                 boolean hasResults = false;
                 while (resultSet.next()) {
                     hasResults = true;
-                    department.setText(department.getText() + resultSet.getString("Department"));
-                    speciality.setText(speciality.getText() + resultSet.getString("Specialization"));
+                    department.setText(department.getText() + " " + resultSet.getString("Department"));
+                    speciality.setText(speciality.getText() + " " + resultSet.getString("Specialization"));
                 }
 
                 if (!hasResults) {
@@ -86,9 +89,9 @@ public class TeacherController extends SampleController {
                 hasResults = false;
                 while (resultSet.next()) {
                     hasResults = true;
-                    gender.setText(gender.getText() + resultSet.getString("Gender"));
-                    hovaten.setText(hovaten.getText() + resultSet.getString("Name"));
-                    mail.setText(mail.getText() + resultSet.getString("Email"));
+                    gender.setText(gender.getText() + " " + resultSet.getString("Gender"));
+                    hovaten.setText(hovaten.getText() + " " + resultSet.getString("Name"));
+                    mail.setText(mail.getText() + " " + resultSet.getString("Email"));
                 }
 
                 if (!hasResults) {
@@ -165,6 +168,66 @@ public class TeacherController extends SampleController {
 
             searchStudentController controller = loader.getController();
             controller.initialize(dbConnection);
+
+            Stage stage = (Stage) department.getScene().getWindow();
+            double width = stage.getWidth();
+            double height = stage.getHeight();
+            Scene scene = new Scene(root, width, height);
+            stage.setScene(scene);
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @FXML
+    public void TeacherSearchInit(ActionEvent event) throws IOException {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/function/search/Teacher/searchTeacher.fxml"));
+            Parent root = loader.load();
+
+            searchTeacherController controller = loader.getController();
+            controller.initialize(dbConnection);
+
+            Stage stage = (Stage) department.getScene().getWindow();
+            double width = stage.getWidth();
+            double height = stage.getHeight();
+            Scene scene = new Scene(root, width, height);
+            stage.setScene(scene);
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @FXML
+    public void CourseSearchInit(ActionEvent event) throws IOException {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/function/search/Course/searchCourse.fxml"));
+            Parent root = loader.load();
+
+            searchCourseController controller = loader.getController();
+            controller.initialize(dbConnection);
+
+            Stage stage = (Stage) department.getScene().getWindow();
+            double width = stage.getWidth();
+            double height = stage.getHeight();
+            Scene scene = new Scene(root, width, height);
+            stage.setScene(scene);
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @FXML
+    public void ReviewRequestInit(ActionEvent event) throws IOException {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/function/Teacher/RequestScore/request.fxml"));
+            Parent root = loader.load();
+
+            ScoreRequestController controller = loader.getController(); 
+            controller.initialize(dbConnection, id);
 
             Stage stage = (Stage) department.getScene().getWindow();
             double width = stage.getWidth();

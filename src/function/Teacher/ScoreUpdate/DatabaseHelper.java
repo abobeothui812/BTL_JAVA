@@ -16,7 +16,7 @@ public class DatabaseHelper {
         DatabaseHelper.dbConnection = dbConnection;
     }
 
-    public static ObservableList<Grade> fetchStudentFromDatabaseWithClass(String cclass) {
+    public static ObservableList<Grade> fetchStudentFromDatabaseWithClass(int cclass) {
         ObservableList<Grade> studentList = FXCollections.observableArrayList();
         String query = 
                     "SELECT distinct grade.studentID, user.name, grade.MidtermScore, grade.FinalScore " +
@@ -27,7 +27,7 @@ public class DatabaseHelper {
             Statement stmt = dbConnection.createStatement();
             ResultSet rs = stmt.executeQuery(query);
             while (rs.next()) {
-                String id = rs.getString("studentID");
+                int id = Integer.parseInt(rs.getString("studentID"));
                 String name = rs.getString("name");
                 Float mid = rs.getFloat("MidtermScore");
                 Float finalscore = rs.getFloat("FinalScore");
@@ -50,8 +50,8 @@ public class DatabaseHelper {
             for (Grade grade : studentList) {
                 pstmt.setFloat(1, grade.getMidtermScore());
                 pstmt.setFloat(2, grade.getFinalScore());
-                pstmt.setString(3, grade.getStudent().getStudentId());
-                pstmt.setString(4, grade.getaClass().getClassID());
+                pstmt.setInt(3, grade.getStudent().getStudentId());
+                pstmt.setInt(4, grade.getaClass().getClassID());
                 pstmt.addBatch();
             }
     

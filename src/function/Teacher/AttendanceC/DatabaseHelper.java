@@ -20,7 +20,7 @@ public class DatabaseHelper {
         DatabaseHelper.dbConnection = dbConnection;
     }
     // Fetch all Students from the database
-    public static ObservableList<Attendance> fetchStudentFromDatabaseWithClass(String cclass) {
+    public static ObservableList<Attendance> fetchStudentFromDatabaseWithClass(int cclass) {
         ObservableList<Attendance> StudentList = FXCollections.observableArrayList();
         String query = "SELECT distinct student.studentID, user.name\n" + //
                         "FROM quanlylophoc1.studentclass\n" + //
@@ -33,7 +33,7 @@ public class DatabaseHelper {
             ResultSet rs = stmt.executeQuery(query);
 
             while (rs.next()) {
-                String id = rs.getString("studentID");
+                int id = Integer.parseInt(rs.getString("studentID"));
                 String name = rs.getString("name");
                 StudentList.add(new Attendance(new Student(id, name), new Class(cclass), "Present"));
             }
@@ -52,7 +52,7 @@ public class DatabaseHelper {
              PreparedStatement stmt = dbConnection.prepareStatement(updateQuery)) {
 
             for (Attendance attendance : updatedStudents) {
-                stmt.setString(1, attendance.getStudent().getStudentId());
+                stmt.setInt(1, attendance.getStudent().getStudentId());
                 stmt.setString(2, cclass);
                 stmt.setString(3, date);
                 stmt.setString(4, attendance.getDynamicValue());
