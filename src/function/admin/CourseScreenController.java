@@ -31,6 +31,7 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.SQLIntegrityConstraintViolationException;
 import java.sql.Statement;
 import java.util.Optional;
 
@@ -231,6 +232,27 @@ public class CourseScreenController {
 
         dialog.setResultConverter(dialogButton -> {
             if (dialogButton == addButtonType) {
+                if (courseID.getText().isEmpty() || courseName.getText().isEmpty() || credits.getText().isEmpty() || semester.getText().isEmpty() || teacherID.getText().isEmpty()) {
+                    Alert alert = new Alert(Alert.AlertType.WARNING);
+                    alert.setTitle("Lỗi nhập liệu");
+                    alert.setHeaderText(null);
+                    alert.setContentText("Vui lòng điền đầy đủ thông tin.");
+                    alert.showAndWait();
+                    return null;
+                }
+                // exception định dạng số
+                try {
+                    Integer.parseInt(courseID.getText());
+                    Integer.parseInt(credits.getText());
+                    Integer.parseInt(teacherID.getText());
+                } catch (NumberFormatException e) {
+                    Alert numberAlert = new Alert(Alert.AlertType.WARNING);
+                    numberAlert.setTitle("Lỗi nhập liệu");
+                    numberAlert.setHeaderText(null);
+                    numberAlert.setContentText("Mã học phần, tín chỉ và ID trưởng bộ môn phải là số nguyên hợp lệ!");
+                    numberAlert.showAndWait();
+                    return null;
+                }
                 return new Pair<>(courseID.getText(), courseName.getText());
             }
             return null;
@@ -251,6 +273,14 @@ public class CourseScreenController {
                 pstmt.executeUpdate();
                 courseList.clear();
                 getDataFromDatabase();
+                
+            } catch (SQLIntegrityConstraintViolationException e) {
+                // Hiển thị cảnh báo nếu ID không tồn tại hoặc không phải là ID của giáo viên
+                Alert alert = new Alert(Alert.AlertType.WARNING);
+                alert.setTitle("Lỗi");
+                alert.setHeaderText("Không thể thêm môn học");
+                alert.setContentText("ID không tồn tại hoặc không phải là ID của giáo viên.");
+                alert.showAndWait();
             } catch (SQLException e) {
                 e.printStackTrace();
             }
@@ -324,13 +354,13 @@ private void updateCourse(ActionEvent event) {
             String newSemester = semesterField.getText().trim();
 
             if (newCourseName.isEmpty() || newCourseID.isEmpty() || newCredits.isEmpty() || newTeacherID.isEmpty() || newSemester.isEmpty()) {
-                Alert errorAlert = new Alert(Alert.AlertType.ERROR);
+                Alert errorAlert = new Alert(Alert.AlertType.WARNING);
                 errorAlert.setTitle("Lỗi nhập liệu");
                 errorAlert.setHeaderText(null);
                 errorAlert.setContentText("Vui lòng nhập đầy đủ thông tin!");
                 errorAlert.showAndWait();
                 return null;
-            }
+            }    
 
             try {
                 int courseId = Integer.parseInt(newCourseID);
@@ -352,12 +382,20 @@ private void updateCourse(ActionEvent event) {
                     courseList.clear();
                     getDataFromDatabase();
 
-                } catch (SQLException e) {
+            
+            } catch (SQLIntegrityConstraintViolationException e) {
+                // Hiển thị cảnh báo nếu ID không tồn tại hoặc không phải là ID của giáo viên
+                Alert alert = new Alert(Alert.AlertType.WARNING);
+                alert.setTitle("Lỗi");
+                alert.setHeaderText("Không thể chỉnh sửa môn học");
+                alert.setContentText("ID không tồn tại hoặc không phải là ID của giáo viên.");
+                alert.showAndWait();
+            } catch (SQLException e) {
                     e.printStackTrace();
                 }
 
             } catch (NumberFormatException e) {
-                Alert numberAlert = new Alert(Alert.AlertType.ERROR);
+                Alert numberAlert = new Alert(Alert.AlertType.WARNING);
                 numberAlert.setTitle("Lỗi nhập liệu");
                 numberAlert.setHeaderText(null);
                 numberAlert.setContentText("Mã học phần, tín chỉ và ID trưởng bộ môn phải là số nguyên hợp lệ!");

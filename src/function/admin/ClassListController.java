@@ -5,6 +5,7 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.SQLIntegrityConstraintViolationException;
 import java.sql.Statement;
 import java.util.Optional;
 import javafx.util.Pair;
@@ -188,7 +189,6 @@ private void addClass(ActionEvent event) {
         if (dialogButton == addButtonType) {
             if (classID.getText().isEmpty() || schedule.getText().isEmpty() || limitStudents.getText().isEmpty() ||
                 registeredStudents.getText().isEmpty() || teacherID.getText().isEmpty()) {
-                
                 showAlert(Alert.AlertType.WARNING, "Lỗi Nhập Liệu", "Vui lòng điền đầy đủ thông tin.");
                 return null;
             }
@@ -199,7 +199,7 @@ private void addClass(ActionEvent event) {
                 Integer.parseInt(registeredStudents.getText());
                 Integer.parseInt(teacherID.getText());
             } catch (NumberFormatException e) {
-                showAlert(Alert.AlertType.ERROR, "Lỗi Định Dạng", "Các trường ID và số lượng phải là số nguyên.");
+                showAlert(Alert.AlertType.WARNING, "Lỗi Định Dạng", "Các trường ID và số lượng phải là số nguyên.");
                 return null;
             }
             return dialogButton;
@@ -227,8 +227,13 @@ private void addClass(ActionEvent event) {
 
                 classList.clear();
                 loadClassData();
-
-
+            } catch (SQLIntegrityConstraintViolationException e) {
+                // Hiển thị cảnh báo nếu ID không tồn tại hoặc không phải là ID của giáo viên
+                Alert alert = new Alert(Alert.AlertType.WARNING);
+                alert.setTitle("Lỗi");
+                alert.setHeaderText("Không thể thêm môn học");
+                alert.setContentText("ID không tồn tại hoặc không phải là ID của giáo viên.");
+                alert.showAndWait();
             } catch (SQLException e) {
                 e.printStackTrace();
             }
@@ -309,7 +314,7 @@ private void UpdateClass(ActionEvent event) {
 
             if (newClassID.isEmpty() || newSchedule.isEmpty() || newLimitStudents.isEmpty() ||
                 newRegisteredStudents.isEmpty() || newTeacherID.isEmpty()) {
-                showAlert(Alert.AlertType.ERROR, "Lỗi nhập liệu", "Vui lòng nhập đầy đủ thông tin!");
+                showAlert(Alert.AlertType.WARNING, "Lỗi nhập liệu", "Vui lòng nhập đầy đủ thông tin!");
                 return null;
             }
 
@@ -333,13 +338,20 @@ private void UpdateClass(ActionEvent event) {
 
                     classList.clear();
                     loadClassData();
+                } catch (SQLIntegrityConstraintViolationException e) {
+                // Hiển thị cảnh báo nếu ID không tồn tại hoặc không phải là ID của giáo viên
+                Alert alert = new Alert(Alert.AlertType.WARNING);
+                alert.setTitle("Lỗi");
+                alert.setHeaderText("Không thể chỉnh sửa lớp học");
+                alert.setContentText("ID không tồn tại hoặc không phải là ID của giáo viên.");
+                alert.showAndWait();
 
                 } catch (SQLException e) {
                     e.printStackTrace();
                 }
 
             } catch (NumberFormatException e) {
-                showAlert(Alert.AlertType.ERROR, "Lỗi nhập liệu", "Các trường ID và số lượng phải là số nguyên hợp lệ!");
+                showAlert(Alert.AlertType.WARNING, "Lỗi nhập liệu", "Các trường ID và số lượng phải là số nguyên hợp lệ!");
             }
         }
         return null;
