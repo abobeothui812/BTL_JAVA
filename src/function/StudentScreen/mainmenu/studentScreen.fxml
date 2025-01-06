@@ -14,9 +14,9 @@
         <menus>
           <Menu mnemonicParsing="false" text="Dịch vụ">
             <items>
-              <MenuItem mnemonicParsing="false" text="Xem thông tin cá nhân" />
-                  <MenuItem mnemonicParsing="false" text="Đăng kí lớp" />
-                  <MenuItem mnemonicParsing="false" text="Thời khóa biểu" />
+              <MenuItem fx:id="in4Menu" mnemonicParsing="false" onAction="#in4MenuPressed" text="Xem thông tin cá nhân" />
+                  <MenuItem fx:id="dangkilopMenu" mnemonicParsing="false" onAction="#dangkilopPressed" text="Đăng kí lớp" />
+                  <MenuItem fx:id="tkbMenu" mnemonicParsing="false" onAction="#tkbMenuPressed" text="Thời khóa biểu" />
             </items>
           </Menu>
           <Menu mnemonicParsing="false" text="Liên hệ">
@@ -42,7 +42,7 @@
                         <Font name="System Bold" size="30.0" />
                      </font>
                   </Label>
-                  <ChoiceBox fx:id="semesterChoice" layoutY="13.0" prefHeight="30.0" prefWidth="157.0" />
+                  <ChoiceBox fx:id="semesterChoice" layoutX="14.0" layoutY="16.0" prefHeight="30.0" prefWidth="157.0" />
                </children>
                <padding>
                   <Insets left="8.0" right="5.0" />
@@ -62,12 +62,17 @@
                   </TableView>
                   <Pane prefHeight="706.0" prefWidth="289.0" style="-fx-border-color: black;">
                      <children>
-                        <Label fx:id="labelChuaChon" layoutX="80.0" layoutY="345.0" text="Bạn chưa chọn môn nào" />
+                        <Label fx:id="labelChuaChon" layoutX="88.0" layoutY="144.0" text="Bạn chưa chọn môn nào" />
                         <Label layoutX="41.0" layoutY="7.0" text="Thông tin môn học">
                            <font>
                               <Font name="System Bold" size="23.0" />
                            </font>
                         </Label>
+                        <Button fx:id="phuckhaoBtn" layoutX="69.0" layoutY="631.0" mnemonicParsing="false" onAction="#phuckhaoBtnPressed" style="-fx-background-color: red;" text="Phúc khảo" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="24.0" />
+                           </font></Button>
+                        <Button fx:id="absetnDetailsBtn" layoutX="69.0" layoutY="558.0" mnemonicParsing="false" onAction="#absentDetailsBtnPressed" prefHeight="51.0" prefWidth="149.0" text="Chi tiết buổi nghỉ" />
                      </children>
                   </Pane>
                </children>

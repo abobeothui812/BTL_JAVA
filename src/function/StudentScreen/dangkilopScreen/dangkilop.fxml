@@ -6,14 +6,13 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-
-<BorderPane xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="function.StudentScreen.dangkilopScreen.dangkilopController">
    <center>
       <VBox prefHeight="672.0" prefWidth="1502.0" BorderPane.alignment="CENTER">
          <children>
             <HBox alignment="CENTER_LEFT" prefHeight="68.0" prefWidth="1502.0">
                <children>
-                  <Label prefHeight="46.0" prefWidth="131.0" text="Tìm môn">
+                  <Label prefHeight="46.0" prefWidth="241.0" text="Tìm môn">
                      <font>
                         <Font name="System Bold" size="29.0" />
                      </font>
@@ -21,15 +20,24 @@
                         <Insets right="8.0" />
                      </HBox.margin>
                   </Label>
-                  <TextField>
+                  <TextField fx:id="searchText" prefHeight="51.0" prefWidth="311.0">
                      <HBox.margin>
                         <Insets right="8.0" />
                      </HBox.margin>
                   </TextField>
-                  <Button mnemonicParsing="false" text="Tìm kiếm" />
-                  <HBox alignment="CENTER_RIGHT" prefHeight="51.0" prefWidth="922.0">
+                  <Button fx:id="searchBtn" mnemonicParsing="false" onAction="#searchBtnPressed" prefHeight="51.0" prefWidth="159.0" text="Tìm kiếm">
+                     <HBox.margin>
+                        <Insets right="15.0" />
+                     </HBox.margin></Button>
+                  <Button fx:id="deleteBtn" mnemonicParsing="false" onAction="#deleteBtnPressed" prefHeight="51.0" prefWidth="139.0" text="Xóa môn">
+                     <HBox.margin>
+                        <Insets right="20.0" />
+                     </HBox.margin>
+                  </Button>
+                  <Label fx:id="warningText" prefHeight="35.0" prefWidth="337.0" />
+                  <HBox alignment="CENTER_RIGHT" prefHeight="51.0" prefWidth="258.0">
                      <children>
-                        <Button mnemonicParsing="false" prefHeight="22.0" prefWidth="166.0" text="Lưu" />
+                        <Button fx:id="saveBtn" mnemonicParsing="false" onAction="#saveBtnPressed" prefHeight="51.0" prefWidth="168.0" text="Lưu" />
                      </children>
                      <HBox.margin>
                         <Insets bottom="3.0" top="3.0" />
@@ -50,7 +58,7 @@
                         <TableColumn fx:id="columnClassID" prefWidth="100.0" text="Mã lớp" />
                         <TableColumn fx:id="columnSchedule" prefWidth="350.0" text="Thời khóa biểu" />
                         <TableColumn fx:id="columTeacher" prefWidth="250.0" text="Giáo viên" />
-                        <TableColumn fx:id="columnCourseID1" prefWidth="100.0" text="Tín chỉ" />
+                        <TableColumn fx:id="columnCredits" prefWidth="100.0" text="Tín chỉ" />
                      </columns>
                   </TableView>
                </children>
@@ -63,9 +71,9 @@
          <menus>
             <Menu mnemonicParsing="false" text="Dịch vụ">
                <items>
-                  <MenuItem mnemonicParsing="false" text="Xem thông tin cá nhân" />
-                  <MenuItem mnemonicParsing="false" text="Đăng kí lớp" />
-                  <MenuItem mnemonicParsing="false" text="Thời khóa biểu" />
+                  <MenuItem fx:id="in4Menu" mnemonicParsing="false" onAction="#in4MenuPressed" text="Xem thông tin cá nhân" />
+                  <MenuItem fx:id="dangkilopMenu" mnemonicParsing="false" onAction="#dangkilopPressed" text="Đăng kí lớp" />
+                  <MenuItem fx:id="tkbMenu" mnemonicParsing="false" onAction="#tkbMenuPressed" text="Thời khóa biểu" />
                </items>
             </Menu>
             <Menu mnemonicParsing="false" text="Liên hệ">

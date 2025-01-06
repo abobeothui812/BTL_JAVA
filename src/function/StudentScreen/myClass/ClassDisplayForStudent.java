@@ -9,6 +9,7 @@ public class ClassDisplayForStudent {
     private ObservableList<student> studentList = null; 
     private int TeacherID;
     private String teacherName;    
+    private int credits;
 
 
     
@@ -95,6 +96,31 @@ public class ClassDisplayForStudent {
 
     public void setStudentList(ObservableList<student> studentList) {
         this.studentList = studentList;
+    }
+
+    public int getCredits() {
+        return credits;
+    }
+
+    public void setCredits(int credits) {
+        this.credits = credits;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+    
+        ClassDisplayForStudent that = (ClassDisplayForStudent) o;
+    
+        // So sánh chỉ dựa trên courseName
+        return courseName != null ? courseName.equals(that.courseName) : that.courseName == null;
+    }
+    
+    @Override
+    public int hashCode() {
+        // Hash code chỉ dựa trên courseName
+        return courseName != null ? courseName.hashCode() : 0;
     }
 
     

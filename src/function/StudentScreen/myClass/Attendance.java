@@ -1,4 +1,4 @@
-package Class;
+package function.StudentScreen.myClass;
 public class Attendance {
     private int attendanceID;
     private int classID;
@@ -7,10 +7,10 @@ public class Attendance {
     private String status;
 
     // Constructor
-    public Attendance(int attendanceID, Class aClass, Student student, String date, String status) {
+    public Attendance(int attendanceID, int classID, int studentID, String date, String status) {
         this.attendanceID = attendanceID;
-        this.aClass = aClass;
-        this.student = student;
+        this.classID = classID;
+        this.studentID = studentID;
         this.date = date;
         this.status = status;
     }
@@ -24,24 +24,26 @@ public class Attendance {
         this.attendanceID = attendanceID;
     }
 
-    public Class getaClass() {
-        return aClass;
-    }
-
-    public void setClass(Class aClass) {
-        this.aClass = aClass;
-    }
-
-    public Student getStudent() {
-        return student;
-    }
-
-    public void setStudent(Student student) {
-        this.student = student;
-    }
+    
 
     public String getDate() {
         return date;
+    }
+
+    public int getClassID() {
+        return classID;
+    }
+
+    public void setClassID(int classID) {
+        this.classID = classID;
+    }
+
+    public int getStudentID() {
+        return studentID;
+    }
+
+    public void setStudentID(int studentID) {
+        this.studentID = studentID;
     }
 
     public void setDate(String date) {
