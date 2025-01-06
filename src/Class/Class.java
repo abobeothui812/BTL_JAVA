@@ -1,20 +1,39 @@
 package Class;
 public class Class {
     private int classID;
-    private Course course;
+    private int courseID;
     private String semester;
     private String schedule;
     private int limitStudents;
     private int registeredStudents;
+    private int teacherID;
+    private String teacherName;
 
     // Constructor
-    public Class(int classID, Course course, String semester, String schedule, int limitStudents, int registeredStudents) {
+    public Class(int classID, int courseID,  String schedule, int limitStudents, int registeredStudents, int teacherID) {   
         this.classID = classID;
-        this.course = course;
-        this.semester = semester;
+        this.courseID = courseID;
         this.schedule = schedule;
         this.limitStudents = limitStudents;
         this.registeredStudents = registeredStudents;
+        this.teacherID = teacherID;
+    }
+    public Class(int classID, int courseID,  String schedule, int limitStudents, int registeredStudents, String teacherName) {   
+        this.classID = classID;
+        this.courseID = courseID;
+        this.schedule = schedule;
+        this.limitStudents = limitStudents;
+        this.registeredStudents = registeredStudents;
+        this.teacherName = teacherName;
+    }
+    public Class(int classID, int courseID,  String schedule, int limitStudents, int registeredStudents, String teacherName,int teacherID) {   
+        this.classID = classID;
+        this.courseID = courseID;
+        this.schedule = schedule;
+        this.limitStudents = limitStudents;
+        this.registeredStudents = registeredStudents;
+        this.teacherName = teacherName;
+        this.teacherID = teacherID;
     }
 
     // Getters and Setters
@@ -26,12 +45,12 @@ public class Class {
         this.classID = classID;
     }
 
-    public Course getCourse() {
-        return course;
+    public int getCourseID() {
+        return courseID;
     }
 
-    public void setCourse(Course course) {
-        this.course = course;
+    public void setCourseID(int courseID) {
+        this.courseID = courseID;
     }
 
     public String getSemester() {
@@ -64,5 +83,21 @@ public class Class {
 
     public void setRegisteredStudents(int registeredStudents) {
         this.registeredStudents = registeredStudents;
+    }
+
+    public int getTeacherID() {
+        return teacherID;
+    }
+
+    public void setTeacherID(int teacherID) {
+        this.teacherID = teacherID;
+    }
+
+    public String getTeacherName() {
+        return teacherName;
+    }
+
+    public void setTeacherName(String teacherName) {
+        this.teacherName = teacherName;
     }
 }

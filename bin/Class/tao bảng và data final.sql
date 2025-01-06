@@ -5484,6 +5484,8 @@ INSERT INTO LeaveReason (ReasonText) VALUES
 ('Em có lịch phỏng vấn, mong cô thông cảm'),
 ('Em bị gãy chân, cần nghỉ ngơi và điều trị'),
 ('Em đi khám sức khỏe định kỳ, cần thời gian nghỉ để thực hiện');
+
+ALTER TABLE course add COLUMN is_deleted BOOLEAN DEFAULT FALSE;
 create table ketquahoctap(
 	studentID int,
     Semester varchar(50),
