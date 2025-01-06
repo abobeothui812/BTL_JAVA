@@ -473,7 +473,7 @@ public class studentScreenController {
             Stage stage = (Stage) ((MenuItem) event.getSource()).getParentPopup().getOwnerWindow();
 
             // Tải giao diện mới
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("Admin.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/function/login/Admin.fxml"));
             Scene scene = new Scene(loader.load(), stage.getWidth(), stage.getHeight());
 
             // Thiết lập giao diện mới cho Stage

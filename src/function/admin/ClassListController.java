@@ -64,7 +64,7 @@ private ObservableList<Class> classList = FXCollections.observableArrayList();
 
 private static final String DB_URL = "jdbc:mysql://localhost:3306/quanlylophoc1";
 private static final String DB_USER = "root";
-private static final String DB_PASSWORD = "dangdz123";
+private static final String DB_PASSWORD = "_E#./FywmS,w43S";
 private int courseID;
 
 public void setCourseID(int courseID) {
