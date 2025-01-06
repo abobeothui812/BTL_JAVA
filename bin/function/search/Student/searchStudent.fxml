@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="function.search.Student.searchStudentController">
+   <top>
+      <MenuBar BorderPane.alignment="CENTER">
+        <menus>
+          <Menu mnemonicParsing="false" text="Thông tin cá nhân">
+            <items>
+                  <MenuItem mnemonicParsing="false" text="Xem hồ sơ cá nhân" />
+                  <MenuItem mnemonicParsing="false" text="Đổi mật khẩu" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Quản lý lớp học">
+            <items>
+              <MenuItem fx:id="attendancecheck" mnemonicParsing="false" onAction="#AttendanceInit" text="Điểm danh" />
+                  <MenuItem fx:id="ScoreUpdate" mnemonicParsing="false" onAction="#ScoreInit" text="Cập nhật điểm" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Tra cứu">
+            <items>
+              <MenuItem mnemonicParsing="false" text="Giáo Viên" />
+                  <MenuItem mnemonicParsing="false" text="Sinh Viên" />
+                  <MenuItem mnemonicParsing="false" text="Học phần" />
+                  <MenuItem mnemonicParsing="false" text="Lớp" />
+            </items>
+          </Menu>
+        </menus>
+      </MenuBar>
+   </top>
+   <center>
+      <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+         <children>
+            <HBox maxHeight="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="200.0">
+               <children>
+                  <TextField fx:id="studentIdField" maxHeight="-Infinity" minHeight="-Infinity" minWidth="-Infinity" opacity="0.49" prefHeight="30.0" prefWidth="514.0" text="MSSV">
+                     <HBox.margin>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </HBox.margin>
+                     <padding>
+                        <Insets left="15.0" />
+                     </padding>
+                  </TextField>
+                  <Button fx:id="searchButton" mnemonicParsing="false" onAction="#handleSearch" prefHeight="30.0" text="Tìm kiếm">
+                     <HBox.margin>
+                        <Insets left="5.0" top="5.0" />
+                     </HBox.margin>
+                  </Button>
+               </children>
+            </HBox>
+            <HBox prefHeight="374.0" prefWidth="395.0">
+               <children>
+                  <VBox prefHeight="374.0" prefWidth="100.0">
+                     <children>
+                        <ImageView fx:id="img" fitHeight="120.0" fitWidth="90.0" pickOnBounds="true" preserveRatio="true">
+                           <VBox.margin>
+                              <Insets left="5.0" top="15.0" />
+                           </VBox.margin>
+                        </ImageView>
+                     </children>
+                  </VBox>
+                  <VBox prefHeight="374.0" prefWidth="250.0">
+                     <children>
+                        <Label fx:id="hovaten" minHeight="-Infinity" prefHeight="50.0" prefWidth="245.0" text="Họ và tên: ">
+                           <padding>
+                              <Insets bottom="10.0" left="5.0" top="10.0" />
+                           </padding>
+                        </Label>
+                        <Label fx:id="enrollyear" minHeight="-Infinity" prefHeight="50.0" prefWidth="245.0" text="Năm vào trường:">
+                           <padding>
+                              <Insets bottom="10.0" left="5.0" top="10.0" />
+                           </padding>
+                        </Label>
+                        <Label fx:id="department" minHeight="-Infinity" prefHeight="50.0" prefWidth="245.0" text="Lớp:">
+                           <padding>
+                              <Insets bottom="10.0" left="5.0" top="10.0" />
+                           </padding>
+                        </Label>
+                     </children>
+                  </VBox>
+                  <VBox prefHeight="374.0" prefWidth="250.0">
+                     <children>
+                        <Label fx:id="gender" minHeight="-Infinity" prefHeight="50.0" prefWidth="245.0" text="Giới tính:">
+                           <padding>
+                              <Insets bottom="10.0" left="5.0" top="10.0" />
+                           </padding>
+                        </Label>
+                        <Label fx:id="speciality" minHeight="-Infinity" prefHeight="50.0" prefWidth="245.0" text="Chuyên ngành:">
+                           <padding>
+                              <Insets bottom="10.0" left="5.0" top="10.0" />
+                           </padding>
+                        </Label>
+                        <Label fx:id="mail" minHeight="-Infinity" prefHeight="50.0" prefWidth="245.0" text="Email">
+                           <padding>
+                              <Insets bottom="10.0" left="5.0" top="10.0" />
+                           </padding>
+                        </Label>
+                     </children>
+                  </VBox>
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+   </center>
+</BorderPane>

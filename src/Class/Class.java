@@ -2,6 +2,7 @@ package Class;
 public class Class {
     private int classID;
     private int courseID;
+    private String courseName;
     private String semester;
     private String schedule;
     private int limitStudents;
@@ -35,7 +36,18 @@ public class Class {
         this.teacherName = teacherName;
         this.teacherID = teacherID;
     }
-
+    public Class(int classID){
+        this.classID = classID;
+    }
+    public Class(int ClassID, Course course, int RegisteredStudents, String schedule) {
+        this.classID = ClassID;
+        this.courseID = course.getCourseID();
+        this.schedule = schedule;
+        this.limitStudents = course.getCredits();
+        this.courseName = course.getCourseName();
+        this.registeredStudents = RegisteredStudents;
+        
+    }
     // Getters and Setters
     public int getClassID() {
         return classID;
@@ -63,6 +75,10 @@ public class Class {
 
     public String getSchedule() {
         return schedule;
+    }
+
+    public String getCourseName() {
+        return courseName;
     }
 
     public void setSchedule(String schedule) {

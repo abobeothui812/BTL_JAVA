@@ -12,7 +12,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.stage.Stage;
 
-public class AdminController {
+public class AdminController extends SampleController {
 
     private Stage stage;
     private Parent root;
