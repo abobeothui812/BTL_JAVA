@@ -9,7 +9,7 @@ public class AccountManager {
     private Map<String, Account> accounts = new HashMap<>();
     private final String DB_URL = "jdbc:mysql://localhost:3306/quanlylophoc1";
     private final String DB_USER = "root";
-    private final String DB_PASSWORD = "mysql";
+    private final String DB_PASSWORD = "_E#./FywmS,w43S";
 
     private AccountManager() {
         loadAccounts();
@@ -60,7 +60,7 @@ public class AccountManager {
 
     // Tải tài khoản từ cơ sở dữ liệu
     private void loadAccounts() {
-        String query = "SELECT Email, Password, Role FROM User";
+        String query = "SELECT Email, Password, Role FROM user where is_delete =0";
         try (Connection conn = DriverManager.getConnection(DB_URL, DB_USER, DB_PASSWORD);
              Statement stmt = conn.createStatement();
              ResultSet rs = stmt.executeQuery(query)) {
