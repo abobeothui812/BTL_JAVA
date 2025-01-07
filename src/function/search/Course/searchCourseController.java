@@ -2,6 +2,9 @@ package function.search.Course;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextField;
@@ -11,13 +14,17 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Text;
+import javafx.stage.Stage;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
 import javafx.geometry.Insets;
 import Class.Class;
 import Class.Course;
 import function.Teacher.TeacherController;
+import function.search.Student.searchStudentController;
+import function.search.Teacher.searchTeacherController;
 
+import java.io.IOException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -155,6 +162,45 @@ public class searchCourseController extends TeacherController{
         alert.setTitle(title);
         alert.setContentText(content);
         alert.showAndWait();
+    }
+    @FXML
+    public void TeacherSearchInit(ActionEvent event) throws IOException {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/function/search/Teacher/searchTeacher.fxml"));
+            Parent root = loader.load();
+
+            searchTeacherController controller = loader.getController();
+            controller.initialize(dbConnection);
+
+            Stage stage = (Stage) credit.getScene().getWindow();
+            double width = stage.getWidth();
+            double height = stage.getHeight();
+            Scene scene = new Scene(root, width, height);
+            stage.setScene(scene);
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @FXML
+    public void StudentSearchInit(ActionEvent event) throws IOException {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/function/search/Student/searchStudent.fxml"));
+            Parent root = loader.load();
+
+            searchStudentController controller = loader.getController();
+            controller.initialize(dbConnection);
+
+            Stage stage = (Stage) credit.getScene().getWindow();
+            double width = stage.getWidth();
+            double height = stage.getHeight();
+            Scene scene = new Scene(root, width, height);
+            stage.setScene(scene);
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }
 

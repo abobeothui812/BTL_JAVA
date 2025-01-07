@@ -1,19 +1,28 @@
 package function.search.Teacher;
 
 
+import java.io.IOException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import function.Teacher.TeacherController;
+import function.search.Course.searchCourseController;
+import function.search.Student.searchStudentController;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
+import javafx.stage.Stage;
+
 import java.text.Normalizer;
 import java.util.regex.Pattern;
 
@@ -99,6 +108,44 @@ public class searchTeacherController extends TeacherController{
             } catch (SQLException e) {
                 e.printStackTrace();
             }
+        }
+    }
+    @FXML
+    public void CourseSearchInit(ActionEvent event) throws IOException {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/function/search/Course/searchCourse.fxml"));
+            Parent root = loader.load();
+
+            searchCourseController controller = loader.getController();
+            controller.initialize(dbConnection);
+
+            Stage stage = (Stage) department.getScene().getWindow();
+            double width = stage.getWidth();
+            double height = stage.getHeight();
+            Scene scene = new Scene(root, width, height);
+            stage.setScene(scene);
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+    @FXML
+    public void StudentSearchInit(ActionEvent event) throws IOException {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/function/search/Student/searchStudent.fxml"));
+            Parent root = loader.load();
+
+            searchStudentController controller = loader.getController();
+            controller.initialize(dbConnection);
+
+            Stage stage = (Stage) department.getScene().getWindow();
+            double width = stage.getWidth();
+            double height = stage.getHeight();
+            Scene scene = new Scene(root, width, height);
+            stage.setScene(scene);
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 }

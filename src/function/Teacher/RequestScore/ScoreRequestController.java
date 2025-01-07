@@ -1,16 +1,23 @@
 package function.Teacher.RequestScore;
 
+import java.io.IOException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import Class.ReviewRequest;
 import function.Teacher.TeacherController;
+import function.Teacher.AttendanceC.AttendanceCheckController;
+import function.Teacher.ScoreUpdate.ScoreUpdateController;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableCell;
@@ -18,6 +25,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.VBox;
+import javafx.stage.Stage;
 
 public class ScoreRequestController extends TeacherController {
     private String id;
@@ -141,5 +149,52 @@ public class ScoreRequestController extends TeacherController {
         this.dbConnection = dbConnection;
     }
 
-    
+    @FXML
+    public void AttendanceInit(ActionEvent event) throws IOException {
+        try {
+            // Load the FXML file for attendance checking
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/function/Teacher/AttendanceC/attendance.fxml"));
+
+            Parent root = loader.load();
+
+            // Pass necessary data to the new controller
+            AttendanceCheckController controller = loader.getController();
+            controller.initializeData(dbConnection, id); // Pass the database connection
+            // Get the current stage
+            Stage stage = (Stage) detailBox.getScene().getWindow(); 
+            double width = stage.getWidth();
+            double height = stage.getHeight();
+            Scene scene = new Scene(root, width, height);
+            stage.setScene(scene);
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Error");
+            alert.setHeaderText("Unable to load the attendance check screen.");
+            alert.setContentText(e.getMessage());
+            alert.showAndWait();
+        }
+    }
+
+    @FXML
+    public void ScoreInit(ActionEvent event) throws IOException {
+        try{
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/function/Teacher/ScoreUpdate/Score.fxml"));
+            Parent root = loader.load();
+
+            ScoreUpdateController controller = loader.getController();
+            controller.initializeData(dbConnection, id);
+
+            Stage stage = (Stage) detailBox.getScene().getWindow();
+            double width = stage.getWidth();
+            double height = stage.getHeight();
+            Scene scene = new Scene(root, width, height);
+            stage.setScene(scene);
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
 }

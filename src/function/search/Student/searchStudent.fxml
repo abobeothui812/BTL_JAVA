@@ -30,9 +30,9 @@
           </Menu>
           <Menu mnemonicParsing="false" text="Tra cứu">
             <items>
-              <MenuItem mnemonicParsing="false" text="Giáo Viên" />
-                  <MenuItem mnemonicParsing="false" text="Sinh Viên" />
-                  <MenuItem mnemonicParsing="false" text="Học phần" />
+              <MenuItem mnemonicParsing="false" onAction="#TeacherSearchInit" text="Giáo Viên" />
+                  <MenuItem mnemonicParsing="false" onAction="#StudentSearchInit" text="Sinh Viên" />
+                  <MenuItem mnemonicParsing="false" onAction="#CourseSearchInit" text="Học phần" />
                   <MenuItem mnemonicParsing="false" text="Lớp" />
             </items>
           </Menu>

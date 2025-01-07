@@ -4,20 +4,26 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
-import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.stage.Stage;
+
+import java.io.IOException;
 import java.sql.*;
 import java.time.LocalDate;
 import javafx.beans.property.SimpleStringProperty;
-import javafx.beans.property.StringProperty;
 
 import Class.Attendance;
 import function.Teacher.TeacherController;
+import function.Teacher.RequestScore.ScoreRequestController;
+import function.Teacher.ScoreUpdate.ScoreUpdateController;
 
 public class AttendanceCheckController extends TeacherController{
 
     private Connection dbConnection;
-    private String teacherId;
+    private String id;
     DatabaseHelper helper = new DatabaseHelper();
     ObservableList<Attendance> StudentList = FXCollections.observableArrayList();
             
@@ -51,9 +57,9 @@ public class AttendanceCheckController extends TeacherController{
     private ObservableList<Attendance> AttendancesList;
 
     @FXML
-    public void initializeData(Connection dbConnection, String teacherId) {
+    public void initializeData(Connection dbConnection, String id) {
         setDbConnection(dbConnection);
-        setTeacherId(teacherId);
+        setid(id);
         helper.setDbConnection(dbConnection);
         saveButton.setVisible(false);
         try {
@@ -61,7 +67,7 @@ public class AttendanceCheckController extends TeacherController{
                                 "JOIN quanlylophoc1.course ON class.CourseID = course.CourseID\n" + //
                                 "where teacher = ?;";
             PreparedStatement statement = dbConnection.prepareStatement(query);
-            statement.setString(1, teacherId);
+            statement.setString(1, id);
             ResultSet resultSet = statement.executeQuery();
     
             // Create an ObservableList for the ComboBox
@@ -188,9 +194,48 @@ public class AttendanceCheckController extends TeacherController{
         this.dbConnection = dbConnection;
     }
 
-    public void setTeacherId(String teacherId) {
-        this.teacherId = teacherId;
+    public void setid(String id) {
+        this.id = id;
     }
 
-    
+    @FXML
+    public void ScoreInit(ActionEvent event) throws IOException {
+        try{
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/function/Teacher/ScoreUpdate/Score.fxml"));
+            Parent root = loader.load();
+
+            ScoreUpdateController controller = loader.getController();
+            controller.initializeData(dbConnection, id);
+
+            Stage stage = (Stage) saveButton.getScene().getWindow();
+            double width = stage.getWidth();
+            double height = stage.getHeight();
+            Scene scene = new Scene(root, width, height);
+            stage.setScene(scene);
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @FXML
+    public void ReviewRequestInit(ActionEvent event) throws IOException {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/function/Teacher/RequestScore/request.fxml"));
+            Parent root = loader.load();
+
+            ScoreRequestController controller = loader.getController(); 
+           
+            controller.initialize(dbConnection, id);
+
+            Stage stage = (Stage) saveButton.getScene().getWindow();
+            double width = stage.getWidth();
+            double height = stage.getHeight();
+            Scene scene = new Scene(root, width, height);
+            stage.setScene(scene);
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 }
