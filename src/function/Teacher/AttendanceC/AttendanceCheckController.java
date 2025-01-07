@@ -97,11 +97,11 @@ private void createNewCheck() {
 
         // Set cell value factories
         name.setCellValueFactory(cellData ->
-            new SimpleStringProperty(cellData.getValue().getStudent().getName())
+            new SimpleStringProperty(cellData.getValue().getName())
         );
 
         studentCode.setCellValueFactory(cellData ->
-            new SimpleStringProperty(String.valueOf(cellData.getValue().getStudent().getUserID()))
+            new SimpleStringProperty(String.valueOf(cellData.getValue().getStudentID()))
         );
 
         stt.setCellFactory(col -> new TableCell<Attendance, String>() {

@@ -98,7 +98,7 @@ void createUpdateRequest() {
         StudentList = helper.fetchStudentFromDatabaseWithClass(classID);
 
         name.setCellValueFactory(cellData -> 
-            new SimpleStringProperty(cellData.getValue().getStudent().getName())
+            new SimpleStringProperty(cellData.getValue().getStudentName())
         );
 
         name.setCellFactory(col -> new TableCell<Grade, String>() {
@@ -111,7 +111,7 @@ void createUpdateRequest() {
         name.setEditable(false); // Ensure this column is not editable
 
         studentCode.setCellValueFactory(cellData -> 
-            new SimpleStringProperty(String.valueOf(cellData.getValue().getStudent().getUserID()))
+            new SimpleStringProperty(String.valueOf(cellData.getValue().getStudentID()))
         );
 
 

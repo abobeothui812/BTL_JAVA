@@ -35,7 +35,7 @@ public class DatabaseHelper {
             while (rs.next()) {
                 int id = Integer.parseInt(rs.getString("studentID"));
                 String name = rs.getString("name");
-                StudentList.add(new Attendance(new Student(id, name), new Class(cclass), "Present"));
+                StudentList.add(new Attendance(id, name, cclass, "Present"));
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -52,7 +52,7 @@ public class DatabaseHelper {
              PreparedStatement stmt = dbConnection.prepareStatement(updateQuery)) {
 
             for (Attendance attendance : updatedStudents) {
-                stmt.setInt(1, attendance.getStudent().getUserID());
+                stmt.setInt(1, attendance.getStudentID());
                 stmt.setString(2, cclass);
                 stmt.setString(3, date);
                 stmt.setString(4, attendance.getDynamicValue());

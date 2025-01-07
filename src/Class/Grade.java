@@ -1,35 +1,52 @@
 package Class;
 public class Grade {
-    private Class aClass;
-    private Student student;
+    private int ClassID;
+    private int studentID;
+    private String studentName;
     private float midtermScore;
     private float finalScore;
     private String status;
-
-    // Constructor
-    public Grade(Class aClass, Student student, float midtermScore, float finalScore, String status) {
-        this.aClass = aClass;
-        this.student = student;
+    private float averageScore;
+    public Grade(int ClassID, int studentID, String studentName, float midtermScore, float finalScore, String status) {
+        this.ClassID = ClassID;
+        this.studentID = studentID;
+        this.studentName = studentName;
         this.midtermScore = midtermScore;
         this.finalScore = finalScore;
         this.status = status;
     }
-
-    // Getters and Setters
-    public Class getaClass() {
-        return aClass;
+    // Constructor
+    public Grade(int ClassID, int studentID, float midtermScore, float finalScore, String status, float averageScore) {
+        this.ClassID = ClassID;
+        this.studentID = studentID;
+        this.midtermScore = midtermScore;
+        this.finalScore = finalScore;
+        this.status = status;
+        this.averageScore = averageScore;
     }
 
-    public void setaClass(Class aClass) {
-        this.aClass = aClass;
+    public int getClassID() {
+        return ClassID;
     }
 
-    public Student getStudent() {
-        return student;
+    public void setClassID(int classID) {
+        ClassID = classID;
     }
 
-    public void setStudent(Student student) {
-        this.student = student;
+    public int getStudentID() {
+        return studentID;
+    }
+
+    public void setStudentID(int studentID) {
+        this.studentID = studentID;
+    }
+
+    public float getAverageScore() {
+        return averageScore;
+    }
+
+    public void setAverageScore(float averageScore) {
+        this.averageScore = averageScore;
     }
 
     public float getMidtermScore() {
@@ -55,5 +72,11 @@ public class Grade {
     public void setStatus(String status) {
         this.status = status;
     }
+    public String getStudentName() {
+        return studentName;
+    }
+    public void setStudentName(String studentName) {
+        this.studentName = studentName;
+    }
+    
 }
-

@@ -2,18 +2,20 @@ package Class;
 public class ReviewRequest {
     private int requestID;
     private int studentID;
-    private String name;
     private int classID;
+    private String studentName;
     private String reason;
     private String status;
 
-    public ReviewRequest(int classID, int studentID, String reason, String status, String name) {
-        this.classID = classID;
+    public ReviewRequest(int classID, int studentID, String studentName, String reason, String status) {
+
         this.studentID = studentID;
-        this.name = name;
+        this.classID = classID;
+        this.studentName = studentName;
         this.reason = reason;
         this.status = status;
     }
+    
     // Constructor
     public ReviewRequest(int requestID, int studentID, int classID, String reason, String status) {
         this.requestID = requestID;
@@ -65,10 +67,12 @@ public class ReviewRequest {
     public void setStatus(String status) {
         this.status = status;
     }
-    public String getName() {
-        return name;
+
+    public String getStudentName() {
+        return studentName;
     }
-    public void setName(String name) {
-        this.name = name;
+
+    public void setStudentName(String studentName) {
+        this.studentName = studentName;
     }
 }

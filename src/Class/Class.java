@@ -1,6 +1,5 @@
 package Class;
 
-import javafx.collections.ObservableList;
 
 public class Class {
     private int classID;
@@ -12,6 +11,8 @@ public class Class {
     private int registeredStudents;
     private int teacherID;
     private String teacherName;
+    private int credits;
+
 
     // Constructor
     public Class(int classID, int courseID,  String schedule, int limitStudents, int registeredStudents, int teacherID) {   
@@ -52,6 +53,24 @@ public class Class {
         
     }
 
+    public Class(int classID, int courseID, String courseName, String semester, String schedule,  int teacherID, String teacherName) {
+        this.classID = classID;
+        this.courseID = courseID;
+        this.courseName = courseName;
+        this.semester = semester;
+        this.schedule = schedule;
+        this.teacherID = teacherID;
+        this.teacherName = teacherName;
+    }
+    public void setCourseName(String courseName) {
+        this.courseName = courseName;
+    }
+    public int getCredits() {
+        return credits;
+    }
+    public void setCredits(int credits) {
+        this.credits = credits;
+    }
     // Getters and Setters
     public int getClassID() {
         return classID;
@@ -119,6 +138,23 @@ public class Class {
 
     public void setTeacherName(String teacherName) {
         this.teacherName = teacherName;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+    
+        Class that = (Class) o;
+    
+        // So sánh chỉ dựa trên courseName
+        return courseName != null ? courseName.equals(that.courseName) : that.courseName == null;
+    }
+    
+    @Override
+    public int hashCode() {
+        // Hash code chỉ dựa trên courseName
+        return courseName != null ? courseName.hashCode() : 0;
     }
 
 }
