@@ -50,11 +50,11 @@ public class Course {
     }
     // Getters and Setters
     public String getSemester() {
-        return Semester;
+        return semester;
     }
 
     public void setSemester(String semester) {
-        this.Semester = semester;
+        this.semester = semester;
     }
     public int getCourseID() {
         return courseID;
@@ -79,13 +79,7 @@ public class Course {
     public void setCredits(int credits) {
         this.credits = credits;
     }
-    public String getSemester() {
-        return semester;
-    }
 
-    public void setSemester(String semester) {
-        this.semester = semester;
-    }
 
     public String getTeacherName() {
         return teacherName;

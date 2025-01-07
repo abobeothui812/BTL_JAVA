@@ -111,7 +111,7 @@ void createUpdateRequest() {
         name.setEditable(false); // Ensure this column is not editable
 
         studentCode.setCellValueFactory(cellData -> 
-            new SimpleStringProperty(String.valueOf(cellData.getValue().getStudent().getStudentID()))
+            new SimpleStringProperty(String.valueOf(cellData.getValue().getStudent().getUserID()))
         );
 
 

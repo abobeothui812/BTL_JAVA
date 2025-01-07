@@ -30,7 +30,7 @@ public class DatabaseHelper {
                 int studentid = Integer.parseInt(rs.getString("studentid"));
                 String reason = rs.getString("reason");
                 String status = rs.getString("status");
-                studentList.add(new ReviewRequest(new Class(cclass), new Student(studentid, name), reason, status));
+                studentList.add(new ReviewRequest(cclass, studentid, reason, status, name));
             }
         } catch (SQLException e) {
             e.printStackTrace();

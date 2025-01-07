@@ -52,7 +52,7 @@ public class DatabaseHelper {
              PreparedStatement stmt = dbConnection.prepareStatement(updateQuery)) {
 
             for (Attendance attendance : updatedStudents) {
-                stmt.setInt(1, attendance.getStudent().getStudentID());
+                stmt.setInt(1, attendance.getStudent().getUserID());
                 stmt.setString(2, cclass);
                 stmt.setString(3, date);
                 stmt.setString(4, attendance.getDynamicValue());

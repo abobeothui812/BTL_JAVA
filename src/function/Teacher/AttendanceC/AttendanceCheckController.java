@@ -101,7 +101,7 @@ private void createNewCheck() {
         );
 
         studentCode.setCellValueFactory(cellData ->
-            new SimpleStringProperty(String.valueOf(cellData.getValue().getStudent().getStudentID()))
+            new SimpleStringProperty(String.valueOf(cellData.getValue().getStudent().getUserID()))
         );
 
         stt.setCellFactory(col -> new TableCell<Attendance, String>() {

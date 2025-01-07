@@ -2,13 +2,15 @@ package Class;
 public class ReviewRequest {
     private int requestID;
     private int studentID;
+    private String name;
     private int classID;
     private String reason;
     private String status;
 
-    public ReviewRequest(Class aClass, Student student, String reason, String status) {
-        this.aClass = aClass;
-        this.student = student;
+    public ReviewRequest(int classID, int studentID, String reason, String status, String name) {
+        this.classID = classID;
+        this.studentID = studentID;
+        this.name = name;
         this.reason = reason;
         this.status = status;
     }
@@ -62,5 +64,11 @@ public class ReviewRequest {
 
     public void setStatus(String status) {
         this.status = status;
+    }
+    public String getName() {
+        return name;
+    }
+    public void setName(String name) {
+        this.name = name;
     }
 }

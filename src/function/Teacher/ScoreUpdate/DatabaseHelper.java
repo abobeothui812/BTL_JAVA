@@ -50,7 +50,7 @@ public class DatabaseHelper {
             for (Grade grade : studentList) {
                 pstmt.setFloat(1, grade.getMidtermScore());
                 pstmt.setFloat(2, grade.getFinalScore());
-                pstmt.setInt(3, grade.getStudent().getStudentID());
+                pstmt.setInt(3, grade.getStudent().getUserID());
                 pstmt.setInt(4, grade.getaClass().getClassID());
                 pstmt.addBatch();
             }
