@@ -1,7 +1,7 @@
 package Class;
 public class User {
     private int userID;
-    private String username;
+    private String name;
     private String password;
     private String role;
     private String email;
@@ -9,9 +9,9 @@ public class User {
     private String gender;
 
     // Constructor, getters and setters
-    public User(int userID, String username, String password, String role, String email, String phone, String gender) {
+    public User(int userID, String name, String password, String role, String email, String phone, String gender) {
         this.userID = userID;
-        this.username = username;
+        this.name = name;
         this.password = password;
         this.role = role;
         this.email = email;
@@ -36,12 +36,12 @@ public class User {
         this.userID = userID;
     }
 
-    public String getUsername() {
-        return username;
+    public String getName() {
+        return name;
     }
 
-    public void setUsername(String username) {
-        this.username = username;
+    public void setName(String name) {
+        this.name = name;
     }
 
     public String getPassword() {

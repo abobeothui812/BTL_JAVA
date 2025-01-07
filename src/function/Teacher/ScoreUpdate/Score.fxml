@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="function.Teacher.ScoreUpdate.ScoreUpdateController">
+   <top>
+      <MenuBar BorderPane.alignment="CENTER">
+        <menus>
+          <Menu mnemonicParsing="false" text="Thông tin cá nhân">
+            <items>
+              <MenuItem mnemonicParsing="false" text="Xem hồ sơ cá nhân" />
+                  <MenuItem mnemonicParsing="false" text="Đổi mật khẩu" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Quản lý lớp học">
+            <items>
+              <MenuItem mnemonicParsing="false" onAction="#AttendanceInit" text="Điểm danh" />
+                  <MenuItem mnemonicParsing="false" onAction="#ScoreInit" text="Cập nhật điểm" />
+                  <MenuItem mnemonicParsing="false" onAction="#ReviewRequestInit" text="Phúc khảo" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Tra cứu">
+            <items>
+              <MenuItem mnemonicParsing="false" text="Giáo Viên" />
+                  <MenuItem mnemonicParsing="false" text="Sinh Viên" />
+                  <MenuItem mnemonicParsing="false" text="Học phần" />
+                  <MenuItem mnemonicParsing="false" text="Lớp" />
+            </items>
+          </Menu>
+        </menus>
+      </MenuBar>
+   </top>
+   <center>
+      <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+         <children>
+            <HBox alignment="CENTER_LEFT" prefHeight="40.0">
+               <children>
+                  <ComboBox fx:id="classSelector" prefHeight="20.0" prefWidth="150.0" promptText="Select Class">
+                     <HBox.margin>
+                        <Insets left="10.0" />
+                     </HBox.margin>
+                  </ComboBox>
+                  <Button fx:id="UpdateScore" mnemonicParsing="false" onAction="#createUpdateRequest" text="Update Score">
+                     <HBox.margin>
+                        <Insets left="10.0" />
+                     </HBox.margin>
+                  </Button>
+               </children>
+            </HBox>
+            <ScrollPane fitToWidth="true" prefHeight="200.0" prefWidth="200.0" VBox.vgrow="ALWAYS">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefWidth="600.0">
+                     <children>
+                        <TableView fx:id="studentGrade" prefHeight="300.0" prefWidth="600.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0">
+                          <columns>
+                            <TableColumn fx:id="stt" maxWidth="35.0" minWidth="35.0" prefWidth="35.0" text="STT" />
+                            <TableColumn fx:id="name" maxWidth="200.0" minWidth="200.0" prefWidth="200.0" text="Họ và tên" />
+                              <TableColumn fx:id="studentCode" maxWidth="100.0" minWidth="100.0" prefWidth="100.0" text="MSSV" />
+                              <TableColumn fx:id="QT" maxWidth="132.800048828125" minWidth="100.0" prefWidth="123.20001220703125" text="QT" />
+                              <TableColumn fx:id="T" maxWidth="125.5999633789063" minWidth="83.20001220703125" prefWidth="116.00006103515625" text="T" />
+                          </columns>
+                        </TableView>
+                     </children>
+                  </AnchorPane>
+              </content>
+            </ScrollPane>
+         </children>
+      </VBox>
+   </center>
+   <bottom>
+      <Button fx:id="saveButton" mnemonicParsing="false" onAction="#save" text="Save" BorderPane.alignment="CENTER_RIGHT">
+         <BorderPane.margin>
+            <Insets bottom="5.0" right="20.0" top="5.0" />
+         </BorderPane.margin>
+      </Button>
+   </bottom>
+</BorderPane>

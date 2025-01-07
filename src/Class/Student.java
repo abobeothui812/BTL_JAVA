@@ -1,8 +1,10 @@
 package Class;
+
 public class Student extends User {
     private String studentClassID;
     private String major;
     private int enrollmentYear;
+
 
     // Constructor
     public Student( String studentClass, String major, int enrollmentYear,int userID, String username, String password, String role, String email, String phone, String gender) {
@@ -20,8 +22,8 @@ public class Student extends User {
         return studentClassID;
     }
 
-    public void setStudentClassID(String classID) {
-        this.studentClassID = classID;
+
+ 
     }
 
     public String getMajor() {

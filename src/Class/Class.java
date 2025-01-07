@@ -10,32 +10,48 @@ public class Class {
     private String schedule;
     private int limitStudents;
     private int registeredStudents;
-    private ObservableList<Student> studentList = null; 
-    private int TeacherID;
+    private int teacherID;
     private String teacherName;
-    
-
 
     // Constructor
-    public Class(int courseID, String courseName, String semester, String schedule, int limitStudents, int registeredStudents, int teacherID, String teacherName) {
-        this.classID = 0;
+    public Class(int classID, int courseID,  String schedule, int limitStudents, int registeredStudents, int teacherID) {   
+        this.classID = classID;
         this.courseID = courseID;
-        this.courseName = courseName;
-        this.semester = semester;
         this.schedule = schedule;
         this.limitStudents = limitStudents;
         this.registeredStudents = registeredStudents;
-        this.TeacherID = teacherID;
+        this.teacherID = teacherID;
+    }
+    public Class(int classID, int courseID,  String schedule, int limitStudents, int registeredStudents, String teacherName) {   
+        this.classID = classID;
+        this.courseID = courseID;
+        this.schedule = schedule;
+        this.limitStudents = limitStudents;
+        this.registeredStudents = registeredStudents;
         this.teacherName = teacherName;
     }
-
-    public int getTeacherID() {
-        return TeacherID;
+    public Class(int classID, int courseID,  String schedule, int limitStudents, int registeredStudents, String teacherName,int teacherID) {   
+        this.classID = classID;
+        this.courseID = courseID;
+        this.schedule = schedule;
+        this.limitStudents = limitStudents;
+        this.registeredStudents = registeredStudents;
+        this.teacherName = teacherName;
+        this.teacherID = teacherID;
+    }
+    public Class(int classID){
+        this.classID = classID;
+    }
+    public Class(int ClassID, Course course, int RegisteredStudents, String schedule) {
+        this.classID = ClassID;
+        this.courseID = course.getCourseID();
+        this.schedule = schedule;
+        this.limitStudents = course.getCredits();
+        this.courseName = course.getCourseName();
+        this.registeredStudents = RegisteredStudents;
+        
     }
 
-    public void setTeacherID(int teacherID) {
-        this.TeacherID = teacherID;
-    }
     // Getters and Setters
     public int getClassID() {
         return classID;
@@ -65,6 +81,10 @@ public class Class {
         return schedule;
     }
 
+    public String getCourseName() {
+        return courseName;
+    }
+
     public void setSchedule(String schedule) {
         this.schedule = schedule;
     }
@@ -84,11 +104,15 @@ public class Class {
     public void setRegisteredStudents(int registeredStudents) {
         this.registeredStudents = registeredStudents;
     }
-
-    public ObservableList<Student> getStudentList() {
-        return studentList;
+    public int getTeacherID() {
+        return teacherID;
     }
-    
+
+    public void setTeacherID(int teacherID) {
+        this.teacherID = teacherID;
+    }
+
+
     public String getTeacherName() {
         return teacherName;
     }
@@ -97,24 +121,4 @@ public class Class {
         this.teacherName = teacherName;
     }
 
-    public String getCourseName() {
-        return courseName;
-    }
-
-    public void setCourseName(String courseName) {
-        this.courseName = courseName;
-    }
-
-    public void addStudent(Student student) {
-        if(registeredStudents < limitStudents){
-            studentList.add(student);
-            registeredStudents++;
-        }else{
-            System.out.println("Class is full");
-        }
-    }
-
-    public void removeStudent(Student student){
-        studentList.remove(student);
-    }
 }

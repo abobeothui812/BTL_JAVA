@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
@@ -11,7 +16,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.SampleController">
+<VBox xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="function.login.SampleController">
    <children>
       <HBox maxHeight="100.0" VBox.vgrow="ALWAYS" />
       <HBox VBox.vgrow="ALWAYS">
@@ -24,7 +29,7 @@
                      <children>
                         <ImageView fitHeight="274.0" fitWidth="213.0" layoutX="91.0" layoutY="79.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../../../../Downloads/Logo_Đại_học_Bách_Khoa_Hà_Nội.png" />
+                              <Image url="@Logo_Đại_học_Bách_Khoa_Hà_Nội.png" />
                            </image>
                         </ImageView>
                         <Label layoutX="318.0" layoutY="90.0" prefHeight="62.0" prefWidth="302.0" text="Quản lí sinh viên" textAlignment="CENTER">
