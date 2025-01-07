@@ -1,6 +1,7 @@
 package function.admin;
 
 import java.io.IOException;
+import java.sql.Connection;
 
 import function.login.SampleController;
 import javafx.event.ActionEvent;
@@ -17,6 +18,10 @@ public class AdminController extends SampleController {
     private Stage stage;
     private Parent root;
 
+    @FXML
+    public void initialize(String id, Connection dbConnection) {
+        
+    }
     @FXML
     private void Quanlinguoidung(ActionEvent event) throws IOException {
         root = FXMLLoader.load(getClass().getResource("/function/admin/studentScreen.fxml"));
