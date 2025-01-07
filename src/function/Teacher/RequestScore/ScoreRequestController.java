@@ -88,10 +88,10 @@ public class ScoreRequestController extends TeacherController {
             StudentList = helper.fetchStudentFromDatabaseWithClass(classID);
             
             name.setCellValueFactory(cellData -> 
-            new SimpleStringProperty(cellData.getValue().getStudent().getName()));
+            new SimpleStringProperty(cellData.getValue().getStudentName()));
 
             studentCode.setCellValueFactory(cellData -> 
-            new SimpleStringProperty(String.valueOf(cellData.getValue().getStudent().getStudentID())));
+            new SimpleStringProperty(String.valueOf(cellData.getValue().getStudentID())));
 
             stt.setCellFactory(col -> new TableCell<ReviewRequest, String>() {
             @Override

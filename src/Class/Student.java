@@ -14,6 +14,9 @@ public class Student extends User {
         this.enrollmentYear = enrollmentYear;
         
     }
+    public Student(int userID, String name){
+        super(userID, name);
+    }
 
     // Getters and Setters
     
@@ -22,9 +25,6 @@ public class Student extends User {
         return studentClassID;
     }
 
-
- 
-    
 
     public String getMajor() {
         return major;
