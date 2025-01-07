@@ -1,35 +1,44 @@
 package Class;
 public class Grade {
-    private Class aClass;
-    private Student student;
+    private int ClassID;
+    private int studentID;
     private float midtermScore;
     private float finalScore;
     private String status;
+    private float averageScore;
 
     // Constructor
-    public Grade(Class aClass, Student student, float midtermScore, float finalScore, String status) {
-        this.aClass = aClass;
-        this.student = student;
+    public Grade(int ClassID, int studentID, float midtermScore, float finalScore, String status, float averageScore) {
+        this.ClassID = ClassID;
+        this.studentID = studentID;
         this.midtermScore = midtermScore;
         this.finalScore = finalScore;
         this.status = status;
+        this.averageScore = averageScore;
     }
 
-    // Getters and Setters
-    public Class getaClass() {
-        return aClass;
+    public int getClassID() {
+        return ClassID;
     }
 
-    public void setaClass(Class aClass) {
-        this.aClass = aClass;
+    public void setClassID(int classID) {
+        ClassID = classID;
     }
 
-    public Student getStudent() {
-        return student;
+    public int getStudentID() {
+        return studentID;
     }
 
-    public void setStudent(Student student) {
-        this.student = student;
+    public void setStudentID(int studentID) {
+        this.studentID = studentID;
+    }
+
+    public float getAverageScore() {
+        return averageScore;
+    }
+
+    public void setAverageScore(float averageScore) {
+        this.averageScore = averageScore;
     }
 
     public float getMidtermScore() {

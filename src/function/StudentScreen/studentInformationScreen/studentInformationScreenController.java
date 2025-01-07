@@ -15,7 +15,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
-import function.StudentScreen.myClass.CPA;
+import Class.CPA;
 
 public class studentInformationScreenController {
 
@@ -99,7 +99,7 @@ public class studentInformationScreenController {
         Student = db.getStudent(16);
 
         studentIDlabel.setText("MSSV : " + String.valueOf(Student.getUserID()));
-        nameLabel.setText("Họ và tên : " + Student.getUsername());
+        nameLabel.setText("Họ và tên : " + Student.getName());
         majorLabel.setText("Ngành : "+Student.getMajor());
         enrollyearLabel.setText("Năm nhập học : "+String.valueOf(Student.getEnrollmentYear()));
         genderLabel.setText("Giới tính : "+Student.getGender());

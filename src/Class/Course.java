@@ -1,21 +1,13 @@
 package Class;
 
-import javafx.collections.ObservableList;
 
 public class Course {
     private int courseID;
     private String courseName;
     private int credits;
-
-   
-
-    // Constructor
-    
-
     private String teacherName;
     private int teacherID;
     private String semester;
-    private ObservableList<Class> classList ;
 
     // Constructor
     public Course(int courseID, String courseName, int credits, String semester, String teacherName) {
@@ -48,14 +40,7 @@ public class Course {
         this.courseName = courseNameInit;
         this.credits = courseCreditInit;
     }
-    // Getters and Setters
-    public String getSemester() {
-        return Semester;
-    }
-
-    public void setSemester(String semester) {
-        this.Semester = semester;
-    }
+    
     public int getCourseID() {
         return courseID;
     }

@@ -21,7 +21,7 @@ public class User {
 
     public User(int userID, String username, String email, String phone, String gender) {
         this.userID = userID;
-        this.username = username;
+        this.name = username;
         this.email = email;
         this.phone = phone;
         this.gender = gender;

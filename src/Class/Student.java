@@ -24,7 +24,7 @@ public class Student extends User {
 
 
  
-    }
+    
 
     public String getMajor() {
         return major;
