@@ -8,7 +8,7 @@ import java.util.List;
 
 import function.StudentScreen.dbQuery.dbQuery;
 import function.StudentScreen.mainmenu.studentScreen;
-import function.StudentScreen.myClass.ClassDisplayForStudent;
+import Class.Class; 
 import function.StudentScreen.studentInformationScreen.studentInformationScreen;
 import javafx.beans.property.ReadOnlyObjectWrapper;
 import javafx.event.ActionEvent;
@@ -21,29 +21,29 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 
 public class dangkilopController {
-    private List<ClassDisplayForStudent> DeletedclassList = new ArrayList<>();
+    private List<Class> DeletedclassList = new ArrayList<>();
     private boolean isSaved = false;
 
     @FXML
-    private TableColumn<ClassDisplayForStudent, String> columnCourseName;
+    private TableColumn<Class, String> columnCourseName;
 
     @FXML
-    private TableColumn<ClassDisplayForStudent, Integer> columnClassID;
+    private TableColumn<Class, Integer> columnClassID;
 
     @FXML
-    private TableView<ClassDisplayForStudent> tblStudent;
+    private TableView<Class> tblStudent;
 
     @FXML
-    private TableColumn<ClassDisplayForStudent, Integer> columnCourseID;
+    private TableColumn<Class, Integer> columnCourseID;
 
     @FXML
-    private TableColumn<ClassDisplayForStudent, String> columTeacher;
+    private TableColumn<Class, String> columTeacher;
 
     @FXML
-    private TableColumn<ClassDisplayForStudent,Integer> columnOrder;
+    private TableColumn<Class,Integer> columnOrder;
 
     @FXML
-    private TableColumn<ClassDisplayForStudent,String> columnSchedule;
+    private TableColumn<Class,String> columnSchedule;
 
     @FXML
     private Button searchBtn;
@@ -52,7 +52,7 @@ public class dangkilopController {
     private TextField searchText;
 
     @FXML
-    private TableColumn<ClassDisplayForStudent, Integer> columnCredits;
+    private TableColumn<Class, Integer> columnCredits;
 
     dbQuery dbQuery = new dbQuery();
 
@@ -76,15 +76,15 @@ public class dangkilopController {
     @FXML
     public void initialize() {
         warningText.setText("");
-        columnClassID.setCellValueFactory(new PropertyValueFactory<ClassDisplayForStudent, Integer>("classID"));
-        columnCourseID.setCellValueFactory(new PropertyValueFactory<ClassDisplayForStudent, Integer>("courseID"));
-        columnCourseName.setCellValueFactory(new PropertyValueFactory<ClassDisplayForStudent, String>("courseName"));
-        columnSchedule.setCellValueFactory(new PropertyValueFactory<ClassDisplayForStudent, String>("schedule"));
+        columnClassID.setCellValueFactory(new PropertyValueFactory<Class, Integer>("classID"));
+        columnCourseID.setCellValueFactory(new PropertyValueFactory<Class, Integer>("courseID"));
+        columnCourseName.setCellValueFactory(new PropertyValueFactory<Class, String>("courseName"));
+        columnSchedule.setCellValueFactory(new PropertyValueFactory<Class, String>("schedule"));
         columnOrder.setCellValueFactory(cellData -> {
             return new ReadOnlyObjectWrapper<>(tblStudent.getItems().indexOf(cellData.getValue()) + 1);
         });
-        columTeacher.setCellValueFactory(new PropertyValueFactory<ClassDisplayForStudent, String>("teacherName")); 
-        columnCredits.setCellValueFactory(new PropertyValueFactory<ClassDisplayForStudent, Integer>("credits"));
+        columTeacher.setCellValueFactory(new PropertyValueFactory<Class, String>("teacherName")); 
+        columnCredits.setCellValueFactory(new PropertyValueFactory<Class, Integer>("credits"));
     }
     @FXML
     void searchBtnPressed(ActionEvent event) {
@@ -93,7 +93,7 @@ public class dangkilopController {
             return;
         }
         int classID = Integer.parseInt(searchQuery);
-        ClassDisplayForStudent classDisplay = dbQuery.getClass(classID);
+        Class classDisplay = dbQuery.getClass(classID);
         if(classDisplay == null){
             return;
         }
@@ -115,7 +115,7 @@ public class dangkilopController {
             return;
         }
 
-        for(ClassDisplayForStudent classDisplay : tblStudent.getItems()){
+        for(Class classDisplay : tblStudent.getItems()){
             
             dbQuery.insertStudentClass(16,classDisplay.getClassID());
             
@@ -125,7 +125,7 @@ public class dangkilopController {
         isSaved = true;
         System.out.println(isSaved);
         if(!DeletedclassList.isEmpty() && DeletedclassList != null){
-            for(ClassDisplayForStudent classDisplay : DeletedclassList){
+            for(Class classDisplay : DeletedclassList){
                 dbQuery.deleteStudentClass(16, classDisplay.getClassID());
                 DeletedclassList.remove(classDisplay);
             }
@@ -142,7 +142,7 @@ public class dangkilopController {
 
     @FXML
     void deleteBtnPressed(ActionEvent event) {
-        ClassDisplayForStudent selectedClass = tblStudent.getSelectionModel().getSelectedItem();
+        Class selectedClass = tblStudent.getSelectionModel().getSelectedItem();
         if(selectedClass == null){
             return;
         }
