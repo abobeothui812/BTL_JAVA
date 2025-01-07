@@ -26,7 +26,10 @@ public class User {
         this.phone = phone;
         this.gender = gender;
     }
-
+    public User(int UserID, String username){
+        this.userID = UserID;
+        this.name = username;
+    }
     // Getters and Setters
     public int getUserID() {
         return userID;

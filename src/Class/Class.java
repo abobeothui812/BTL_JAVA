@@ -157,4 +157,6 @@ public class Class {
         return courseName != null ? courseName.hashCode() : 0;
     }
 
+
 }
+

@@ -1,5 +1,6 @@
 package function.Teacher.ScoreUpdate;
 
+import java.io.IOException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -10,20 +11,27 @@ import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TableCell;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.TextFieldTableCell;
+import javafx.stage.Stage;
 import Class.Attendance;
 import Class.Grade;
 import javafx.collections.FXCollections;
 
 import function.Teacher.TeacherController;
+import function.Teacher.AttendanceC.AttendanceCheckController;
+import function.Teacher.RequestScore.ScoreRequestController;
 
 public class ScoreUpdateController extends TeacherController {
-    private String teacherId;
+    private String id;
     private Connection dbConnection;
     DatabaseHelper helper = new DatabaseHelper();
     ObservableList<Grade> StudentList = FXCollections.observableArrayList();
@@ -54,9 +62,9 @@ public class ScoreUpdateController extends TeacherController {
     @FXML
     private TableColumn<Grade, String> studentCode;
 
-    public void initialize(Connection dbConnection, String teacherId) {
-        this.teacherId = teacherId;
-        this.dbConnection = dbConnection;
+    public void initializeData(Connection dbConnection, String id) {
+        setDbConnection(dbConnection);
+        setid(id);
         DatabaseHelper.setDbConnection(dbConnection);
         saveButton.setVisible(false);
         try {
@@ -64,7 +72,7 @@ public class ScoreUpdateController extends TeacherController {
                                 "JOIN quanlylophoc1.course ON class.CourseID = course.CourseID\n" + //
                                 "where teacher = ?;";
             PreparedStatement statement = dbConnection.prepareStatement(query);
-            statement.setString(1, teacherId);
+            statement.setString(1, id);
             ResultSet resultSet = statement.executeQuery();
     
             // Create an ObservableList for the ComboBox
@@ -98,7 +106,7 @@ void createUpdateRequest() {
         StudentList = helper.fetchStudentFromDatabaseWithClass(classID);
 
         name.setCellValueFactory(cellData -> 
-            new SimpleStringProperty(cellData.getValue().getStudent().getName())
+            new SimpleStringProperty(cellData.getValue().getStudentName())
         );
 
         name.setCellFactory(col -> new TableCell<Grade, String>() {
@@ -111,7 +119,7 @@ void createUpdateRequest() {
         name.setEditable(false); // Ensure this column is not editable
 
         studentCode.setCellValueFactory(cellData -> 
-            new SimpleStringProperty(String.valueOf(cellData.getValue().getStudent().getStudentID()))
+            new SimpleStringProperty(String.valueOf(cellData.getValue().getStudentID()))
         );
 
 
@@ -185,4 +193,59 @@ void createUpdateRequest() {
         DatabaseHelper.saveStudentGrades(UpdatedList);
     }
 
+    public void setDbConnection(Connection dbConnection) {
+        this.dbConnection = dbConnection;
+    }
+
+    public void setid(String id) {
+        this.id = id;
+    }
+    @FXML
+    public void AttendanceInit(ActionEvent event) throws IOException {
+        try {
+            // Load the FXML file for attendance checking
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/function/Teacher/AttendanceC/attendance.fxml"));
+
+            Parent root = loader.load();
+
+            // Pass necessary data to the new controller
+            AttendanceCheckController controller = loader.getController();
+            controller.initializeData(dbConnection, id); // Pass the database connection
+            // Get the current stage
+            Stage stage = (Stage) saveButton.getScene().getWindow(); // Use any Node from the current scene to get the Stage
+            double width = stage.getWidth();
+            double height = stage.getHeight();
+            Scene scene = new Scene(root, width, height);
+            stage.setScene(scene);
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Error");
+            alert.setHeaderText("Unable to load the attendance check screen.");
+            alert.setContentText(e.getMessage());
+            alert.showAndWait();
+        }
+    }
+    
+    @FXML
+    public void ReviewRequestInit(ActionEvent event) throws IOException {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/function/Teacher/RequestScore/request.fxml"));
+            Parent root = loader.load();
+
+            ScoreRequestController controller = loader.getController(); 
+           
+            controller.initialize(dbConnection, id);
+
+            Stage stage = (Stage) saveButton.getScene().getWindow();
+            double width = stage.getWidth();
+            double height = stage.getHeight();
+            Scene scene = new Scene(root, width, height);
+            stage.setScene(scene);
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 }

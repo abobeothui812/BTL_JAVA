@@ -31,7 +31,7 @@ public class DatabaseHelper {
                 String name = rs.getString("name");
                 Float mid = rs.getFloat("MidtermScore");
                 Float finalscore = rs.getFloat("FinalScore");
-                studentList.add(new Grade(new Class(cclass), new Student(id, name), mid, finalscore, "Pending"));
+                studentList.add(new Grade(cclass, id, name, mid, finalscore, "Pending"));
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -50,8 +50,8 @@ public class DatabaseHelper {
             for (Grade grade : studentList) {
                 pstmt.setFloat(1, grade.getMidtermScore());
                 pstmt.setFloat(2, grade.getFinalScore());
-                pstmt.setInt(3, grade.getStudent().getStudentID());
-                pstmt.setInt(4, grade.getaClass().getClassID());
+                pstmt.setInt(3, grade.getStudentID());
+                pstmt.setInt(4, grade.getClassID());
                 pstmt.addBatch();
             }
     

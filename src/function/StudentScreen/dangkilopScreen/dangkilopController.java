@@ -82,7 +82,6 @@ public class dangkilopController {
     @FXML
     public void initialize() {
         warningText.setText("");
-        
         columnClassID.setCellValueFactory(new PropertyValueFactory<Class, Integer>("classID"));
         columnCourseID.setCellValueFactory(new PropertyValueFactory<Class, Integer>("courseID"));
         columnCourseName.setCellValueFactory(new PropertyValueFactory<Class, String>("courseName"));

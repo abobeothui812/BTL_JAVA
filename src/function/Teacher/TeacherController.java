@@ -121,8 +121,7 @@ public class TeacherController extends SampleController {
 
             // Pass necessary data to the new controller
             AttendanceCheckController controller = loader.getController();
-            controller.initialize(dbConnection, id); // Pass the database connection
-
+            controller.initializeData(dbConnection, id); // Pass the database connection
             // Get the current stage
             Stage stage = (Stage) department.getScene().getWindow(); // Use any Node from the current scene to get the Stage
             double width = stage.getWidth();
@@ -148,7 +147,7 @@ public class TeacherController extends SampleController {
             Parent root = loader.load();
 
             ScoreUpdateController controller = loader.getController();
-            controller.initialize(dbConnection, id);
+            controller.initializeData(dbConnection, id);
 
             Stage stage = (Stage) department.getScene().getWindow();
             double width = stage.getWidth();
@@ -228,6 +227,7 @@ public class TeacherController extends SampleController {
             Parent root = loader.load();
 
             ScoreRequestController controller = loader.getController(); 
+           
             controller.initialize(dbConnection, id);
 
             Stage stage = (Stage) department.getScene().getWindow();

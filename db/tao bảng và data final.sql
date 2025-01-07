@@ -5645,4 +5645,5 @@ ADD COLUMN averagescore FLOAT;
 SET SQL_SAFE_UPDATES = 0;
 UPDATE grade
 SET averagescore = (MidtermScore + FinalScore) / 2;
-
+alter table course add column is_deleted boolean default false;
+alter table class add column is_deleted boolean default false

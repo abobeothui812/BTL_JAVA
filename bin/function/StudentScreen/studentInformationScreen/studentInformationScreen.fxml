@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.shape.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1500.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="function.StudentScreen.studentInformationScreen.studentInformationScreenController">
+   <top>
+      <MenuBar prefHeight="28.0" prefWidth="1507.0" BorderPane.alignment="CENTER">
+         <menus>
+            <Menu mnemonicParsing="false" text="Dịch vụ">
+               <items>
+                  <MenuItem fx:id="in4Menu" mnemonicParsing="false" onAction="#in4MenuPressed" text="Xem thông tin cá nhân" />
+                  <MenuItem fx:id="dangkilopMenu" mnemonicParsing="false" onAction="#dangkilopPressed" text="Đăng kí lớp" />
+                  <MenuItem fx:id="tkbMenu" mnemonicParsing="false" onAction="#tkbMenuPressed" text="Thời khóa biểu" />
+               </items>
+            </Menu>
+            <Menu mnemonicParsing="false" text="Liên hệ">
+               <items>
+                  <MenuItem mnemonicParsing="false" text="Delete" />
+               </items>
+            </Menu>
+         </menus>
+      </MenuBar>
+   </top>
+   <center>
+      <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+         <children>
+            <HBox alignment="CENTER" prefHeight="62.0" prefWidth="1500.0">
+               <children>
+                  <Label text="Thông tin cá nhân của sinh viên">
+                     <font>
+                        <Font name="System Bold" size="40.0" />
+                     </font>
+                  </Label>
+               </children>
+            </HBox>
+            <HBox alignment="CENTER_LEFT" prefHeight="139.0" prefWidth="1500.0" style="-fx-border-color: black;">
+               <children>
+                  <ImageView fitHeight="207.0" fitWidth="133.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@hung.jpg" />
+                     </image>
+                     <HBox.margin>
+                        <Insets left="20.0" right="40.0" />
+                     </HBox.margin>
+                  </ImageView>
+                  <VBox alignment="CENTER_LEFT" prefHeight="175.0" prefWidth="428.0">
+                     <children>
+                        <Label fx:id="nameLabel" text="Họ và tên sinh viên: Trần Mạnh Hùng" />
+                        <Label fx:id="studentIDlabel" text="MSSV:12345678" />
+                        <Label fx:id="curyearLabel" text="Năm:2024" />
+                        <Label fx:id="majorLabel" text="Ngành:vua" />
+                        <Label />
+                     </children></VBox>
+                  <VBox alignment="CENTER_LEFT" layoutX="242.0" layoutY="10.0" prefHeight="175.0" prefWidth="415.0">
+                     <children>
+                        <Label fx:id="enrollyearLabel" text="Năm vào trường:2022" />
+                        <Label fx:id="emailLabel" text="Email:dzaikoyeuai@gmail.com" />
+                        <Label fx:id="phoneNumberlabel" text="Phone : 01111111111" />
+                        <Label fx:id="genderLabel" text="Giới tính : Nam" />
+                        <Label />
+                     </children>
+                  </VBox>
+                  <TableView fx:id="tblCPA" prefHeight="175.0" prefWidth="459.0">
+                    <columns>
+                      <TableColumn fx:id="semesterColumn2" prefWidth="150.0" text="Kì" />
+                      <TableColumn fx:id="gpaColumn" prefWidth="150.0" text="GPA" />
+                        <TableColumn fx:id="cpaColumn" prefWidth="150.0" text="CPA" />
+                    </columns>
+                  </TableView>
+               </children>
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin>
+            </HBox>
+            <VBox>
+               <children>
+                  <TableView fx:id="tblGrade" prefHeight="529.0" prefWidth="1500.0">
+                    <columns>
+                      <TableColumn fx:id="semesterColumn" prefWidth="110.0" text="Kì" />
+                        <TableColumn fx:id="courseIDLabel" prefWidth="110.0" text="Mã học phần" />
+                      <TableColumn fx:id="courseNameColumn" prefWidth="380.0" text="Tên học phần" />
+                        <TableColumn fx:id="creditsColumn" prefWidth="150.0" text="Tín chỉ" />
+                        <TableColumn fx:id="midScoreColumn" prefWidth="200.0" text="Điểm giữa kì" />
+                        <TableColumn fx:id="finalScoreColumn" prefWidth="200.0" text="Điểm cuối kì" />
+                        <TableColumn fx:id="avgScoreColumn" prefWidth="200.0" text="Điểm tổng kết" />
+                        <TableColumn fx:id="statusColumn" prefWidth="150.0" text="Trạng thái" />
+                    </columns>
+                  </TableView>
+               </children>
+            </VBox>
+         </children>
+      </VBox>
+   </center>
+</BorderPane>
