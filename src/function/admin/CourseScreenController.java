@@ -422,12 +422,14 @@ private void viewClassList(ActionEvent event) {
 
 
         Stage stage = (Stage) ((MenuItem) event.getSource()).getParentPopup().getOwnerWindow();
+
         
         double width = stage.getWidth();
         double height = stage.getHeight();
         
         Scene scene = new Scene(root, width, height); 
         stage.setScene(scene);
+        stage.setTitle("Danh sách lớp học"); 
         stage.show();
         
     } catch (IOException e) {
