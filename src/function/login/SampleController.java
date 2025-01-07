@@ -17,6 +17,7 @@ import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 import function.StudentScreen.mainmenu.studentScreen;
+import function.StudentScreen.mainmenu.studentScreenController;
 
 public class SampleController {
 
@@ -39,24 +40,31 @@ public class SampleController {
         alert.setContentText(content);
         alert.showAndWait();
     }
-    /*private void loadScene(String fxmlPath, ActionEvent event, String role, String username, String id, Connection dbConnection) 
+    private void loadScene(String fxmlPath, ActionEvent event, String role, String username, String id, Connection dbConnection) 
     throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource(fxmlPath));
         Parent root = loader.load();
 
         // Pass role-specific data to the new controller
-        SampleController controller = loader.getController();
-        System.out.println(controller);
-
-        controller.initialize(id, dbConnection);
+        //SampleController controller = loader.getController();
+       // System.out.println(controller);
+        switch (fxmlPath) {
+            case "Teacher.fxml":
+                
+                break;
+        
+            default:
+                studentScreenController studentScreenController = loader.getController();
+                studentScreenController.setStudentID(Integer.parseInt(id));
+                break;
+        }
+        //controller.initialize(id, dbConnection);
 
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        double width = stage.getWidth();
-        double height = stage.getHeight();
-        scene = new Scene(root, width, height);
+        scene = new Scene(root); // Tự động lấy kích thước từ root
         stage.setScene(scene);
         stage.show();
-    }*/
+    }
 
     @FXML
     public void Login(ActionEvent event) throws IOException {
@@ -77,12 +85,12 @@ public class SampleController {
 			String id = AccountManager.getInstance().getID(username);
             System.out.println(role  + " " + id);
             //String userId = AccountManager.getInstance().getUserId(username); // Retrieve user ID
-            //String targetFXML = switch (role) {
-             //   case "Admin" -> "Admin.fxml";
-            //    case "Teacher" -> "Teacher.fxml";
-            //    default -> "Student.fxml";
-            //};
-            switch (role) {
+            String targetFXML = switch (role) {
+                case "Admin" -> "Admin.fxml";
+                case "Teacher" -> "Teacher.fxml";
+                default -> "Student.fxml";
+            };
+            /*switch (role) {
                 case "Admin":
                     break;
                 case "Teacher":
@@ -100,8 +108,8 @@ public class SampleController {
                         }
                     }
                     break;
-            }
-            //loadScene(targetFXML, event, role, username, id, dbConnection);
+            }*/
+            loadScene(targetFXML, event, role, username, id, dbConnection);
 			} catch (SQLException e) {
 				e.printStackTrace();
 				showAlert(Alert.AlertType.ERROR, "Login Failed", "Database Error", "Unable to connect to the database.");
