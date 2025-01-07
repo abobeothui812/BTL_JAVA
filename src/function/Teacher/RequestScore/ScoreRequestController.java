@@ -216,23 +216,4 @@ public class ScoreRequestController extends TeacherController {
             e.printStackTrace();
         }
     }
-    @FXML
-    public void StudentSearchInit(ActionEvent event) throws IOException {
-        try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/function/search/Student/searchStudent.fxml"));
-            Parent root = loader.load();
-
-            searchStudentController controller = loader.getController();
-            controller.initialize(dbConnection);
-
-            Stage stage = (Stage) detailBox.getScene().getWindow();
-            double width = stage.getWidth();
-            double height = stage.getHeight();
-            Scene scene = new Scene(root, width, height);
-            stage.setScene(scene);
-            stage.show();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
 }
