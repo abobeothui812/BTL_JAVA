@@ -2,8 +2,7 @@ package function.StudentScreen.dbQuery;
 
 
 import function.StudentScreen.myClass.Attendance;
-import function.StudentScreen.myClass.CPA;
-import function.StudentScreen.myClass.ClassDisplayForStudent;
+import Class.CPA;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
@@ -14,8 +13,9 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import Class.Course;
-import function.StudentScreen.myClass.Grade;
+import Class.Class;
 import function.StudentScreen.myClass.gradeDisplay;
+import Class.Grade;
 import function.StudentScreen.myClass.student;
 public class dbQuery {
     private static final String URL = "jdbc:mysql://localhost:3306/quanlylophoc1";
@@ -33,8 +33,8 @@ public class dbQuery {
         }
     }
 
-    public ObservableList<ClassDisplayForStudent> getStudentClassesFromDB() {
-        ObservableList<ClassDisplayForStudent> classList = FXCollections.observableArrayList();
+    public ObservableList<Class> getStudentClassesFromDB() {
+        ObservableList<Class> classList = FXCollections.observableArrayList();
         String query = "select class.ClassID,class.CourseID,Schedule,CourseName,semester,Credits,teacher,TeacherID " +
                         "from studentclass " +
                         "join class " +
@@ -59,7 +59,7 @@ public class dbQuery {
 
 
 
-                ClassDisplayForStudent studentClass = new ClassDisplayForStudent(classID, courseID, courseName, semester, schedule, teacherID, teacherName);
+                Class studentClass = new Class(classID, courseID, courseName, semester, schedule, teacherID, teacherName);
                 classList.add(studentClass);
             }
         } catch (SQLException e) {
@@ -83,7 +83,7 @@ public class dbQuery {
                 int credits = rs.getInt("Credits");
                 int courseLeaderID = rs.getInt("TeacherID");
 
-                course = new Course(courseID, courseName,  credits,semester, courseLeaderID );
+                course = new Course(courseID, courseName,  credits, semester, courseLeaderID);
                 
             }
 
@@ -179,8 +179,8 @@ public class dbQuery {
     }
 
     
-    public ClassDisplayForStudent getClass(int classID) {
-        ClassDisplayForStudent classDisplay = null;
+    public Class getClass(int classID) {
+        Class classDisplay = null;
         String query = "select c.CourseID,c.CourseName,Schedule,teacher,semester,Credits\r\n" + //
                         "from class\r\n" + //
                         "join quanlylophoc1.course c on c.CourseID = class.CourseID\r\n" + //
@@ -198,7 +198,7 @@ public class dbQuery {
                 int credits = rs.getInt("Credits");
                 
 
-                classDisplay = new ClassDisplayForStudent(classID, courseID, courseName, semester, schedule, teacherID, getTeacherName(teacherID));
+                classDisplay = new Class(classID, courseID, courseName, semester, schedule, teacherID, getTeacherName(teacherID));
                 classDisplay.setCredits(credits);
             }
         } catch (SQLException e) {

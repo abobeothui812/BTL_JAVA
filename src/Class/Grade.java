@@ -7,6 +7,7 @@ public class Grade {
     private float finalScore;
     private String status;
     private float averageScore;
+
     public Grade(int ClassID, int studentID, String studentName, float midtermScore, float finalScore, String status) {
         this.ClassID = ClassID;
         this.studentID = studentID;
@@ -15,6 +16,7 @@ public class Grade {
         this.finalScore = finalScore;
         this.status = status;
     }
+
     // Constructor
     public Grade(int ClassID, int studentID, float midtermScore, float finalScore, String status, float averageScore) {
         this.ClassID = ClassID;

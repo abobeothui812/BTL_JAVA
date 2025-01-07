@@ -15,7 +15,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
-import function.StudentScreen.myClass.CPA;
+import Class.CPA;
 
 public class studentInformationScreenController {
 

@@ -18,11 +18,11 @@ import java.sql.Connection;
 import java.util.stream.Collectors;
 
 import Class.Course;
+import Class.Class;
 import function.StudentScreen.myClass.Attendance;
-import function.StudentScreen.myClass.ClassDisplayForStudent;
 import function.StudentScreen.dangkilopScreen.dangkilop;
 import function.StudentScreen.dbQuery.dbQuery;
-import function.StudentScreen.myClass.Grade;
+import Class.Grade;
 import function.StudentScreen.studentInformationScreen.studentInformationScreen;
 import function.StudentScreen.mainmenu.diemdanhbox.absentDetails;
 import function.StudentScreen.mainmenu.phucKhaoBox.phucKhaoBox;
@@ -45,25 +45,25 @@ public class studentScreenController {
     private Button phuckhaoBtn;
 
     @FXML
-    private TableView<ClassDisplayForStudent> tblStudent;
+    private TableView<Class> tblStudent;
 
     @FXML
-    private TableColumn<ClassDisplayForStudent,Integer> columnCourseID;
+    private TableColumn<Class,Integer> columnCourseID;
 
     @FXML
-    private TableColumn<ClassDisplayForStudent,String> columTeacher;
+    private TableColumn<Class,String> columTeacher;
 
     @FXML
-    private TableColumn<ClassDisplayForStudent,Integer> columnOrder;
+    private TableColumn<Class,Integer> columnOrder;
 
     @FXML
-    private TableColumn<ClassDisplayForStudent,String> columnSchedule;
+    private TableColumn<Class,String> columnSchedule;
 
     @FXML
-    private TableColumn<ClassDisplayForStudent,String> columnCourseName;
+    private TableColumn<Class,String> columnCourseName;
 
     @FXML
-    private TableColumn<ClassDisplayForStudent,Integer> columnClassID;
+    private TableColumn<Class,Integer> columnClassID;
 
     @FXML
     private Label labelChuaChon;
@@ -84,23 +84,23 @@ public class studentScreenController {
         labelChuaChon.setText("Bạn chưa chọn lớp nào");
 
         // Set the cell value factory for the table columns
-        columnClassID.setCellValueFactory(new PropertyValueFactory<ClassDisplayForStudent, Integer>("classID"));
-        columnCourseID.setCellValueFactory(new PropertyValueFactory<ClassDisplayForStudent, Integer>("courseID"));
-        columnCourseName.setCellValueFactory(new PropertyValueFactory<ClassDisplayForStudent, String>("courseName"));
-        columnSchedule.setCellValueFactory(new PropertyValueFactory<ClassDisplayForStudent, String>("schedule"));
+        columnClassID.setCellValueFactory(new PropertyValueFactory<Class, Integer>("classID"));
+        columnCourseID.setCellValueFactory(new PropertyValueFactory<Class, Integer>("courseID"));
+        columnCourseName.setCellValueFactory(new PropertyValueFactory<Class, String>("courseName"));
+        columnSchedule.setCellValueFactory(new PropertyValueFactory<Class, String>("schedule"));
         columnOrder.setCellValueFactory(cellData -> {
             return new ReadOnlyObjectWrapper<>(tblStudent.getItems().indexOf(cellData.getValue()) + 1);
         });
-        columTeacher.setCellValueFactory(new PropertyValueFactory<ClassDisplayForStudent, String>("teacherName")); 
+        columTeacher.setCellValueFactory(new PropertyValueFactory<Class, String>("teacherName")); 
 
         // Fetch all classes from the database
-        ObservableList<ClassDisplayForStudent> classList = db.getStudentClassesFromDB();
+        ObservableList<Class> classList = db.getStudentClassesFromDB();
         tblStudent.setItems(classList);
 
         // Populate the ChoiceBox with semester values
         semesterChoice.setItems(FXCollections.observableArrayList(
             classList.stream()
-                .map(ClassDisplayForStudent::getSemester)
+                .map(Class::getSemester)
                 .distinct()
                 .collect(Collectors.toList())
         ));
@@ -108,8 +108,8 @@ public class studentScreenController {
         semesterChoice.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
 
             if (newValue != null) {
-                ObservableList<ClassDisplayForStudent> classListBySemester = FXCollections.observableArrayList();
-                for (ClassDisplayForStudent studentClass : classList) {
+                ObservableList<Class> classListBySemester = FXCollections.observableArrayList();
+                for (Class studentClass : classList) {
                     if (studentClass.getSemester().equals(newValue)) {
                         classListBySemester.add(studentClass);
                     }
@@ -160,7 +160,7 @@ public class studentScreenController {
 
     @FXML
     void phuckhaoBtnPressed(ActionEvent event) {
-        ClassDisplayForStudent selectedClass = tblStudent.getSelectionModel().getSelectedItem();
+        Class selectedClass = tblStudent.getSelectionModel().getSelectedItem();
         if (selectedClass != null) {
             phucKhaoBox phucKhaoWindow = new phucKhaoBox(selectedClass.getClassID(),16);
             try {
@@ -175,7 +175,7 @@ public class studentScreenController {
 
     @FXML
     public void absentDetailsBtnPressed(ActionEvent event) {
-        ClassDisplayForStudent selectedClass = tblStudent.getSelectionModel().getSelectedItem();
+        Class selectedClass = tblStudent.getSelectionModel().getSelectedItem();
         if (selectedClass == null) {
             System.out.println("No class selected");
             return;
