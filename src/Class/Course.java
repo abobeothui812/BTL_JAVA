@@ -6,6 +6,12 @@ public class Course {
     private int courseID;
     private String courseName;
     private int credits;
+
+   
+
+    // Constructor
+    
+
     private String teacherName;
     private int teacherID;
     private String semester;
@@ -34,6 +40,7 @@ public class Course {
         this.teacherName = teacherName;
         this.semester = semester;
         this.teacherID = teacherID;   
+
     }
 
     public Course(int CourseID, String courseNameInit, int courseCreditInit) {
@@ -42,6 +49,13 @@ public class Course {
         this.credits = courseCreditInit;
     }
     // Getters and Setters
+    public String getSemester() {
+        return Semester;
+    }
+
+    public void setSemester(String semester) {
+        this.Semester = semester;
+    }
     public int getCourseID() {
         return courseID;
     }
@@ -81,12 +95,14 @@ public class Course {
         this.teacherName = teacherName;
     }
 
+
     public int getTeacherID() {
         return teacherID;
     }
 
     public void setTeacherID(int teacherID) {
         this.teacherID = teacherID;
+
     }
 
 

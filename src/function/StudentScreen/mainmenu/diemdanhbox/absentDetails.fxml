@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="function.StudentScreen.mainmenu.diemdanhbox.absentDetailsController">
+   <children>
+      <Label layoutX="176.0" layoutY="14.0" text="Ngày nghỉ học">
+         <font>
+            <Font name="System Bold" size="36.0" />
+         </font>
+      </Label>
+      <Label fx:id="helloID" layoutX="264.0" layoutY="183.0" text="Hello" />
+   </children>
+</Pane>

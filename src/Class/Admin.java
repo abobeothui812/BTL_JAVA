@@ -1,28 +1,8 @@
 package Class;
-public class Admin {
-    private int adminID;
-    private User user; // Chứa đối tượng User tương ứng
+public class Admin extends User {
 
-    // Constructor
-    public Admin(int adminID, User user) {
-        this.adminID = adminID;
-        this.user = user;
+    public Admin(int userID, String username, String password, String role, String email, String phone, String gender) {
+        super(userID, username, password, role, email, phone, gender);
     }
-
-    // Getters and Setters
-    public int getAdminID() {
-        return adminID;
-    }
-
-    public void setAdminID(int adminID) {
-        this.adminID = adminID;
-    }
-
-    public User getUser() {
-        return user;
-    }
-
-    public void setUser(User user) {
-        this.user = user;
-    }
+    
 }

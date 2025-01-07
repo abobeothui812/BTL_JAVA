@@ -1,8 +1,8 @@
 package Class;
 public class ReviewRequest {
     private int requestID;
-    private Student student;
-    private Class aClass;
+    private int studentID;
+    private int classID;
     private String reason;
     private String status;
 
@@ -13,10 +13,10 @@ public class ReviewRequest {
         this.status = status;
     }
     // Constructor
-    public ReviewRequest(int requestID, Student student, Class aClass, String reason, String status) {
+    public ReviewRequest(int requestID, int studentID, int classID, String reason, String status) {
         this.requestID = requestID;
-        this.student = student;
-        this.aClass = aClass;
+        this.studentID = studentID;
+        this.classID = classID;
         this.reason = reason;
         this.status = status;
     }
@@ -30,20 +30,22 @@ public class ReviewRequest {
         this.requestID = requestID;
     }
 
-    public Student getStudent() {
-        return student;
+    
+
+    public int getStudentID() {
+        return studentID;
     }
 
-    public void setStudent(Student student) {
-        this.student = student;
+    public void setStudentID(int studentID) {
+        this.studentID = studentID;
     }
 
-    public Class getaClass() {
-        return aClass;
+    public int getClassID() {
+        return classID;
     }
 
-    public void setaClass(Class aClass) {
-        this.aClass = aClass;
+    public void setClassID(int classID) {
+        this.classID = classID;
     }
 
     public String getReason() {

@@ -18,6 +18,7 @@ import javafx.stage.Stage;
 
 public class SampleController {
 
+
     private Stage stage;
     private Parent root;
     private Scene scene;

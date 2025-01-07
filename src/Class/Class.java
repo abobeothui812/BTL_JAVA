@@ -1,4 +1,7 @@
 package Class;
+
+import javafx.collections.ObservableList;
+
 public class Class {
     private int classID;
     private int courseID;
@@ -48,6 +51,7 @@ public class Class {
         this.registeredStudents = RegisteredStudents;
         
     }
+
     // Getters and Setters
     public int getClassID() {
         return classID;
@@ -100,7 +104,6 @@ public class Class {
     public void setRegisteredStudents(int registeredStudents) {
         this.registeredStudents = registeredStudents;
     }
-
     public int getTeacherID() {
         return teacherID;
     }
@@ -109,6 +112,7 @@ public class Class {
         this.teacherID = teacherID;
     }
 
+
     public String getTeacherName() {
         return teacherName;
     }
@@ -116,4 +120,5 @@ public class Class {
     public void setTeacherName(String teacherName) {
         this.teacherName = teacherName;
     }
+
 }
