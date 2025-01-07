@@ -69,7 +69,7 @@ public class SampleController {
             showAlert(Alert.AlertType.ERROR, "Login Failed", "Invalid Credentials", "Incorrect username or password!");
         } else {
             try {
-			Connection dbConnection = DriverManager.getConnection("jdbc:mysql://localhost:3306/quanlylophoc1", "root", "_E#./FywmS,w43S");
+			Connection dbConnection = DriverManager.getConnection("jdbc:mysql://localhost:3306/quanlylophoc1", "root", "dangdz123");
             //System.out.println("Database connected!");
             String role = AccountManager.getInstance().getRole(username);
 			String id = AccountManager.getInstance().getID(username);
@@ -94,9 +94,7 @@ public class SampleController {
     private void Logout(ActionEvent event) throws IOException {
         root = FXMLLoader.load(getClass().getResource("LoginMenu.fxml"));
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        double width = stage.getWidth();
-        double height = stage.getHeight();
-        Scene scene = new Scene(root, width, height);
+        Scene scene = new Scene(root, 850, 350);
         stage.setScene(scene);
         stage.show();
     }

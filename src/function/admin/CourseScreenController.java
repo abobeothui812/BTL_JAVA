@@ -23,6 +23,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonBar;
+import javafx.scene.Node;
 import Class.Course;
 
 import java.io.IOException;
@@ -36,7 +37,10 @@ import java.sql.Statement;
 import java.util.Optional;
 
 import com.mysql.cj.conf.ConnectionUrlParser.Pair;
+import java.awt.MenuItem;
+import java.lang.classfile.components.ClassPrinter;
 import java.lang.classfile.constantpool.IntegerEntry;
+import java.util.concurrent.ArrayBlockingQueue;
 
 public class CourseScreenController {
 
@@ -63,7 +67,7 @@ public class CourseScreenController {
 
     private static final String DB_URL = "jdbc:mysql://localhost:3306/quanlylophoc1";
     private static final String DB_USER = "root";
-    private static final String DB_PASSWORD = "_E#./FywmS,w43S";
+    private static final String DB_PASSWORD = "dangdz123";
 
     private ObservableList<Course> courseList = FXCollections.observableArrayList();
 
@@ -433,7 +437,23 @@ private void viewClassList(ActionEvent event) {
         e.printStackTrace();
     }
 }
- 
+@FXML
+private void goBack(ActionEvent event) {
+    try {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/function/login/Admin.fxml"));
+        Parent root = loader.load();
+
+        Node source = (Node) event.getSource();
+        Stage stage = (Stage) source.getScene().getWindow();
+
+        Scene scene = new Scene(root,790 ,400 );
+        stage.setScene(scene);
+        stage.show();
+    } catch (Exception e) {
+        System.out.println("Đã xảy ra lỗi khi mở lại file FXML trước đó: " + e.getMessage());
+        e.printStackTrace();
+    }
+}
 
     
 

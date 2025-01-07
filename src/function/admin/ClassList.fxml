@@ -37,7 +37,6 @@
 <?import javafx.scene.control.ContextMenu?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.MenuItem?>
-<?import javafx.scene.control.Pagination?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
@@ -93,7 +92,7 @@
             </HBox>
             <HBox prefHeight="100.0" prefWidth="200.0">
                <children>
-                  <Button mnemonicParsing="false" onAction="#goBack" prefHeight="44.0" prefWidth="117.0" text="Quay lại" />
+                  <Button mnemonicParsing="false" onAction="#goBack" prefHeight="44.0" prefWidth="117.0" text="Quay lại" HBox.hgrow="ALWAYS" />
                </children>
             </HBox>
          </children>
