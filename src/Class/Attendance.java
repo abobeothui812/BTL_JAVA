@@ -12,6 +12,7 @@ public class Attendance {
     private String status;
     private StringProperty dynamic = new SimpleStringProperty("Present");;
 
+
     public Attendance(int classID, String name, int studentID, String status)
     {
         this.classID = classID;
@@ -19,6 +20,7 @@ public class Attendance {
         this.studentID = studentID;
         this.status = status;
     }
+
     // Constructor
     public Attendance(int attendanceID, int classID, int studentID, String date, String status) {
         this.attendanceID = attendanceID;

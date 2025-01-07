@@ -7,6 +7,7 @@ public class ReviewRequest {
     private String reason;
     private String status;
 
+
     public ReviewRequest(int classID, int studentID, String studentName, String reason, String status) {
 
         this.studentID = studentID;
@@ -15,6 +16,7 @@ public class ReviewRequest {
         this.reason = reason;
         this.status = status;
     }
+
     
     // Constructor
     public ReviewRequest(int requestID, int studentID, int classID, String reason, String status) {
