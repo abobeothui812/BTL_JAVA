@@ -54,9 +54,9 @@ public class ScoreUpdateController extends TeacherController {
     @FXML
     private TableColumn<Grade, String> studentCode;
 
-    public void initialize(Connection dbConnection, String teacherId) {
-        this.teacherId = teacherId;
-        this.dbConnection = dbConnection;
+    public void initializeData(Connection dbConnection, String teacherId) {
+        setDbConnection(dbConnection);
+        setTeacherId(teacherId);
         DatabaseHelper.setDbConnection(dbConnection);
         saveButton.setVisible(false);
         try {
@@ -185,4 +185,13 @@ void createUpdateRequest() {
         DatabaseHelper.saveStudentGrades(UpdatedList);
     }
 
+    public void setDbConnection(Connection dbConnection) {
+        this.dbConnection = dbConnection;
+    }
+
+    public void setTeacherId(String teacherId) {
+        this.teacherId = teacherId;
+    }
+
+    
 }

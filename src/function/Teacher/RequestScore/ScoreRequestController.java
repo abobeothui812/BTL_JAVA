@@ -20,7 +20,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.VBox;
 
 public class ScoreRequestController extends TeacherController {
-    private String teacherId;
+    private String id;
     private Connection dbConnection;
     DatabaseHelper helper = new DatabaseHelper();
     ObservableList<ReviewRequest> StudentList = FXCollections.observableArrayList();
@@ -45,16 +45,19 @@ public class ScoreRequestController extends TeacherController {
     @FXML
     private VBox detailBox;
 
-    public void initialize(Connection dbConnection, String teacherId) {
+    @FXML
+    public void initialize(Connection dbConnection, String id) {
+        this.id = id;
         this.dbConnection = dbConnection;
-        this.teacherId = teacherId;
+        System.out.println("Teacher ID: " + id);
+        System.out.println("Database Connection: " + dbConnection);
         DatabaseHelper.setDbConnection(dbConnection);
         try {
             String query = "SELECT ClassID, CourseName FROM quanlylophoc1.class \n" + //
                                 "JOIN quanlylophoc1.course ON class.CourseID = course.CourseID\n" + //
                                 "where teacher = ?;";
             PreparedStatement statement = dbConnection.prepareStatement(query);
-            statement.setString(1, teacherId);
+            statement.setString(1, id);
             ResultSet resultSet = statement.executeQuery();
     
             // Create an ObservableList for the ComboBox
@@ -129,4 +132,14 @@ public class ScoreRequestController extends TeacherController {
         reasonLabel.setWrapText(true);  // Enable text wrapping
         detailBox.getChildren().add(reasonLabel);
     }
+
+    public void setid(String id) {
+        this.id = id;
+    }
+
+    public void setDbConnection(Connection dbConnection) {
+        this.dbConnection = dbConnection;
+    }
+
+    
 }

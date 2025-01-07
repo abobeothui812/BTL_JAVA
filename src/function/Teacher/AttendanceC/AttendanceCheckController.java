@@ -50,10 +50,10 @@ public class AttendanceCheckController extends TeacherController{
 
     private ObservableList<Attendance> AttendancesList;
 
-    // You might want to modify this method to pass the DB connection from the parent controller
-    public void initialize(Connection dbConnection, String teacherId) {
-        this.teacherId = teacherId;
-        this.dbConnection = dbConnection;
+    @FXML
+    public void initializeData(Connection dbConnection, String teacherId) {
+        setDbConnection(dbConnection);
+        setTeacherId(teacherId);
         helper.setDbConnection(dbConnection);
         saveButton.setVisible(false);
         try {
@@ -86,7 +86,7 @@ public class AttendanceCheckController extends TeacherController{
     }
 
     @FXML
-private void createNewCheck() {
+    private void createNewCheck() {
     String selectedClass = classSelector.getSelectionModel().getSelectedItem();
     if (selectedClass != null) {
         String[] parts = selectedClass.split(" - ");
@@ -182,6 +182,14 @@ private void createNewCheck() {
         alert.setTitle(title);
         alert.setContentText(content);
         alert.showAndWait();
+    }
+
+    public void setDbConnection(Connection dbConnection) {
+        this.dbConnection = dbConnection;
+    }
+
+    public void setTeacherId(String teacherId) {
+        this.teacherId = teacherId;
     }
 
     
