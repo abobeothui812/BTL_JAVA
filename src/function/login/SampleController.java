@@ -5,6 +5,9 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
+import function.Teacher.TeacherController;
+import function.admin.AdminController;
+import function.admin.studentScreenController;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -16,11 +19,9 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
-import function.StudentScreen.mainmenu.studentScreen;
-import function.StudentScreen.mainmenu.studentScreenController;
-
 public class SampleController {
-
+    private String id;
+    private Connection dbConnection;
 
     private Stage stage;
     private Parent root;
@@ -30,8 +31,8 @@ public class SampleController {
     private TextField userText;
     @FXML
     private PasswordField passText;
+    @FXML
     public void initialize(String id, Connection dbConnection) {
-		
 	}
     private void showAlert(Alert.AlertType alertType, String title, String header, String content) {
         Alert alert = new Alert(alertType);
@@ -45,23 +46,25 @@ public class SampleController {
         FXMLLoader loader = new FXMLLoader(getClass().getResource(fxmlPath));
         Parent root = loader.load();
 
-        // Pass role-specific data to the new controller
-        //SampleController controller = loader.getController();
-       // System.out.println(controller);
-        switch (fxmlPath) {
-            case "Teacher.fxml":
-                
-                break;
-        
-            default:
-                studentScreenController studentScreenController = loader.getController();
-                studentScreenController.setStudentID(Integer.parseInt(id));
-                break;
+        if(fxmlPath == "Admin.fxml") {
+            AdminController controller = loader.getController();
+            controller.initialize(id, dbConnection);
         }
-        //controller.initialize(id, dbConnection);
+        else if(fxmlPath == "Teacher.fxml") {
+            TeacherController controller = loader.getController();
+            controller.initialize(id, dbConnection);
+        }
+        else{
+            studentScreenController controller = loader.getController();
+        }
+        // Pass role-specific data to the new controller
+
+        
 
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        scene = new Scene(root); // Tự động lấy kích thước từ root
+        double width = stage.getWidth();
+        double height = stage.getHeight();
+        scene = new Scene(root, width, height);
         stage.setScene(scene);
         stage.show();
     }
@@ -79,7 +82,7 @@ public class SampleController {
             showAlert(Alert.AlertType.ERROR, "Login Failed", "Invalid Credentials", "Incorrect username or password!");
         } else {
             try {
-			Connection dbConnection = DriverManager.getConnection("jdbc:mysql://localhost:3306/quanlylophoc1", "root", "1234");
+			Connection dbConnection = DriverManager.getConnection("jdbc:mysql://localhost:3306/quanlylophoc1", "root", "_E#./FywmS,w43S");
             //System.out.println("Database connected!");
             String role = AccountManager.getInstance().getRole(username);
 			String id = AccountManager.getInstance().getID(username);
@@ -90,25 +93,7 @@ public class SampleController {
                 case "Teacher" -> "Teacher.fxml";
                 default -> "Student.fxml";
             };
-            /*switch (role) {
-                case "Admin":
-                    break;
-                case "Teacher":
-                    break;
-                default:
-                    {
-                        studentScreen studentScreen = new studentScreen(Integer.parseInt(id));
-                        System.out.println(id);
-                        try{
-                            studentScreen.start(new Stage());
-                            Stage currentStage = (Stage) ((javafx.scene.control.Button) event.getSource()).getScene().getWindow();
-                            currentStage.close();
-                        } catch (Exception e) {
-                            e.printStackTrace();
-                        }
-                    }
-                    break;
-            }*/
+
             loadScene(targetFXML, event, role, username, id, dbConnection);
 			} catch (SQLException e) {
 				e.printStackTrace();
