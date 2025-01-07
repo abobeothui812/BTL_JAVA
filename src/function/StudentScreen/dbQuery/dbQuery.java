@@ -16,7 +16,7 @@ import Class.Course;
 import Class.Class;
 import function.StudentScreen.myClass.gradeDisplay;
 import Class.Grade;
-import function.StudentScreen.myClass.student;
+import Class.Student;
 public class dbQuery {
     private static final String URL = "jdbc:mysql://localhost:3306/quanlylophoc1";
     private static final String USER = "root";
@@ -33,7 +33,7 @@ public class dbQuery {
         }
     }
 
-    public ObservableList<Class> getStudentClassesFromDB() {
+    public ObservableList<Class> getStudentClassesFromDB(int studentID) {
         ObservableList<Class> classList = FXCollections.observableArrayList();
         String query = "select class.ClassID,class.CourseID,Schedule,CourseName,semester,Credits,teacher,TeacherID " +
                         "from studentclass " +
@@ -41,7 +41,7 @@ public class dbQuery {
                         "ON studentclass.ClassID = class.ClassID " +
                         "join course " +
                         "on class.CourseID = course.CourseID " +
-                        "where StudentID=16";
+                        "where StudentID=" + studentID;
 
         try (PreparedStatement stmt = dbConnection.prepareStatement(query);
              ResultSet rs = stmt.executeQuery()) {
@@ -158,7 +158,6 @@ public class dbQuery {
             System.out.println("Error");
             e.printStackTrace();
         }
-        System.out.println("Attendance list size: " + attendanceList.size());
 
         return attendanceList;
     }
@@ -238,8 +237,8 @@ public class dbQuery {
         }
     }
 
-    public student getStudent(int studentID) {
-        student student = null;
+    public Student getStudent(int studentID) {
+        Student student = null;
         String query = "select Class,Major,EnrollmentYear,Name,Email,Phone,Gender\r\n" + //
                         "from student\r\n" + //
                         "join quanlylophoc1.user u on u.UserID = student.StudentID\r\n" + //
@@ -257,7 +256,7 @@ public class dbQuery {
                 int enrollmentYear = rs.getInt("EnrollmentYear");
                 String className = rs.getString("Class");
 
-                student = new student(  major, enrollmentYear,className, studentID, name,  email,  phone,  gender); 
+                student = new Student(  major, enrollmentYear,className, studentID, name,  email,  phone,  gender); 
                     
             }       
         } catch (SQLException e) {
@@ -283,9 +282,9 @@ public class dbQuery {
                 int credits = rs.getInt("Credits");
                 String semester = rs.getString("semester");
                 String status = rs.getString("Status");
-                int midScore = rs.getInt("MidtermScore");
-                int finalScore = rs.getInt("FinalScore");
-                int avgScore = rs.getInt("averagescore");
+                float midScore = rs.getFloat("MidtermScore");
+                float finalScore = rs.getFloat("FinalScore");
+                float avgScore = rs.getFloat("averagescore");
 
                 gradeList.add(new gradeDisplay(courseID, courseName, credits, semester, status, midScore, finalScore, avgScore));
 

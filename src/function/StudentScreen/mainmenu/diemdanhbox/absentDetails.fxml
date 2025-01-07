@@ -12,6 +12,6 @@
             <Font name="System Bold" size="36.0" />
          </font>
       </Label>
-      <Label fx:id="helloID" layoutX="264.0" layoutY="183.0" text="Hello" />
+      <Label fx:id="helloID" layoutX="236.0" layoutY="183.0" text="Bạn chưa nghỉ buổi nào" />
    </children>
 </Pane>

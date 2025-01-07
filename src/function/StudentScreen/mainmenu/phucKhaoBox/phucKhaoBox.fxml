@@ -7,14 +7,17 @@
 
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="function.StudentScreen.mainmenu.phucKhaoBox.phucKhaoBoxController">
    <children>
-      <Label layoutX="220.0" layoutY="19.0" text="Phúc Khảo">
+      <Label layoutX="227.0" layoutY="14.0" text="Phúc Khảo">
          <font>
             <Font name="System Bold" size="27.0" />
          </font>
       </Label>
-      <Label layoutX="199.0" layoutY="57.0" prefHeight="35.0" prefWidth="202.0" text="Lý do phúc khảo" />
+      <Label layoutX="199.0" layoutY="53.0" prefHeight="35.0" prefWidth="202.0" text="Lý do phúc khảo">
+         <font>
+            <Font size="25.0" />
+         </font></Label>
       <TextArea fx:id="resonTextField" layoutX="81.0" layoutY="96.0" prefHeight="200.0" prefWidth="426.0" />
-      <Button fx:id="sendBtn" layoutX="233.0" layoutY="346.0" mnemonicParsing="false" onAction="#sendReason" prefHeight="51.0" prefWidth="108.0" text="Gửi" />
-      <Label fx:id="thanhcongLabel" layoutX="259.0" layoutY="302.0" text="hello" />
+      <Button fx:id="sendBtn" layoutX="240.0" layoutY="329.0" mnemonicParsing="false" onAction="#sendReason" prefHeight="51.0" prefWidth="108.0" text="Gửi" />
+      <Label fx:id="thanhcongLabel" layoutX="227.0" layoutY="303.0" prefHeight="17.0" prefWidth="151.0" text="Nhập lý do phúc khảo" />
    </children>
 </Pane>

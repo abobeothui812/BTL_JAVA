@@ -27,7 +27,7 @@ import function.StudentScreen.studentInformationScreen.studentInformationScreen;
 import function.StudentScreen.mainmenu.diemdanhbox.absentDetails;
 import function.StudentScreen.mainmenu.phucKhaoBox.phucKhaoBox;
 public class studentScreenController {
-
+    private int studentID;
     Connection dbConnection;
     dbQuery db;
     private ObservableList<Attendance> attendanceList;
@@ -71,18 +71,21 @@ public class studentScreenController {
     @FXML
     private ChoiceBox<String> semesterChoice;
 
+    public void setStudentID(int studentID) {
+        this.studentID = studentID;
+        // Use the studentID as needed
+        initializeData() ;
+    }
 
     public studentScreenController() {
         db = new dbQuery();
     }
     
 
-    @SuppressWarnings("unused")
     @FXML
     public void initialize() {
         // Set the default text for the label
         labelChuaChon.setText("Bạn chưa chọn lớp nào");
-
         // Set the cell value factory for the table columns
         columnClassID.setCellValueFactory(new PropertyValueFactory<Class, Integer>("classID"));
         columnCourseID.setCellValueFactory(new PropertyValueFactory<Class, Integer>("courseID"));
@@ -92,9 +95,12 @@ public class studentScreenController {
             return new ReadOnlyObjectWrapper<>(tblStudent.getItems().indexOf(cellData.getValue()) + 1);
         });
         columTeacher.setCellValueFactory(new PropertyValueFactory<Class, String>("teacherName")); 
+    }
 
+    @SuppressWarnings("unused")
+    public void initializeData() {
         // Fetch all classes from the database
-        ObservableList<Class> classList = db.getStudentClassesFromDB();
+        ObservableList<Class> classList = db.getStudentClassesFromDB(studentID);
         tblStudent.setItems(classList);
 
         // Populate the ChoiceBox with semester values
@@ -132,8 +138,9 @@ public class studentScreenController {
             if (newValue != null) {
                 Course course = db.getCourseFromClass(newValue.getCourseID());
                 String courseLeaderName = db.getTeacherName(course.getTeacherID());
-                Grade grade = db.getGrade(16, newValue.getClassID());
-                attendanceList = db.getAttendanceFromDB(16, newValue.getClassID());
+                System.out.println("Student ID grade: " + studentID);
+                Grade grade = db.getGrade(studentID, newValue.getClassID());
+                attendanceList = db.getAttendanceFromDB(studentID, newValue.getClassID());
                 int absent =0;
                 for(Attendance attendance : attendanceList){
                     if(attendance.getStatus().equals("Absent")){
@@ -162,7 +169,9 @@ public class studentScreenController {
     void phuckhaoBtnPressed(ActionEvent event) {
         Class selectedClass = tblStudent.getSelectionModel().getSelectedItem();
         if (selectedClass != null) {
-            phucKhaoBox phucKhaoWindow = new phucKhaoBox(selectedClass.getClassID(),16);
+            System.out.println("Student ID dangkilop: " + studentID);
+
+            phucKhaoBox phucKhaoWindow = new phucKhaoBox(selectedClass.getClassID(),studentID);
             try {
                 // Load the FXML file
                 phucKhaoWindow.start(new Stage());
@@ -191,7 +200,8 @@ public class studentScreenController {
 
     @FXML
     void in4MenuPressed(ActionEvent event) {
-        studentInformationScreen studentInfoWindow = new studentInformationScreen();
+        System.out.println("Student ID in4: " + studentID);
+        studentInformationScreen studentInfoWindow = new studentInformationScreen(studentID);
         try {
             // Load the FXML file
             studentInfoWindow.start(new Stage());
@@ -204,7 +214,8 @@ public class studentScreenController {
 
     @FXML
     void dangkilopPressed(ActionEvent event) {
-        dangkilop dangkilopWindow = new dangkilop();
+        System.out.println("Student ID dangkilop: " + studentID);
+        dangkilop dangkilopWindow = new dangkilop(studentID);
         try {
             // Load the FXML file
             dangkilopWindow.start(new Stage());

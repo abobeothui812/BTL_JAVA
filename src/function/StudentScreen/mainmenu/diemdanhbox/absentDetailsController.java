@@ -10,13 +10,13 @@ public class absentDetailsController {
     @FXML
     private Label helloID;
 
-    
+    @FXML
+    public void initialize() {
+        helloID.setText("Ban chưa nghỉ buổi nào");
+    }
 
     public void setAbsentDays(ObservableList<Attendance> attendanceList) {
-        if(attendanceList.isEmpty()) {
-            System.out.println("Empty");
-            return;
-        };
+        
         for(Attendance attendance : attendanceList) {
             if(attendance.getStatus().equals("Absent")) {
                 System.out.println("Absent");
