@@ -7,7 +7,7 @@ import java.sql.SQLException;
 
 import function.Teacher.TeacherController;
 import function.admin.AdminController;
-import function.admin.studentScreenController;
+import function.StudentScreen.mainmenu.studentScreenController;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -56,15 +56,14 @@ public class SampleController {
         }
         else{
             studentScreenController controller = loader.getController();
+            controller.setStudentID(Integer.parseInt(id));
         }
         // Pass role-specific data to the new controller
 
         
 
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        double width = stage.getWidth();
-        double height = stage.getHeight();
-        scene = new Scene(root, width, height);
+        scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
     }

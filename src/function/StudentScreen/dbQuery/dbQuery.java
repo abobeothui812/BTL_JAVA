@@ -20,7 +20,7 @@ import Class.Student;
 public class dbQuery {
     private static final String URL = "jdbc:mysql://localhost:3306/quanlylophoc1";
     private static final String USER = "root";
-    private static final String PASSWORD = "1234";
+    private static final String PASSWORD = "_E#./FywmS,w43S";
 
     private Connection dbConnection;
 

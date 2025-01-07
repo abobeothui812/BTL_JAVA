@@ -9,6 +9,7 @@ import Class.ReviewRequest;
 import function.Teacher.TeacherController;
 import function.Teacher.AttendanceC.AttendanceCheckController;
 import function.Teacher.ScoreUpdate.ScoreUpdateController;
+import function.search.Student.searchStudentController;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -185,6 +186,25 @@ public class ScoreRequestController extends TeacherController {
 
             ScoreUpdateController controller = loader.getController();
             controller.initializeData(dbConnection, id);
+
+            Stage stage = (Stage) detailBox.getScene().getWindow();
+            double width = stage.getWidth();
+            double height = stage.getHeight();
+            Scene scene = new Scene(root, width, height);
+            stage.setScene(scene);
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+    @FXML
+    public void StudentSearchInit(ActionEvent event) throws IOException {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/function/search/Student/searchStudent.fxml"));
+            Parent root = loader.load();
+
+            searchStudentController controller = loader.getController();
+            controller.initialize(dbConnection);
 
             Stage stage = (Stage) detailBox.getScene().getWindow();
             double width = stage.getWidth();
