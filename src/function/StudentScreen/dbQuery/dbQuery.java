@@ -16,7 +16,7 @@ import Class.Course;
 import Class.Class;
 import function.StudentScreen.myClass.gradeDisplay;
 import Class.Grade;
-import function.StudentScreen.myClass.student;
+import Class.Student;
 public class dbQuery {
     private static final String URL = "jdbc:mysql://localhost:3306/quanlylophoc1";
     private static final String USER = "root";
@@ -238,8 +238,8 @@ public class dbQuery {
         }
     }
 
-    public student getStudent(int studentID) {
-        student student = null;
+    public Student getStudent(int studentID) {
+        Student student = null;
         String query = "select Class,Major,EnrollmentYear,Name,Email,Phone,Gender\r\n" + //
                         "from student\r\n" + //
                         "join quanlylophoc1.user u on u.UserID = student.StudentID\r\n" + //
@@ -257,7 +257,7 @@ public class dbQuery {
                 int enrollmentYear = rs.getInt("EnrollmentYear");
                 String className = rs.getString("Class");
 
-                student = new student(  major, enrollmentYear,className, studentID, name,  email,  phone,  gender); 
+                student = new Student(  major, enrollmentYear,className, studentID, name,  email,  phone,  gender); 
                     
             }       
         } catch (SQLException e) {

@@ -14,7 +14,12 @@ public class Student extends User {
         this.enrollmentYear = enrollmentYear;
         
     }
-
+    public Student( String major, int enrollmentYear, String Class, int userID, String username, String email, String phone, String gender) {
+        super(userID, username, email, phone, gender);
+        this.studentClassID = Class;
+        this.major = major;
+        this.enrollmentYear = enrollmentYear;
+    }
     // Getters and Setters
     
 

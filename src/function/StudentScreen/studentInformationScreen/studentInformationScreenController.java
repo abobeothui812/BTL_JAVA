@@ -6,7 +6,7 @@ import function.StudentScreen.dangkilopScreen.dangkilop;
 import function.StudentScreen.dbQuery.dbQuery;
 import function.StudentScreen.mainmenu.studentScreen;
 import function.StudentScreen.myClass.gradeDisplay;
-import function.StudentScreen.myClass.student;
+import Class.Student;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
@@ -20,7 +20,7 @@ import Class.CPA;
 public class studentInformationScreenController {
 
     private dbQuery db = new dbQuery();
-    private student Student = null;
+    private Student Student = null;
     @FXML
     private TableView<gradeDisplay> tblGrade;
 
