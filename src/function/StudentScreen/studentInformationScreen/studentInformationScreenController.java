@@ -6,7 +6,7 @@ import function.StudentScreen.dangkilopScreen.dangkilop;
 import function.StudentScreen.dbQuery.dbQuery;
 import function.StudentScreen.mainmenu.studentScreen;
 import function.StudentScreen.myClass.gradeDisplay;
-import function.StudentScreen.myClass.student;
+import Class.Student;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
@@ -18,9 +18,9 @@ import javafx.stage.Stage;
 import Class.CPA;
 
 public class studentInformationScreenController {
-
+    private int studentID;
     private dbQuery db = new dbQuery();
-    private student Student = null;
+    private Student Student = null;
     @FXML
     private TableView<gradeDisplay> tblGrade;
 
@@ -93,10 +93,29 @@ public class studentInformationScreenController {
 
     @FXML
     private Label nameLabel;
+    public void setStudentID(int studentID) {
+        this.studentID = studentID;
+        // Use the studentID as needed
+        initializeData() ;
+    } 
 
     @FXML
     public void initialize() {
-        Student = db.getStudent(16);
+
+        semesterColumn.setCellValueFactory(new PropertyValueFactory<gradeDisplay, String>("semester"));
+        courseIDLabel.setCellValueFactory(new PropertyValueFactory<gradeDisplay, Integer>("courseID"));
+        courseNameColumn.setCellValueFactory(new PropertyValueFactory<gradeDisplay, String>("courseName"));
+        creditsColumn.setCellValueFactory(new PropertyValueFactory<gradeDisplay, Integer>("credits"));
+        midScoreColumn.setCellValueFactory(new PropertyValueFactory<gradeDisplay, Double>("midScore"));
+        avgScoreColumn.setCellValueFactory(new PropertyValueFactory<gradeDisplay, Double>("avgScore"));
+        finalScoreColumn.setCellValueFactory(new PropertyValueFactory<gradeDisplay, Double>("finalScore"));
+        statusColumn.setCellValueFactory(new PropertyValueFactory<gradeDisplay, String>("status"));
+        cpaColumn.setCellValueFactory(new PropertyValueFactory<CPA, Double>("cpa"));
+        gpaColumn.setCellValueFactory(new PropertyValueFactory<CPA, Double>("gpa"));
+        semesterColumn2.setCellValueFactory(new PropertyValueFactory<CPA, Double>("semester"));
+    }
+    public void initializeData() {
+        Student = db.getStudent(studentID);
 
         studentIDlabel.setText("MSSV : " + String.valueOf(Student.getUserID()));
         nameLabel.setText("Họ và tên : " + Student.getName());
@@ -108,21 +127,12 @@ public class studentInformationScreenController {
         curyearLabel.setText("Năm : "+CurrYear(Student.getEnrollmentYear()));
 
 
-        semesterColumn.setCellValueFactory(new PropertyValueFactory<gradeDisplay, String>("semester"));
-        courseIDLabel.setCellValueFactory(new PropertyValueFactory<gradeDisplay, Integer>("courseID"));
-        courseNameColumn.setCellValueFactory(new PropertyValueFactory<gradeDisplay, String>("courseName"));
-        creditsColumn.setCellValueFactory(new PropertyValueFactory<gradeDisplay, Integer>("credits"));
-        midScoreColumn.setCellValueFactory(new PropertyValueFactory<gradeDisplay, Double>("midScore"));
-        avgScoreColumn.setCellValueFactory(new PropertyValueFactory<gradeDisplay, Double>("avgScore"));
-        finalScoreColumn.setCellValueFactory(new PropertyValueFactory<gradeDisplay, Double>("finalScore"));
-        statusColumn.setCellValueFactory(new PropertyValueFactory<gradeDisplay, String>("status"));
         
-        tblGrade.setItems(db.getStudentGradeList(16));
+        
+        tblGrade.setItems(db.getStudentGradeList(studentID));
 
-        cpaColumn.setCellValueFactory(new PropertyValueFactory<CPA, Double>("cpa"));
-        gpaColumn.setCellValueFactory(new PropertyValueFactory<CPA, Double>("gpa"));
-        semesterColumn2.setCellValueFactory(new PropertyValueFactory<CPA, Double>("semester"));
-        tblCPA.setItems(db.getStudentCPA(16));
+        
+        tblCPA.setItems(db.getStudentCPA(studentID));
 
 
 
@@ -141,7 +151,7 @@ public class studentInformationScreenController {
 
     @FXML
     void dangkilopPressed(ActionEvent event) {
-        dangkilop dangkilopWindow = new dangkilop();
+        dangkilop dangkilopWindow = new dangkilop(studentID);
         try {
             // Load the FXML file
             dangkilopWindow.start(new Stage());
@@ -154,7 +164,7 @@ public class studentInformationScreenController {
 
     @FXML
     void tkbMenuPressed(ActionEvent event) {
-        studentScreen studentScreenWindow = new studentScreen();
+        studentScreen studentScreenWindow = new studentScreen(studentID);
         try {
             // Load the FXML file
             studentScreenWindow.start(new Stage());

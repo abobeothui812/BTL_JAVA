@@ -20,10 +20,7 @@ public class absentDetails extends Application {
 
     public void start(Stage stage) throws Exception {
         
-        if(attendanceList.isEmpty()) {
-            System.out.println("Empty");
-            return;
-        }
+        
         FXMLLoader loader = new FXMLLoader(getClass().getResource("absentDetails.fxml"));
         Pane absentDetailsroot = loader.load();
         absentDetailsController controller = loader.getController();

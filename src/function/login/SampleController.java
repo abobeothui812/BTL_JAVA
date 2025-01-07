@@ -5,6 +5,9 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
+import function.Teacher.TeacherController;
+import function.admin.AdminController;
+import function.admin.studentScreenController;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -17,7 +20,8 @@ import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 public class SampleController {
-
+    private String id;
+    private Connection dbConnection;
 
     private Stage stage;
     private Parent root;
@@ -27,8 +31,8 @@ public class SampleController {
     private TextField userText;
     @FXML
     private PasswordField passText;
+    @FXML
     public void initialize(String id, Connection dbConnection) {
-		
 	}
     private void showAlert(Alert.AlertType alertType, String title, String header, String content) {
         Alert alert = new Alert(alertType);
@@ -42,11 +46,20 @@ public class SampleController {
         FXMLLoader loader = new FXMLLoader(getClass().getResource(fxmlPath));
         Parent root = loader.load();
 
+        if(fxmlPath == "Admin.fxml") {
+            AdminController controller = loader.getController();
+            controller.initialize(id, dbConnection);
+        }
+        else if(fxmlPath == "Teacher.fxml") {
+            TeacherController controller = loader.getController();
+            controller.initialize(id, dbConnection);
+        }
+        else{
+            studentScreenController controller = loader.getController();
+        }
         // Pass role-specific data to the new controller
-        SampleController controller = loader.getController();
-        System.out.println(controller);
 
-        controller.initialize(id, dbConnection);
+        
 
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         double width = stage.getWidth();
@@ -80,6 +93,7 @@ public class SampleController {
                 case "Teacher" -> "Teacher.fxml";
                 default -> "Student.fxml";
             };
+
             loadScene(targetFXML, event, role, username, id, dbConnection);
 			} catch (SQLException e) {
 				e.printStackTrace();

@@ -1,16 +1,24 @@
 package function.search.Student;
 
 
+import java.io.IOException;
 import java.sql.Connection;
 
 import function.Teacher.TeacherController;
+import function.search.Course.searchCourseController;
+import function.search.Teacher.searchTeacherController;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
+import javafx.stage.Stage;
 
 public class searchStudentController extends TeacherController{
     @FXML
@@ -89,5 +97,43 @@ public class searchStudentController extends TeacherController{
         e.printStackTrace();
     }
     
+    }
+    @FXML
+    public void CourseSearchInit(ActionEvent event) throws IOException {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/function/search/Course/searchCourse.fxml"));
+            Parent root = loader.load();
+
+            searchCourseController controller = loader.getController();
+            controller.initialize(dbConnection);
+
+            Stage stage = (Stage) department.getScene().getWindow();
+            double width = stage.getWidth();
+            double height = stage.getHeight();
+            Scene scene = new Scene(root, width, height);
+            stage.setScene(scene);
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+    @FXML
+    public void TeacherSearchInit(ActionEvent event) throws IOException {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/function/search/Teacher/searchTeacher.fxml"));
+            Parent root = loader.load();
+
+            searchTeacherController controller = loader.getController();
+            controller.initialize(dbConnection);
+
+            Stage stage = (Stage) department.getScene().getWindow();
+            double width = stage.getWidth();
+            double height = stage.getHeight();
+            Scene scene = new Scene(root, width, height);
+            stage.setScene(scene);
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }

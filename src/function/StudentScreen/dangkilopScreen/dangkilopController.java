@@ -8,7 +8,7 @@ import java.util.List;
 
 import function.StudentScreen.dbQuery.dbQuery;
 import function.StudentScreen.mainmenu.studentScreen;
-import Class.Class; 
+import Class.Class;
 import function.StudentScreen.studentInformationScreen.studentInformationScreen;
 import javafx.beans.property.ReadOnlyObjectWrapper;
 import javafx.event.ActionEvent;
@@ -23,6 +23,8 @@ import javafx.stage.Stage;
 public class dangkilopController {
     private List<Class> DeletedclassList = new ArrayList<>();
     private boolean isSaved = false;
+    private int studentID;
+
 
     @FXML
     private TableColumn<Class, String> columnCourseName;
@@ -73,6 +75,10 @@ public class dangkilopController {
 
     @FXML
     private MenuItem tkbMenu;
+    public void setStudentID(int studentID) {
+        this.studentID = studentID;
+        // Use the studentID as needed
+    }
     @FXML
     public void initialize() {
         warningText.setText("");
@@ -117,7 +123,7 @@ public class dangkilopController {
 
         for(Class classDisplay : tblStudent.getItems()){
             
-            dbQuery.insertStudentClass(16,classDisplay.getClassID());
+            dbQuery.insertStudentClass(studentID,classDisplay.getClassID());
             
         }
 
@@ -126,7 +132,7 @@ public class dangkilopController {
         System.out.println(isSaved);
         if(!DeletedclassList.isEmpty() && DeletedclassList != null){
             for(Class classDisplay : DeletedclassList){
-                dbQuery.deleteStudentClass(16, classDisplay.getClassID());
+                dbQuery.deleteStudentClass(studentID, classDisplay.getClassID());
                 DeletedclassList.remove(classDisplay);
             }
         }
@@ -154,7 +160,7 @@ public class dangkilopController {
 
     @FXML
     void in4MenuPressed(ActionEvent event) {
-        studentInformationScreen studentInfoWindow = new studentInformationScreen();
+        studentInformationScreen studentInfoWindow = new studentInformationScreen(studentID);
         try {
             // Load the FXML file
             studentInfoWindow.start(new Stage());
@@ -172,7 +178,7 @@ public class dangkilopController {
 
     @FXML
     void tkbMenuPressed(ActionEvent event) {
-        studentScreen studentScreenWindow = new studentScreen();
+        studentScreen studentScreenWindow = new studentScreen(studentID);
         try {
             // Load the FXML file
             studentScreenWindow.start(new Stage());
