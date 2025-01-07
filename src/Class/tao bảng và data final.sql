@@ -5482,3 +5482,5 @@ INSERT INTO LeaveReason (ReasonText) VALUES
 ('Em có lịch phỏng vấn, mong cô thông cảm'),
 ('Em bị gãy chân, cần nghỉ ngơi và điều trị'),
 ('Em đi khám sức khỏe định kỳ, cần thời gian nghỉ để thực hiện');
+alter table course add column is_deleted boolean default false;
+alter table class add column is_deleted boolean default false

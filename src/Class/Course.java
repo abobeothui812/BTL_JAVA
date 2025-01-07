@@ -6,11 +6,19 @@ public class Course {
     private int courseID;
     private String courseName;
     private int credits;
+    private String teacherName;
     private int teacherID;
     private String semester;
     private ObservableList<Class> classList ;
 
     // Constructor
+    public Course(int courseID, String courseName, int credits, String semester, String teacherName) {
+        this.courseID = courseID;
+        this.courseName = courseName;
+        this.credits = credits;
+        this.teacherName = teacherName;
+        this.semester = semester;     
+    }
     public Course(int courseID, String courseName, int credits, String semester, int teacherID) {
         this.courseID = courseID;
         this.courseName = courseName;
@@ -18,6 +26,14 @@ public class Course {
         this.teacherID = teacherID;
         this.semester = semester;
         
+    }
+    public Course(int courseID, String courseName, int credits, String semester, String teacherName, int teacherID) {
+        this.courseID = courseID;
+        this.courseName = courseName;
+        this.credits = credits;
+        this.teacherName = teacherName;
+        this.semester = semester;
+        this.teacherID = teacherID;   
     }
 
     // Getters and Setters
@@ -44,6 +60,22 @@ public class Course {
     public void setCredits(int credits) {
         this.credits = credits;
     }
+    public String getSemester() {
+        return semester;
+    }
+
+    public void setSemester(String semester) {
+        this.semester = semester;
+    }
+
+    public String getTeacherName() {
+        return teacherName;
+    }
+
+    public void setTeacherName(String teacherName) {
+        this.teacherName = teacherName;
+    }
+
     public int getTeacherID() {
         return teacherID;
     }
@@ -52,12 +84,5 @@ public class Course {
         this.teacherID = teacherID;
     }
 
-    public String getSemester() {
-        return semester;
-    }
-
-    public void setSemester(String semester) {
-        this.semester = semester;
-    }
 
 }
