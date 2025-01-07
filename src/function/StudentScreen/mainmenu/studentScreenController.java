@@ -131,7 +131,7 @@ public class studentScreenController {
 
             if (newValue != null) {
                 Course course = db.getCourseFromClass(newValue.getCourseID());
-                String courseLeaderName = db.getTeacherName(course.getcourseLeaderID());
+                String courseLeaderName = db.getTeacherName(course.getTeacherID());
                 Grade grade = db.getGrade(16, newValue.getClassID());
                 attendanceList = db.getAttendanceFromDB(16, newValue.getClassID());
                 int absent =0;

@@ -83,7 +83,7 @@ public class dbQuery {
                 int credits = rs.getInt("Credits");
                 int courseLeaderID = rs.getInt("TeacherID");
 
-                course = new Course(courseID, courseName,  credits, courseLeaderID, semester);
+                course = new Course(courseID, courseName,  credits,semester, courseLeaderID );
                 
             }
 
