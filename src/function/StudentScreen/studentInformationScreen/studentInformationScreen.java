@@ -7,10 +7,18 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 public class studentInformationScreen extends Application {
+    private int studentID;
+    public studentInformationScreen(int studentID) {
+        this.studentID = studentID;
+    }
      @Override
     public void start(Stage primaryStage) throws Exception {
         // Implement your start method here
-        Parent root = FXMLLoader.load(getClass().getResource("studentInformationScreen.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("studentInformationScreen.fxml"));
+        Parent root = loader.load();
+        studentInformationScreenController controller = loader.getController();
+        System.out.println(studentID);
+        controller.setStudentID(studentID);
         double width = 1500 ;
         double height = primaryStage.getHeight();
         primaryStage.setScene(new Scene(root, width, height));

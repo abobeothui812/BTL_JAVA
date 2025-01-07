@@ -1,37 +1,86 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.VBox?>
-<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
 
-<VBox xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="function.login.SampleController">
+<Pane prefHeight="807.0" prefWidth="1502.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="function.StudentScreen.mainmenu.studentScreenController">
    <children>
-      <HBox maxHeight="100.0" VBox.vgrow="ALWAYS" />
-      <HBox VBox.vgrow="ALWAYS">
+      <MenuBar prefHeight="28.0" prefWidth="1507.0">
+        <menus>
+          <Menu mnemonicParsing="false" text="Dịch vụ">
+            <items>
+              <MenuItem fx:id="in4Menu" mnemonicParsing="false" onAction="#in4MenuPressed" text="Xem thông tin cá nhân" />
+                  <MenuItem fx:id="dangkilopMenu" mnemonicParsing="false" onAction="#dangkilopPressed" text="Đăng kí lớp" />
+                  <MenuItem fx:id="tkbMenu" mnemonicParsing="false" onAction="#tkbMenuPressed" text="Thời khóa biểu" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Liên hệ">
+            <items>
+              <MenuItem mnemonicParsing="false" text="Delete" />
+            </items>
+          </Menu>
+            <Menu mnemonicParsing="false" text="Tìm kiếm">
+               <items>
+                  <MenuItem mnemonicParsing="false" text="Sinh viên" />
+                  <MenuItem mnemonicParsing="false" text="Giảng viên" />
+                  <MenuItem mnemonicParsing="false" text="Môn học" />
+               </items>
+            </Menu>
+        </menus>
+      </MenuBar>
+      <VBox layoutY="25.0" prefHeight="798.0" prefWidth="1500.0">
          <children>
-            <HBox HBox.hgrow="ALWAYS" />
-            <VBox maxWidth="600.0" HBox.hgrow="ALWAYS">
+            <Pane prefHeight="55.0" prefWidth="1500.0">
                <children>
-                  <VBox VBox.vgrow="ALWAYS" />
-                  <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0">
+                  <Label layoutX="639.0" layoutY="5.0" prefHeight="45.0" prefWidth="222.0" style="-fx-font-weight: bold;" text="Danh sách môn">
+                     <font>
+                        <Font name="System Bold" size="30.0" />
+                     </font>
+                  </Label>
+                  <ChoiceBox fx:id="semesterChoice" layoutX="14.0" layoutY="16.0" prefHeight="30.0" prefWidth="157.0" />
+               </children>
+               <padding>
+                  <Insets left="8.0" right="5.0" />
+               </padding>
+            </Pane>
+            <HBox prefHeight="720.0" prefWidth="1500.0">
+               <children>
+                  <TableView fx:id="tblStudent" prefHeight="706.0" prefWidth="1204.0" style="-fx-border-color: black;">
+                    <columns>
+                      <TableColumn fx:id="columnOrder" prefWidth="50.0" text="STT" />
+                      <TableColumn fx:id="columnCourseName" prefWidth="300.0" text="Tên Học phần" />
+                        <TableColumn fx:id="columnCourseID" prefWidth="100.0" text="Mã học phần" />
+                        <TableColumn fx:id="columnClassID" prefWidth="100.0" text="Mã lớp" />
+                        <TableColumn fx:id="columnSchedule" prefWidth="350.0" text="Thời khóa biểu" />
+                        <TableColumn fx:id="columTeacher" prefWidth="300.0" text="Giáo viên" />
+                    </columns>
+                  </TableView>
+                  <Pane prefHeight="706.0" prefWidth="289.0" style="-fx-border-color: black;">
                      <children>
-                        <Label layoutX="231.0" layoutY="141.0" text="Student">
+                        <Label fx:id="labelChuaChon" layoutX="88.0" layoutY="144.0" text="Bạn chưa chọn môn nào" />
+                        <Label layoutX="41.0" layoutY="7.0" text="Thông tin môn học">
                            <font>
-                              <Font size="40.0" />
+                              <Font name="System Bold" size="23.0" />
                            </font>
                         </Label>
-                        <Button layoutX="274.0" layoutY="229.0" mnemonicParsing="false" onAction="#Logout" text="Logout" />
+                        <Button fx:id="phuckhaoBtn" layoutX="69.0" layoutY="631.0" mnemonicParsing="false" onAction="#phuckhaoBtnPressed" style="-fx-background-color: red;" text="Phúc khảo" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="24.0" />
+                           </font></Button>
+                        <Button fx:id="absetnDetailsBtn" layoutX="69.0" layoutY="558.0" mnemonicParsing="false" onAction="#absentDetailsBtnPressed" prefHeight="51.0" prefWidth="149.0" text="Chi tiết buổi nghỉ" />
                      </children>
-                  </AnchorPane>
-                  <VBox VBox.vgrow="ALWAYS" />
+                  </Pane>
                </children>
-            </VBox>
-            <HBox HBox.hgrow="ALWAYS" />
+               <padding>
+                  <Insets bottom="3.0" left="4.0" right="5.0" />
+               </padding>
+            </HBox>
          </children>
-      </HBox>
-      <HBox layoutX="10.0" layoutY="10.0" maxHeight="100.0" VBox.vgrow="ALWAYS" />
+      </VBox>
    </children>
-</VBox>
+</Pane>
