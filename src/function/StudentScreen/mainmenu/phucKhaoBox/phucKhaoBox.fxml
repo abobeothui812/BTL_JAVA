@@ -18,6 +18,6 @@
          </font></Label>
       <TextArea fx:id="resonTextField" layoutX="81.0" layoutY="96.0" prefHeight="200.0" prefWidth="426.0" />
       <Button fx:id="sendBtn" layoutX="240.0" layoutY="329.0" mnemonicParsing="false" onAction="#sendReason" prefHeight="51.0" prefWidth="108.0" text="Gửi" />
-      <Label fx:id="thanhcongLabel" layoutX="227.0" layoutY="303.0" prefHeight="17.0" prefWidth="134.0" text="Nhập lý do phúc khảo" />
+      <Label fx:id="thanhcongLabel" layoutX="227.0" layoutY="303.0" prefHeight="17.0" prefWidth="151.0" text="Nhập lý do phúc khảo" />
    </children>
 </Pane>
