@@ -6,11 +6,11 @@ public class gradeDisplay {
     private int credits;
     private String semester;
     private String status;
-    private int midScore;
-    private int finalScore;
-    private int avgScore;
+    private float midScore;
+    private float finalScore;
+    private float avgScore;
     
-    public gradeDisplay(int courseID, String courseName, int credits, String semester, String status, int midScore, int finalScore, int avgScore) {
+    public gradeDisplay(int courseID, String courseName, int credits, String semester, String status, float midScore, float finalScore, float avgScore) {
         this.courseID = courseID;
         this.courseName = courseName;
         this.credits = credits;
@@ -61,27 +61,27 @@ public class gradeDisplay {
         this.status = status;
     }
 
-    public int getMidScore() {
+    public float getMidScore() {
         return midScore;
     }
 
-    public void setMidScore(int midScore) {
+    public void setMidScore(float midScore) {
         this.midScore = midScore;
     }
 
-    public int getFinalScore() {
+    public float getFinalScore() {
         return finalScore;
     }
 
-    public void setFinalScore(int finalScore) {
+    public void setFinalScore(float finalScore) {
         this.finalScore = finalScore;
     }
 
-    public int getAvgScore() {
+    public float getAvgScore() {
         return avgScore;
     }
 
-    public void setAvgScore(int avgScore) {
+    public void setAvgScore(float avgScore) {
         this.avgScore = avgScore;
     }
     

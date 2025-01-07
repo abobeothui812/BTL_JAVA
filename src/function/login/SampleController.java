@@ -16,6 +16,8 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
+import function.StudentScreen.mainmenu.studentScreen;
+
 public class SampleController {
 
 
@@ -37,7 +39,7 @@ public class SampleController {
         alert.setContentText(content);
         alert.showAndWait();
     }
-    private void loadScene(String fxmlPath, ActionEvent event, String role, String username, String id, Connection dbConnection) 
+    /*private void loadScene(String fxmlPath, ActionEvent event, String role, String username, String id, Connection dbConnection) 
     throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource(fxmlPath));
         Parent root = loader.load();
@@ -54,7 +56,7 @@ public class SampleController {
         scene = new Scene(root, width, height);
         stage.setScene(scene);
         stage.show();
-    }
+    }*/
 
     @FXML
     public void Login(ActionEvent event) throws IOException {
@@ -69,18 +71,37 @@ public class SampleController {
             showAlert(Alert.AlertType.ERROR, "Login Failed", "Invalid Credentials", "Incorrect username or password!");
         } else {
             try {
-			Connection dbConnection = DriverManager.getConnection("jdbc:mysql://localhost:3306/quanlylophoc1", "root", "_E#./FywmS,w43S");
+			Connection dbConnection = DriverManager.getConnection("jdbc:mysql://localhost:3306/quanlylophoc1", "root", "1234");
             //System.out.println("Database connected!");
             String role = AccountManager.getInstance().getRole(username);
 			String id = AccountManager.getInstance().getID(username);
             System.out.println(role  + " " + id);
             //String userId = AccountManager.getInstance().getUserId(username); // Retrieve user ID
-            String targetFXML = switch (role) {
-                case "Admin" -> "Admin.fxml";
-                case "Teacher" -> "Teacher.fxml";
-                default -> "Student.fxml";
-            };
-            loadScene(targetFXML, event, role, username, id, dbConnection);
+            //String targetFXML = switch (role) {
+             //   case "Admin" -> "Admin.fxml";
+            //    case "Teacher" -> "Teacher.fxml";
+            //    default -> "Student.fxml";
+            //};
+            switch (role) {
+                case "Admin":
+                    break;
+                case "Teacher":
+                    break;
+                default:
+                    {
+                        studentScreen studentScreen = new studentScreen(Integer.parseInt(id));
+                        System.out.println(id);
+                        try{
+                            studentScreen.start(new Stage());
+                            Stage currentStage = (Stage) ((javafx.scene.control.Button) event.getSource()).getScene().getWindow();
+                            currentStage.close();
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                        }
+                    }
+                    break;
+            }
+            //loadScene(targetFXML, event, role, username, id, dbConnection);
 			} catch (SQLException e) {
 				e.printStackTrace();
 				showAlert(Alert.AlertType.ERROR, "Login Failed", "Database Error", "Unable to connect to the database.");

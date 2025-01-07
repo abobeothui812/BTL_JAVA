@@ -33,7 +33,7 @@ public class dbQuery {
         }
     }
 
-    public ObservableList<Class> getStudentClassesFromDB() {
+    public ObservableList<Class> getStudentClassesFromDB(int studentID) {
         ObservableList<Class> classList = FXCollections.observableArrayList();
         String query = "select class.ClassID,class.CourseID,Schedule,CourseName,semester,Credits,teacher,TeacherID " +
                         "from studentclass " +
@@ -41,7 +41,7 @@ public class dbQuery {
                         "ON studentclass.ClassID = class.ClassID " +
                         "join course " +
                         "on class.CourseID = course.CourseID " +
-                        "where StudentID=16";
+                        "where StudentID=" + studentID;
 
         try (PreparedStatement stmt = dbConnection.prepareStatement(query);
              ResultSet rs = stmt.executeQuery()) {
@@ -158,7 +158,6 @@ public class dbQuery {
             System.out.println("Error");
             e.printStackTrace();
         }
-        System.out.println("Attendance list size: " + attendanceList.size());
 
         return attendanceList;
     }
@@ -283,9 +282,9 @@ public class dbQuery {
                 int credits = rs.getInt("Credits");
                 String semester = rs.getString("semester");
                 String status = rs.getString("Status");
-                int midScore = rs.getInt("MidtermScore");
-                int finalScore = rs.getInt("FinalScore");
-                int avgScore = rs.getInt("averagescore");
+                float midScore = rs.getFloat("MidtermScore");
+                float finalScore = rs.getFloat("FinalScore");
+                float avgScore = rs.getFloat("averagescore");
 
                 gradeList.add(new gradeDisplay(courseID, courseName, credits, semester, status, midScore, finalScore, avgScore));
 
