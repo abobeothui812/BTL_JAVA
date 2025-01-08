@@ -19,14 +19,13 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
-public class SampleController {
+public class SampleController extends Controller{
     private String id;
     private Connection dbConnection;
 
     private Stage stage;
     private Parent root;
     private Scene scene;
-
     @FXML
     private TextField userText;
     @FXML
